@@ -4,3 +4,6 @@
 [submodule ".config/leftwm"]
 	path = .config/leftwm
 	url = https://gitlab.com/mon-petit-linux/leftwm
+[submodule ".config/rofi/rofi-power-menu"]
+	path = .config/rofi/rofi-power-menu
+	url = https://github.com/jluttine/rofi-power-menu
