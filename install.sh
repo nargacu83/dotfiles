@@ -139,10 +139,6 @@ function install_wm () {
     # Lightdm
     sudo systemctl enable lightdm
     
-    # Dotfiles
-    sudo mkdir /usr/share/xsessions
-    ./dotfiles/install_dotfiles.sh -i
-    
     # Lightdm greeter
     sudo sed -i -e '/^#greeter-setup-script=$/s/#//g' -e 's/^greeter-setup-script=$/&\/usr\/bin\/numlockx on/g' /etc/lightdm/lightdm.conf
 }
@@ -209,6 +205,14 @@ function install_base () {
 }
 
 #
+# Install dotfiles
+#
+function install_dotfiles () {
+    sudo mkdir /usr/share/xsessions
+    ./dotfiles/install_dotfiles.sh -i
+}
+
+#
 # Enable pacman multilib
 #
 function enable_multilib () {
@@ -220,6 +224,7 @@ function enable_multilib () {
 #
 function set_keyboard_layout () {
     sudo localectl set-keymap fr-latin1
+    sudo localectl set-x11-keymap fr
 }
 
 #
@@ -274,8 +279,6 @@ function main () {
 
     check_root_password
 
-    set_keyboard_layout
-
     create_install_folder
 
     configure_git
@@ -299,6 +302,10 @@ function main () {
     change_shell_to_zsh
 
     upgrade_system
+
+    install_dotfiles
+
+    set_keyboard_layout
 }
 
 
