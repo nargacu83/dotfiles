@@ -21,7 +21,7 @@ PKG_PACMAN="base-devel pacman-contrib"
 PKG_DRIVERS="amd-ucode xf86-video-amdgpu xf86-video-ati mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver libva-mesa-driver mesa-vdpau lib32-mesa-vdpau"
 
 # Display server & display manager packages
-PKG_DISPLAY="xorg-server xorg-xrandr xorg-xsetroot xorg-xprop lightdm lightdm-gtk-greeter"
+PKG_DISPLAY="xorg-server xorg-xrandr xorg-xsetroot xorg-xprop lightdm lightdm-gtk-greeter numlockx"
 
 # Fonts packages
 PKG_FONTS="gnu-free-fonts ttf-jetbrains-mono noto-fonts-emoji"
@@ -297,6 +297,8 @@ function main () {
     change_shell_to_zsh
 
     upgrade_system
+
+    set_keyboard_layout
 }
 
 
