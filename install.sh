@@ -134,7 +134,7 @@ function install_wm () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 
     # Packages
-    sudo pacman -S --noconfirm $PKG_WM
+    sudo pacman -S --needed --noconfirm $PKG_WM
     
     # Lightdm
     sudo systemctl enable lightdm
@@ -192,14 +192,14 @@ function install_dev () {
 # Install WINE
 #
 function install_wine () {
-    sudo pacman -S --noconfirm $PKG_WINE
+    sudo pacman -S --needed --noconfirm $PKG_WINE
 }
 
 #
 # Install drivers, fonts, audio, terminal
 #
 function install_base () {
-    sudo pacman -S --noconfirm "$PKG_PACMAN $PKG_DRIVERS $PKG_DISPLAY $PKG_FONTS $PKG_AUDIO $PKG_TERMINAL"
+    sudo pacman -S --needed --noconfirm "$PKG_PACMAN $PKG_DRIVERS $PKG_DISPLAY $PKG_FONTS $PKG_AUDIO $PKG_TERMINAL"
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
