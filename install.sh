@@ -216,13 +216,6 @@ function enable_multilib () {
 }
 
 #
-# Set the french azerty layout for the keyboard
-#
-function set_keyboard_layout () {
-    sudo localectl set-keymap fr-latin1
-}
-
-#
 # Change shell to ZSH
 #
 function change_shell_to_zsh () {
@@ -297,8 +290,6 @@ function main () {
     change_shell_to_zsh
 
     upgrade_system
-
-    set_keyboard_layout
 }
 
 
