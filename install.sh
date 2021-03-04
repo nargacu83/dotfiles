@@ -199,7 +199,12 @@ function install_wine () {
 # Install drivers, fonts, audio, terminal
 #
 function install_base () {
-    sudo pacman -S --needed --noconfirm "$PKG_PACMAN $PKG_DRIVERS $PKG_DISPLAY $PKG_FONTS $PKG_AUDIO $PKG_TERMINAL"
+    sudo pacman -S --needed --noconfirm $PKG_PACMAN
+    sudo pacman -S --needed --noconfirm $PKG_DRIVERS
+    sudo pacman -S --needed --noconfirm $PKG_DISPLAY
+    sudo pacman -S --needed --noconfirm $PKG_FONTS
+    sudo pacman -S --needed --noconfirm $PKG_AUDIO
+    sudo pacman -S --needed --noconfirm $PKG_TERMINAL
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
