@@ -27,7 +27,7 @@ PKG_DISPLAY="xorg-server xorg-xrandr xorg-xsetroot xorg-xprop lightdm lightdm-gt
 PKG_FONTS="gnu-free-fonts ttf-jetbrains-mono noto-fonts-emoji"
 
 # Audio packages
-PKG_AUDIO="pipewire pipewire-alsa pipewire-pulse pavucontrol"
+PKG_AUDIO="alsa-utils alsa-oss pipewire pipewire-alsa pipewire-pulse pavucontrol"
 
 # Terminal related packages
 PKG_TERMINAL="alacritty zsh zsh-completions"
@@ -35,7 +35,7 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="qtile"
 
-PKG_APPS="neovim openssh firefox lutris gimp blender libreoffice-fresh bleachbit steam discord"
+PKG_APPS="neovim rofi redshift dunst openssh unzip firefox lutris gimp blender libreoffice-fresh bleachbit steam discord"
 
 # Development related packages
 PKG_DEV="docker docker-compose jdk-openjdk jre-openjdk dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
