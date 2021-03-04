@@ -170,6 +170,37 @@ function install_custom_grub () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 }
 
+
+#
+# Install yay
+#
+# function install_yay () {
+#     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+
+#     # Packages
+#     git clone https://aur.archlinux.org/yay.git
+#     cd yay
+
+#     makepkg -sic BUILDDIR="$SCRIPT_FOLDER/$INSTALL_FOLDER/yay"
+
+#     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+# }
+
+#
+# Install pamac
+#
+function install_pamac () {
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+
+     # Packages
+    git clone https://aur.archlinux.org/pamac-aur.git
+    cd pamac-aur
+
+    makepkg -sic BUILDDIR="$SCRIPT_FOLDER/$INSTALL_FOLDER/pamac-aur"
+
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+}
+
 #
 # Install apps
 #
@@ -296,6 +327,8 @@ function main () {
     install_dev
 
     install_wine
+
+    install_pamac
 
     remove_install_folder
 
