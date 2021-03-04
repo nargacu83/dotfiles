@@ -141,7 +141,7 @@ function install_wm () {
     
     # Dotfiles
     sudo mkdir /usr/share/xsessions
-    ./dotfiles/install.sh -i
+    ./dotfiles/install_dotfiles.sh -i
     
     # Lightdm greeter
     sudo sed -i -e '/^#greeter-setup-script=$/s/#//g' -e 's/^greeter-setup-script=$/&\/usr\/bin\/numlockx on/g' /etc/lightdm/lightdm.conf
