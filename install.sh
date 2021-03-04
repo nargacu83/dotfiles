@@ -134,7 +134,7 @@ function install_wm () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 
     # Packages
-    sudo pacman -S $PKG_WM
+    sudo pacman -S --noconfirm $PKG_WM
     
     # Lightdm
     sudo systemctl enable lightdm
