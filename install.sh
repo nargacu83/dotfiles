@@ -134,7 +134,7 @@ function install_wm () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 
     # Packages
-    sudo pacman -Syu --needed --noconfirm $PKG_WM
+    sudo pacman -S $PKG_WM
     
     # Lightdm
     sudo systemctl enable lightdm
@@ -199,8 +199,22 @@ function install_wine () {
 # Install drivers, fonts, audio, terminal
 #
 function install_base () {
-    sudo pacman -S --noconfirm $PKG_PACMAN $PKG_DRIVERS $PKG_DISPLAY $PKG_FONTS $PKG_AUDIO $PKG_TERMINAL
+    sudo pacman -S --noconfirm "$PKG_PACMAN $PKG_DRIVERS $PKG_DISPLAY $PKG_FONTS $PKG_AUDIO $PKG_TERMINAL"
     sudo grub-mkconfig -o /boot/grub/grub.cfg
+}
+
+#
+# Enable pacman multilib
+#
+function enable_multilib () {
+    sudo sed -i '/^#\[multilib\]/{N;s/#//g}' /etc/pacman.conf
+}
+
+#
+# Set the french azerty layout for the keyboard
+#
+function set_keyboard_layout () {
+    sudo localectl set-keymap fr-latin1
 }
 
 #
@@ -248,6 +262,8 @@ function main () {
     anti_root
 
     set_variables_from_args "$@"
+
+    enable_multilib
 
     update_mirrors
 
