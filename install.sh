@@ -170,22 +170,6 @@ function install_custom_grub () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 }
 
-
-#
-# Install yay
-#
-# function install_yay () {
-#     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
-
-#     # Packages
-#     git clone https://aur.archlinux.org/yay.git
-#     cd yay
-
-#     makepkg -sic BUILDDIR="$SCRIPT_FOLDER/$INSTALL_FOLDER/yay"
-
-#     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
-# }
-
 #
 # Install pamac
 #
