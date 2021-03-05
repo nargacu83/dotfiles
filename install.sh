@@ -8,8 +8,8 @@
 # Global variables
 SCRIPT_FOLDER="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-GIT_EMAIL="git_email"
-GIT_NAME="git_name"
+GIT_EMAIL="dev.quentinfranchi@protonmail.com"
+GIT_NAME="Quentin Franchi"
 GRUB_RESOLUTION="2560x1080"
 INSTALL_FOLDER="auto_install"
 NO_CONFIRM=False
