@@ -225,6 +225,7 @@ function install_base () {
 function install_dotfiles () {
     sudo mkdir /usr/share/xsessions
     "$SCRIPT_FOLDER/install_dotfiles.sh" -i
+    "$SCRIPT_FOLDER/root/install_root.sh"
 }
 
 #
