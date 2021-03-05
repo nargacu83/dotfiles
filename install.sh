@@ -166,7 +166,7 @@ function install_custom_grub () {
     sudo sed -i -e "s/GRUB_GFXMODE=auto/GRUB_GFXMODE=$GRUB_RESOLUTION,auto/g" /etc/default/grub
     git clone https://github.com/vinceliuice/grub2-themes
     cd grub2-themes
-    sudo ./install.sh --boot --theme tela
+    sudo ./install.sh --boot --theme tela --screen ultrawide
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 }
 
@@ -180,7 +180,7 @@ function install_pamac () {
     git clone https://aur.archlinux.org/pamac-aur.git
     cd pamac-aur
 
-    makepkg -sic BUILDDIR="$SCRIPT_FOLDER/$INSTALL_FOLDER/pamac-aur"
+    makepkg -sic --needed --noconfirm BUILDDIR="$SCRIPT_FOLDER/$INSTALL_FOLDER/pamac-aur"
 
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 }
