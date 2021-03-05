@@ -35,7 +35,7 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="qtile"
 
-PKG_APPS="neovim feh rofi redshift dunst openssh unzip firefox lutris gimp blender libreoffice-fresh bleachbit steam discord"
+PKG_APPS="neovim feh rofi redshift dunst openssh unzip ranger nautilus firefox lutris gimp blender libreoffice-fresh bleachbit steam discord"
 
 # Development related packages
 PKG_DEV="docker docker-compose jdk-openjdk jre-openjdk dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"

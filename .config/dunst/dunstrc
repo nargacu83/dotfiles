@@ -79,10 +79,10 @@
     per_monitor_dpi = false
 
 [shortcuts]
-    close = ctrl+shift+space
-    history = ctrl+space
+    #close = ctrl+shift+space
+    history = ctrl+shift+space
     #close_all = ctrl+shift+space
-    context = ctrl+shift+period
+    #context = ctrl+shift+period
 
 [urgency_low]
     background = colors.background
