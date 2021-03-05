@@ -48,7 +48,7 @@ entry {
     placeholder-color:              @bg;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Search";
+    placeholder:                    "Rechercher";
     padding:                        0.10% 0% 0% 0%;
     blink:                          true;
 }
