@@ -21,7 +21,7 @@ PKG_PACMAN="base-devel pacman-contrib"
 PKG_DRIVERS="amd-ucode xf86-video-amdgpu xf86-video-ati mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver libva-mesa-driver mesa-vdpau lib32-mesa-vdpau"
 
 # Display server & display manager packages
-PKG_DISPLAY="xorg-server xorg-xrandr xorg-xsetroot xorg-xprop lightdm lightdm-gtk-greeter numlockx picom polkit polkit-gnome"
+PKG_DISPLAY="xorg-server xorg-xrandr xorg-xsetroot xorg-xprop lightdm lightdm-gtk-greeter numlockx picom polkit polkit-gnome gnome-themes-extra"
 
 # Fonts packages
 PKG_FONTS="gnu-free-fonts ttf-jetbrains-mono noto-fonts-emoji"
@@ -225,7 +225,7 @@ function install_base () {
 function install_dotfiles () {
     sudo mkdir /usr/share/xsessions
     "$SCRIPT_FOLDER/install_dotfiles.sh" -i
-    "$SCRIPT_FOLDER/root/install_root.sh"
+    sh "$SCRIPT_FOLDER/root/install_root.sh"
 }
 
 #
