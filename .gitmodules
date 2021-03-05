@@ -6,4 +6,5 @@
 	url = https://gitlab.com/mon-petit-linux/leftwm
 [submodule ".config/rofi/rofi-power-menu"]
 	path = .config/rofi/rofi-power-menu
-	url = https://github.com/jluttine/rofi-power-menu
+	url = https://gitlab.com/dev.quentinfranchi/rofi-power-menu
+	branch = quentin
