@@ -8,7 +8,7 @@
 BACKUP_FOLDER="$HOME/.local/.dotfiles.backup"
 SCRIPT_FOLDER="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 TO_HOME_FOLDER=(.zshrc)
-TO_XDG_CONFIG_FOLDER=(alacritty autostart dunst godot gtk-3.0 gtk-4.0 leftwm MangoHud nvim picom qtile ranger rofi wallpaper zsh)
+TO_XDG_CONFIG_FOLDER=(alacritty dunst godot gtk-3.0 gtk-4.0 leftwm lutris MangoHud nvim picom qtile redshift ranger rofi wallpaper zsh)
 
 
 #

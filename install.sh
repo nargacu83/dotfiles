@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #
+# DON'T USE THIS SCRIPT WITHOUT CHANGING fstab
+#
 # Script by mageas (https://gitlab.com/Mageas) modified by Quentin Franchi
 # Source : https://gitlab.com/Mageas/linux/-/blob/master/Mageas/install.sh
 #
@@ -8,9 +10,23 @@
 # Global variables
 SCRIPT_FOLDER="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
+# MOUNT CONFIG
+declare DISKS_TO_MOUNT_POINT=(
+    "$HOME/PROJECTS"
+    "$HOME/GAMES"
+    "$HOME/HMM"
+)
+declare DISKS_TO_MOUNT=(
+    "UUID=e3534ff7-8cd8-438f-80ea-e683214b9614    ${DISKS_TO_MOUNT_POINT[0]}   ext4    defaults    0 0"
+    "UUID=d7bbe9d8-4f98-4d87-b26a-34c75907f71a    ${DISKS_TO_MOUNT_POINT[1]}   ext4    defaults    0 0"
+    "UUID=53454988-7cff-4271-87f1-122de8b2c637    ${DISKS_TO_MOUNT_POINT[2]}   ext4    defaults    0 0"
+)
+
+
 GIT_EMAIL="dev.quentinfranchi@protonmail.com"
 GIT_NAME="Quentin Franchi"
 GRUB_RESOLUTION="2560x1080"
+GRUB_OPTIONS="--boot --theme vimix --screen ultrawide"
 INSTALL_FOLDER="auto_install"
 NO_CONFIRM=False
 
@@ -166,7 +182,7 @@ function install_custom_grub () {
     sudo sed -i -e "s/GRUB_GFXMODE=auto/GRUB_GFXMODE=$GRUB_RESOLUTION,auto/g" /etc/default/grub
     git clone https://github.com/vinceliuice/grub2-themes
     cd grub2-themes
-    sudo ./install.sh --boot --theme tela --screen ultrawide
+    sudo ./install.sh $GRUB_OPTIONS
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 }
 
@@ -244,6 +260,39 @@ function set_keyboard_layout () {
 }
 
 #
+# Config fstab
+#
+function config_fstab () {
+    # Create mount folders
+    for _mount_point in "${DISKS_TO_MOUNT_POINT[@]}"; do
+        if [ ! -d "$_mount_point" ]; then
+            mkdir $_mount_point
+        fi
+    done
+    # Config fstab
+    for _disk in "${DISKS_TO_MOUNT[@]}"; do
+        _sed_o=$(echo $_disk | sed -r "s/.*=([a-zA-Z0-9-]+).*/\1/")
+        if grep -q $_sed_o "/etc/fstab"; then
+            echo " >> Skipping $_sed_o"
+        else
+            echo "" | sudo tee -a /etc/fstab
+            echo "# Auto from install.sh" | sudo tee -a /etc/fstab
+            echo "$_disk" | sudo tee -a /etc/fstab
+        fi
+    done
+}
+
+
+# 
+# Install lts kernel 
+# 
+function install_lts_kernel () {
+    sudo pacman -S --needed --noconfirm linux-lts
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+}
+
+
+#
 # Change shell to ZSH
 #
 function change_shell_to_zsh () {
@@ -315,15 +364,19 @@ function main () {
 
     install_pamac
 
+    upgrade_system
+
+    config_fstab
+
+    install_lts_kernel
+
+    set_keyboard_layout
+    
     remove_install_folder
 
     change_shell_to_zsh
 
-    upgrade_system
-
     install_dotfiles
-
-    set_keyboard_layout
 }
 
 

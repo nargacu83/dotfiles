@@ -1,0 +1,5 @@
+system:
+  aco: true
+  env:
+    MANGOHUD: '1'
+  game_path: ~/GAMES/Lutris/Games
