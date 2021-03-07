@@ -19,7 +19,7 @@ declare DISKS_TO_MOUNT_POINT=(
 declare DISKS_TO_MOUNT=(
     "UUID=e3534ff7-8cd8-438f-80ea-e683214b9614    ${DISKS_TO_MOUNT_POINT[0]}   ext4    defaults    0 0"
     "UUID=d7bbe9d8-4f98-4d87-b26a-34c75907f71a    ${DISKS_TO_MOUNT_POINT[1]}   ext4    defaults    0 0"
-    "UUID=53454988-7cff-4271-87f1-122de8b2c637    ${DISKS_TO_MOUNT_POINT[2]}   ext4    defaults    0 0"
+    "UUID=74fc14a5-e53d-4495-8533-e8863e4283c3    ${DISKS_TO_MOUNT_POINT[2]}   ext4    defaults    0 0"
 )
 
 
@@ -40,7 +40,7 @@ PKG_DRIVERS="amd-ucode xf86-video-amdgpu xf86-video-ati mesa lib32-mesa vulkan-r
 PKG_DISPLAY="xorg-server xorg-xrandr xorg-xsetroot xorg-xprop lightdm lightdm-gtk-greeter numlockx picom polkit polkit-gnome gnome-themes-extra"
 
 # Fonts packages
-PKG_FONTS="gnu-free-fonts ttf-jetbrains-mono noto-fonts-emoji"
+PKG_FONTS="gnu-free-fonts ttf-jetbrains-mono noto-fonts-emoji ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid ttf-ibm-plex ttf-liberation ttf-linux-libertine noto-fonts"
 
 # Audio packages
 PKG_AUDIO="alsa-utils alsa-oss pipewire pipewire-alsa pipewire-pulse pavucontrol"
