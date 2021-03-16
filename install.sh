@@ -19,7 +19,7 @@ declare DISKS_TO_MOUNT_POINT=(
 declare DISKS_TO_MOUNT=(
     "UUID=e3534ff7-8cd8-438f-80ea-e683214b9614    ${DISKS_TO_MOUNT_POINT[0]}   ext4    defaults    0 0"
     "UUID=d7bbe9d8-4f98-4d87-b26a-34c75907f71a    ${DISKS_TO_MOUNT_POINT[1]}   ext4    defaults    0 0"
-    "UUID=74fc14a5-e53d-4495-8533-e8863e4283c3    ${DISKS_TO_MOUNT_POINT[2]}   ext4    defaults    0 0"
+    "UUID=dfefbc94-b693-4ce5-8511-72f6c837a7ec    ${DISKS_TO_MOUNT_POINT[2]}   ext4    defaults    0 0"
 )
 
 
