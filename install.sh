@@ -48,7 +48,7 @@ PKG_APPS_GNOME="nautilus gnome-calculator gnome-screenshot gvfs-smb"
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
-PKG_YAY_APPS="pamac-aur librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace"
+PKG_YAY_APPS="pamac-aur librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt"
 
 # Development related packages
 PKG_DEV="docker docker-compose jdk-openjdk jre-openjdk dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
