@@ -44,7 +44,7 @@ PKG_APPS_GRAPHICS="gimp blender mpv"
 
 PKG_APPS_GAMING="lutris steam discord"
 
-PKG_APPS_GNOME="nautilus gnome-calculator gnome-screenshot gvfs-smb"
+PKG_APPS_GNOME="nautilus gthumb gnome-calculator gnome-screenshot gvfs-smb"
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
