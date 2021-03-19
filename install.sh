@@ -156,33 +156,6 @@ function install_wm () {
     sudo sed -i -e '/^#greeter-setup-script=$/s/#//g' -e 's/^greeter-setup-script=$/&\/usr\/bin\/numlockx on/g' /etc/lightdm/lightdm.conf
 }
 
-
-#
-# Install Spaceship (ZSH)
-#
-function install_spaceship () {
-    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
-    # Clone and build Spaceship
-    git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
-    cd spaceship-prompt-git
-    makepkg -si --noconfirm --needed
-    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
-    mkdir $HOME/.cache
-    mkdir $HOME/.cache/zsh
-}
-
-#
-# Install custom grub
-#
-function install_custom_grub () {
-    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
-    sudo sed -i -e "s/GRUB_GFXMODE=auto/GRUB_GFXMODE=$GRUB_RESOLUTION,auto/g" /etc/default/grub
-    git clone https://github.com/vinceliuice/grub2-themes
-    cd grub2-themes
-    sudo ./install.sh $GRUB_OPTIONS
-    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
-}
-
 #
 # Install pamac
 #
@@ -245,6 +218,16 @@ function install_dotfiles () {
     sh "$SCRIPT_FOLDER/root/install_root.sh"
 }
 
+function install_non_official_repository_apps () {
+    _install_yay
+
+    _install_yay_apps
+
+    _install_custom_grub
+
+    _install_spaceship
+}
+
 function _install_yay () {
     cd ${INSTALL_FOLDER}
     git clone https://aur.archlinux.org/yay.git
@@ -254,6 +237,25 @@ function _install_yay () {
 function _install_yay_apps () {
     yay -S --noconfirm $PKG_YAY_APPS
 }
+function _install_custom_grub () {
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+    sudo sed -i -e "s/GRUB_GFXMODE=auto/GRUB_GFXMODE=$GRUB_RESOLUTION,auto/g" /etc/default/grub
+    git clone https://github.com/vinceliuice/grub2-themes
+    cd grub2-themes
+    sudo ./install.sh $GRUB_OPTIONS
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+}
+function _install_spaceship () {
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+    # Clone and build Spaceship
+    git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1
+    cd spaceship-prompt-git
+    makepkg -si --noconfirm --needed
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+    mkdir $HOME/.cache
+    mkdir $HOME/.cache/zsh
+}
+
 
 #
 # Enable pacman multilib
@@ -358,19 +360,13 @@ function main () {
 
     install_wm
 
-    install_spaceship
-
-    install_custom_grub
-
     install_apps
 
     install_dev
 
     install_wine
-
-    install_yay
-
-    install_yay_apps
+    
+    install_non_official_repository_apps
 
     upgrade_system
 
