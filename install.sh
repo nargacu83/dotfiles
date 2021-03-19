@@ -38,7 +38,17 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="qtile"
 
-PKG_APPS="neovim feh rofi redshift dunst openssh unzip ranger nautilus firefox lutris gimp blender libreoffice-fresh bleachbit steam discord"
+PKG_APPS="feh rofi redshift dunst openssh unzip ranger bleachbit firefox"
+
+PKG_APPS_GRAPHICS="gimp blender mpv"
+
+PKG_APPS_GAMING="lutris steam discord"
+
+PKG_APPS_GNOME="nautilus gnome-calculator gnome-screenshot gvfs-smb"
+
+PKG_APPS_OFFICE="libreoffice-fresh"
+
+PKG_YAY_APPS="pamac-aur librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace"
 
 # Development related packages
 PKG_DEV="docker docker-compose jdk-openjdk jre-openjdk dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
@@ -176,23 +186,27 @@ function install_custom_grub () {
 #
 # Install pamac
 #
-function install_pamac () {
-    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+# function install_pamac () {
+#     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 
-     # Packages
-    git clone https://aur.archlinux.org/pamac-aur.git
-    cd pamac-aur
+#      # Packages
+#     git clone https://aur.archlinux.org/pamac-aur.git
+#     cd pamac-aur
 
-    makepkg -sic --needed --noconfirm BUILDDIR="$SCRIPT_FOLDER/$INSTALL_FOLDER/pamac-aur"
+#     makepkg -sic --needed --noconfirm BUILDDIR="$SCRIPT_FOLDER/$INSTALL_FOLDER/pamac-aur"
 
-    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
-}
+#     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+# }
 
 #
 # Install apps
 #
 function install_apps () {
     sudo pacman -S --needed --noconfirm $PKG_APPS
+    sudo pacman -S --needed --noconfirm $PKG_APPS_GRAPHICS
+    sudo pacman -S --needed --noconfirm $PKG_APPS_GAMING
+    sudo pacman -S --needed --noconfirm $PKG_APPS_GNOME
+    sudo pacman -S --needed --noconfirm $PKG_APPS_OFFICE
 }
 
 #
@@ -229,6 +243,16 @@ function install_dotfiles () {
     sudo mkdir /usr/share/xsessions
     "$SCRIPT_FOLDER/install_dotfiles.sh" -i
     sh "$SCRIPT_FOLDER/root/install_root.sh"
+}
+
+function _install_yay () {
+    cd ${INSTALL_FOLDER}
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si --noconfirm --needed
+}
+function _install_yay_apps () {
+    yay -S --noconfirm $PKG_YAY_APPS
 }
 
 #
@@ -344,7 +368,9 @@ function main () {
 
     install_wine
 
-    install_pamac
+    install_yay
+
+    install_yay_apps
 
     upgrade_system
 
