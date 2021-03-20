@@ -38,13 +38,15 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="qtile"
 
-PKG_APPS="feh rofi redshift dunst openssh unzip ranger bleachbit firefox"
+PKG_APPS="feh rofi redshift dunst openssh ranger bleachbit firefox"
+
+PKG_ARCHIVE="unzip unrar unace lrzip squashfs-tools"
 
 PKG_APPS_GRAPHICS="gimp blender mpv"
 
 PKG_APPS_GAMING="lutris steam discord"
 
-PKG_APPS_GNOME="nautilus gvfs-smb gthumb baobab gnome-disk-utility gnome-calculator gnome-screenshot"
+PKG_APPS_GNOME="nautilus gvfs-smb gthumb baobab gnome-disk-utility file-roller gnome-calculator gnome-screenshot"
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
@@ -178,6 +180,7 @@ function install_apps () {
     sudo pacman -S --needed --noconfirm $PKG_APPS
     sudo pacman -S --needed --noconfirm $PKG_APPS_GRAPHICS
     sudo pacman -S --needed --noconfirm $PKG_APPS_GAMING
+    sudo pacman -S --needed --noconfirm $PKG_ARCHIVE
     sudo pacman -S --needed --noconfirm $PKG_APPS_GNOME
     sudo pacman -S --needed --noconfirm $PKG_APPS_OFFICE
 }
