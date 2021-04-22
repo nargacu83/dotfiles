@@ -3,7 +3,7 @@
 #
 # DON'T USE THIS SCRIPT WITHOUT CHANGING fstab
 #
-# Script by mageas (https://gitlab.com/Mageas) modified by Quentin Franchi
+# Modified script by Quentin Franchi, original script by mageas (https://gitlab.com/Mageas)
 # Source : https://gitlab.com/Mageas/linux/-/blob/master/Mageas/install.sh
 #
 
@@ -38,7 +38,7 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="qtile"
 
-PKG_APPS="feh rofi redshift dunst openssh ranger bleachbit firefox"
+PKG_APPS="feh rofi redshift dunst openssh bleachbit firefox"
 
 PKG_ARCHIVE="unzip unrar unace lrzip squashfs-tools"
 
@@ -50,10 +50,10 @@ PKG_APPS_GNOME="nautilus gvfs-smb gthumb baobab gnome-disk-utility file-roller g
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
-PKG_YAY_APPS="pamac-aur librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt"
+PKG_YAY_APPS="pamac-aur librewolf-bin freetube-git vscodium-bin vscodium-bin-marketplace adwaita-qt"
 
 # Development related packages
-PKG_DEV="docker docker-compose jdk-openjdk jre-openjdk dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
+PKG_DEV=" emacs ripgrep fd docker docker-compose jdk-openjdk jre-openjdk dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
 
 # Wine & Gaming needed packages
 PKG_WINE="wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader"
@@ -172,6 +172,16 @@ function install_wm () {
 
 #     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 # }
+
+#
+# Install LibreWolf GNOME Theme
+#
+function install_librewolf_gnome_theme () {
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+    git clone https://github.com/rafaelmardojai/firefox-gnome-theme/ && cd firefox-gnome-theme
+    ./scripts/install.sh -f ~/.librewolf
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+}
 
 #
 # Install apps
