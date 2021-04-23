@@ -1,7 +1,7 @@
 #
 # DON'T USE THIS SCRIPT WITHOUT CHANGING fstab
 #
-# Script by mageas (https://gitlab.com/Mageas) modified by Quentin Franchi
+# Modified script by Quentin Franchi, original script by mageas (https://gitlab.com/Mageas)
 # Source : https://gitlab.com/Mageas/linux/-/blob/master/Mageas/install.sh
 #
 
