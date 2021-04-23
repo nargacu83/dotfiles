@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #
 # DON'T USE THIS SCRIPT WITHOUT CHANGING fstab
 #
