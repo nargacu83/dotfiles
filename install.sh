@@ -46,14 +46,20 @@ PKG_APPS_GRAPHICS="gimp blender mpv"
 
 PKG_APPS_GAMING="lutris steam discord"
 
-PKG_APPS_GNOME="nautilus gvfs-smb gthumb baobab gnome-disk-utility file-roller gnome-calculator gnome-screenshot"
+PKG_APPS_GNOME="nautilus gvfs-smb gvfs-mtp gthumb baobab gnome-disk-utility file-roller gnome-calculator gnome-screenshot"
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
 PKG_YAY_APPS="pamac-aur librewolf-bin freetube-git vscodium-bin vscodium-bin-marketplace adwaita-qt"
 
 # Development related packages
-PKG_DEV=" emacs ripgrep fd docker docker-compose jdk-openjdk jre-openjdk dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
+PKG_DEV="emacs ripgrep fd docker docker-compose"
+
+# C# Support
+PKG_DEV_DOTNET=" dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
+
+# Java Support
+PKG_DEV_JDK="jdk-openjdk jre-openjdk"
 
 # Wine & Gaming needed packages
 PKG_WINE="wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader"
@@ -174,6 +180,16 @@ function install_wm () {
 # }
 
 #
+# Install Doom Emacs
+#
+function install_doom_emacs () {
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+    git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+    ~/.emacs.d/bin/doom install
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+}
+
+#
 # Install LibreWolf GNOME Theme
 #
 function install_librewolf_gnome_theme () {
@@ -200,6 +216,8 @@ function install_apps () {
 #
 function install_dev () {
     sudo pacman -S --needed --noconfirm $PKG_DEV
+    sudo pacman -S --needed --noconfirm $PKG_DEV_DOTNET
+    sudo pacman -S --needed --noconfirm $PKG_DEV_JDK
 }
 
 #
@@ -391,11 +409,15 @@ function main () {
 
     set_keyboard_layout
     
+    install_dotfiles
+
+    # install_librewolf_gnome_theme
+    
+    # install_doom_emacs
+
     remove_install_folder
 
     change_shell_to_zsh
-
-    install_dotfiles
 }
 
 
