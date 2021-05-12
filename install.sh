@@ -165,28 +165,12 @@ function install_wm () {
 }
 
 #
-# Install pamac
-#
-# function install_pamac () {
-#     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
-
-#      # Packages
-#     git clone https://aur.archlinux.org/pamac-aur.git
-#     cd pamac-aur
-
-#     makepkg -sic --needed --noconfirm BUILDDIR="$SCRIPT_FOLDER/$INSTALL_FOLDER/pamac-aur"
-
-#     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
-# }
-
-#
 # Install Doom Emacs
 #
 function install_doom_emacs () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
     git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
     ~/.emacs.d/bin/doom install
-    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 }
 
 #
@@ -196,7 +180,6 @@ function install_librewolf_gnome_theme () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
     git clone https://github.com/rafaelmardojai/firefox-gnome-theme/ && cd firefox-gnome-theme
     ./scripts/install.sh -f ~/.librewolf
-    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 }
 
 #
@@ -274,7 +257,6 @@ function _install_custom_grub () {
     git clone https://github.com/vinceliuice/grub2-themes
     cd grub2-themes
     sudo ./install.sh $GRUB_OPTIONS
-    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 }
 function _install_spaceship () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
