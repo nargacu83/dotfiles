@@ -38,7 +38,7 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="qtile"
 
-PKG_APPS="feh rofi redshift dunst openssh bleachbit firefox"
+PKG_APPS="feh rofi redshift dunst svix openssh firefox"
 
 PKG_ARCHIVE="unzip unrar unace lrzip squashfs-tools"
 
@@ -46,7 +46,7 @@ PKG_APPS_GRAPHICS="gimp blender mpv"
 
 PKG_APPS_GAMING="lutris steam discord"
 
-PKG_APPS_GNOME="nautilus gvfs-smb gvfs-mtp gthumb baobab gnome-disk-utility file-roller gnome-calculator gnome-screenshot"
+PKG_APPS_GNOME="nautilus gvfs-smb gvfs-mtp baobab gnome-disk-utility file-roller gnome-calculator gnome-screenshot"
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
@@ -56,7 +56,7 @@ PKG_YAY_APPS="pamac-aur librewolf-bin freetube-git vscodium-bin vscodium-bin-mar
 PKG_DEV="emacs ripgrep fd docker docker-compose"
 
 # C# Support
-PKG_DEV_DOTNET=" dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
+PKG_DEV_DOTNET="dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
 
 # Java Support
 PKG_DEV_JDK="jdk-openjdk jre-openjdk"
