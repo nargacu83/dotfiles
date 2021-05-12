@@ -411,7 +411,7 @@ function main () {
     
     install_dotfiles
 
-    # install_librewolf_gnome_theme
+    install_librewolf_gnome_theme
     
     # install_doom_emacs
 
