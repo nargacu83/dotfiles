@@ -36,7 +36,7 @@ PKG_AUDIO="alsa-utils alsa-oss pipewire pipewire-alsa pipewire-pulse pavucontrol
 PKG_TERMINAL="alacritty zsh zsh-completions"
 
 # Window manager packages
-PKG_WM="qtile"
+PKG_WM="qtile python"
 
 PKG_APPS="feh rofi redshift dunst svix openssh firefox"
 
@@ -156,6 +156,9 @@ function install_wm () {
 
     # Packages
     sudo pacman -S --needed --noconfirm $PKG_WM
+
+    # Install some python dependecies for qtile widgets
+    pip install -y psutil
     
     # Lightdm
     sudo systemctl enable lightdm
@@ -285,17 +288,10 @@ function set_keyboard_layout () {
     sudo localectl set-x11-keymap fr
 }
 
-#
-# Config fstab
-#
 function config_fstab () {
     sh "$SCRIPT_FOLDER/config_fstab.sh"
 }
 
-
-# 
-# Install lts kernel 
-# 
 function install_lts_kernel () {
     sudo pacman -S --needed --noconfirm linux-lts
     sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -320,18 +316,16 @@ function change_shell_to_zsh () {
     chsh -s /bin/zsh
 }
 
-#
-# Update pacman mirrors
-#
 function update_mirrors () {
     sudo pacman -Syy --noconfirm
 }
 
-#
-# Upgrade system
-#
 function upgrade_system () {
     sudo pacman -Syu --noconfirm
+}
+
+function clear_pacman_cache () {
+    sudo pacman -Sc --noconfirm
 }
 
 #
@@ -393,13 +387,11 @@ function main () {
     
     install_dotfiles
 
-    install_librewolf_gnome_theme
-    
-    # install_doom_emacs
-
     remove_install_folder
 
     change_shell_to_zsh
+
+    clear_pacman_cache
 }
 
 
