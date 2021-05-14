@@ -36,7 +36,7 @@ PKG_AUDIO="alsa-utils alsa-oss pipewire pipewire-alsa pipewire-pulse pavucontrol
 PKG_TERMINAL="alacritty zsh zsh-completions"
 
 # Window manager packages
-PKG_WM="qtile python"
+PKG_WM="qtile python-psutil"
 
 PKG_APPS="feh rofi redshift dunst sxiv openssh firefox"
 
@@ -156,9 +156,6 @@ function install_wm () {
 
     # Packages
     sudo pacman -S --needed --noconfirm $PKG_WM
-
-    # Install some python dependecies for qtile widgets
-    pip install -y psutil
     
     # Lightdm
     sudo systemctl enable lightdm
