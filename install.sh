@@ -38,7 +38,7 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="qtile python"
 
-PKG_APPS="feh rofi redshift dunst svix openssh firefox"
+PKG_APPS="feh rofi redshift dunst sxiv openssh firefox"
 
 PKG_ARCHIVE="unzip unrar unace lrzip squashfs-tools"
 
