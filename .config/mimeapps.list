@@ -1,5 +1,5 @@
 [Added Associations]
-image/x-xcursor=gimp.desktop;org.gnome.gThumb.desktop;
+image/x-xcursor=sxiv.desktop;
 image/jpeg=sxiv.desktop;
 font/ttf=VSCodium.desktop;
 inode/directory=org.gnome.Nautilus.desktop;
