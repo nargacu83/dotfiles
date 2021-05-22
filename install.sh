@@ -52,6 +52,8 @@ PKG_APPS_OFFICE="libreoffice-fresh"
 
 PKG_AUR_APPS="pamac-aur librewolf-bin freetube-git vscodium-bin vscodium-bin-marketplace adwaita-qt"
 
+PKG_VM="qemu libvirt edk2-ovmf virt-manager dnsmasq ebtables"
+
 # Development related packages
 PKG_DEV="emacs ripgrep fd docker docker-compose"
 
@@ -192,6 +194,17 @@ function install_apps () {
     sudo pacman -S --needed --noconfirm $PKG_ARCHIVE
     sudo pacman -S --needed --noconfirm $PKG_APPS_GNOME
     sudo pacman -S --needed --noconfirm $PKG_APPS_OFFICE
+}
+
+#
+# Install virtual machine
+#
+function install_dev () {
+    sudo pacman -S --needed --noconfirm $PKG_VM
+    systemctl enable --now libvirtd
+    virsh net-start default
+    virsh net-autostart default
+    usermod -aG kvm,input,libvirt quentin
 }
 
 #
