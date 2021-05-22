@@ -29,7 +29,7 @@ function runner() {
 		save_clip
 	elif [ "$choice" = "Sélection" ]
 	then
-		maim -s /tmp/screenshot.png
+		maim -s -u /tmp/screenshot.png
 		save_clip
 	elif [ "$choice" = "Fenêtre active" ]
 	then
