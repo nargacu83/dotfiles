@@ -38,7 +38,7 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="qtile python-psutil"
 
-PKG_APPS="feh rofi redshift dunst sxiv openssh firefox"
+PKG_APPS="feh rofi redshift dunst sxiv maim openssh firefox"
 
 PKG_ARCHIVE="unzip unrar unace lrzip squashfs-tools"
 
@@ -46,7 +46,7 @@ PKG_APPS_GRAPHICS="gimp blender mpv"
 
 PKG_APPS_GAMING="lutris steam discord"
 
-PKG_APPS_GNOME="nautilus gvfs-smb gvfs-mtp baobab gnome-disk-utility file-roller gnome-calculator gnome-screenshot"
+PKG_APPS_GNOME="nautilus gvfs-smb gvfs-mtp baobab gnome-disk-utility file-roller gnome-calculator"
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
