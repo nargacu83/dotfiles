@@ -50,7 +50,7 @@ PKG_APPS_GNOME="nautilus gvfs-smb gvfs-mtp baobab gnome-disk-utility file-roller
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
-PKG_YAY_APPS="pamac-aur librewolf-bin freetube-git vscodium-bin vscodium-bin-marketplace adwaita-qt"
+PKG_AUR_APPS="pamac-aur librewolf-bin freetube-git vscodium-bin vscodium-bin-marketplace adwaita-qt"
 
 # Development related packages
 PKG_DEV="emacs ripgrep fd docker docker-compose"
@@ -233,23 +233,23 @@ function install_dotfiles () {
 }
 
 function install_non_official_repository_apps () {
-    _install_yay
+    _install_paru
 
-    _install_yay_apps
+    _install_aur_apps
 
     _install_custom_grub
 
     _install_spaceship
 }
 
-function _install_yay () {
+function _install_paru () {
     cd ${INSTALL_FOLDER}
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
     makepkg -si --noconfirm --needed
 }
-function _install_yay_apps () {
-    yay -S --noconfirm $PKG_YAY_APPS
+function _install_aur_apps () {
+    paru -S --noconfirm $PKG_AUR_APPS
 }
 function _install_custom_grub () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
