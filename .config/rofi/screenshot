@@ -49,6 +49,10 @@ function save_clip(){
 		notify-send -i /tmp/screenshot.png "$title effectuée" "Copiée dans le presse-papier"
 	elif [ "$choice" = "Sauvegarder l'image" ]
 	then
+		if [ ! -d $save_folder ]; then
+			mkdir -p $save_folder;
+		fi
+
 		cp /tmp/screenshot.png $save_folder/$file_name
 		notify-send -i /tmp/screenshot.png "$title sauvegardée" "$file_name"
 	fi
