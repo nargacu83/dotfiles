@@ -38,11 +38,11 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="qtile python-psutil"
 
-PKG_APPS="feh rofi redshift dunst xclip sxiv maim openssh firefox"
+PKG_APPS="feh rofi redshift dunst xclip sxiv maim openssh firefox converseen"
 
 PKG_ARCHIVE="unzip unrar unace lrzip squashfs-tools"
 
-PKG_APPS_GRAPHICS="gimp blender mpv"
+PKG_APPS_GRAPHICS="gimp krita inkscape blender mpv"
 
 PKG_APPS_GAMING="lutris steam discord"
 
