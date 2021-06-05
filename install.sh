@@ -50,7 +50,7 @@ PKG_APPS_GNOME="nautilus gvfs-smb gvfs-mtp baobab gnome-disk-utility file-roller
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
-PKG_AUR_APPS="pamac-aur librewolf-bin freetube-git vscodium-bin vscodium-bin-marketplace adwaita-qt"
+PKG_AUR_APPS="librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt"
 
 PKG_VM="qemu libvirt edk2-ovmf virt-manager dnsmasq ebtables"
 
