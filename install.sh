@@ -262,7 +262,7 @@ function _install_paru () {
     makepkg -si --noconfirm --needed
 }
 function _install_aur_apps () {
-    paru -S --noconfirm $PKG_AUR_APPS
+    paru -S --noconfirm --noprovides --skipreview $PKG_AUR_APPS
 }
 function _install_custom_grub () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
