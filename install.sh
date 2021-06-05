@@ -46,7 +46,7 @@ PKG_APPS_GRAPHICS="gimp krita inkscape blender mpv"
 
 PKG_APPS_GAMING="lutris steam discord"
 
-PKG_APPS_GNOME="nautilus gvfs-smb gvfs-mtp baobab gnome-disk-utility file-roller gnome-calculator"
+PKG_APPS_FILE_MANAGER="gvfs gvfs-smb gvfs-mtp thunar tumbler thunar-volman thunar-archive-plugin thunar-media-tags-plugin ffmpegthumbnailer file-roller gnome-calculator"
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
@@ -192,7 +192,7 @@ function install_apps () {
     sudo pacman -S --needed --noconfirm $PKG_APPS_GRAPHICS
     sudo pacman -S --needed --noconfirm $PKG_APPS_GAMING
     sudo pacman -S --needed --noconfirm $PKG_ARCHIVE
-    sudo pacman -S --needed --noconfirm $PKG_APPS_GNOME
+    sudo pacman -S --needed --noconfirm $PKG_APPS_FILE_MANAGER
     sudo pacman -S --needed --noconfirm $PKG_APPS_OFFICE
 }
 
