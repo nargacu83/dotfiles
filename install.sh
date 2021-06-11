@@ -38,7 +38,7 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="qtile python-psutil"
 
-PKG_APPS="feh rofi redshift dunst xclip sxiv maim openssh firefox converseen"
+PKG_APPS="feh rofi redshift dunst xclip sxiv maim libqalculate openssh firefox converseen"
 
 PKG_ARCHIVE="unzip unrar unace lrzip squashfs-tools"
 
@@ -46,7 +46,7 @@ PKG_APPS_GRAPHICS="gimp krita inkscape blender mpv"
 
 PKG_APPS_GAMING="lutris steam discord"
 
-PKG_APPS_FILE_MANAGER="gvfs gvfs-smb gvfs-mtp thunar tumbler thunar-volman thunar-archive-plugin thunar-media-tags-plugin ffmpegthumbnailer file-roller gnome-calculator"
+PKG_APPS_FILE_MANAGER="gvfs gvfs-smb gvfs-mtp thunar tumbler thunar-volman thunar-archive-plugin thunar-media-tags-plugin ffmpegthumbnailer file-roller"
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
