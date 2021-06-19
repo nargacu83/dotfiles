@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=UnrealEngine
+Exec=/home/quentin/PROJECTS/Logiciels/UnrealEngine/Engine/Binaries/Linux/UE4Editor %U
+Terminal=false
+Type=Application
+Icon=unreal-engine
+Comment=A 3D game engine by Epic Games which can be used non-commercially for free.
