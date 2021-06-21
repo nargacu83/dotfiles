@@ -1,20 +1,23 @@
 [Added Associations]
-image/x-xcursor=sxiv.desktop;
-image/jpeg=sxiv.desktop;
+image/x-xcursor=gimp.desktop;
+image/jpeg=feh.desktop;
 font/ttf=VSCodium.desktop;
-inode/directory=org.gnome.Nautilus.desktop;
-video/mp4=mpv.desktop;org.gnome.gThumb.desktop;
+inode/directory=pcmanfm.desktop;
+video/mp4=mpv.desktop;
 text/x-csharp=VSCodium.desktop;
-image/png=sxiv.desktop;gimp.desktop;
+image/png=feh.desktop;gimp.desktop;
 application/x-mswinurl=VSCodium.desktop;
-image/svg+xml=sxiv.desktop;
-image/webp=sxiv.desktop;
-image/gif=mpv.desktop
+image/svg+xml=feh.desktop;
+image/webp=feh.desktop;
+image/gif=mpv.desktop;
 application/vnd.rar=org.gnome.FileRoller.desktop;
-image/bmp=sxiv.desktop;krita_qimageio.desktop;
+image/bmp=feh.desktop;krita_qimageio.desktop;
+text/csv=libreoffice-calc.desktop;
+application/json=librewolf.desktop;VSCodium.desktop;
+application/javascript=VSCodium.desktop;
 
 [Default Applications]
-image/jpeg=sxiv.desktop
+image/jpeg=feh.desktop
 x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_opt_eclipse_.desktop
 text/html=librewolf.desktop
 x-scheme-handler/http=librewolf.desktop
@@ -23,7 +26,9 @@ x-scheme-handler/about=librewolf.desktop
 x-scheme-handler/unknown=librewolf.desktop
 application/pdf=librewolf.desktop
 text/x-csharp=VSCodium.desktop
-image/svg+xml=sxiv.desktop
-image/png=sxiv.desktop
-inode/directory=org.gnome.Nautilus.desktop
+image/svg+xml=feh.desktop
+image/png=feh.desktop
+inode/directory=pcmanfm.desktop
 image/gif=mpv.desktop
+text/csv=libreoffice-calc.desktop
+application/json=VSCodium.desktop
