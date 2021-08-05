@@ -46,7 +46,7 @@ PKG_APPS_GRAPHICS="gimp krita inkscape blender mpv"
 
 PKG_APPS_GAMING="lutris steam discord"
 
-PKG_APPS_FILE_MANAGER="gvfs gvfs-smb gvfs-mtp tumbler ffmpegthumbnailer pcmanfm-gtk3 file-roller filelight"
+PKG_APPS_FILE_MANAGER="gvfs gvfs-smb gvfs-mtp tumbler ffmpegthumbnailer nemo nemo-fileroller nemo-seahorse file-roller filelight"
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
