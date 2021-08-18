@@ -55,7 +55,7 @@ PKG_AUR_APPS="librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace a
 PKG_VM="qemu libvirt edk2-ovmf virt-manager dnsmasq ebtables"
 
 # Development related packages
-PKG_DEV="emacs ripgrep fd docker docker-compose"
+PKG_DEV="ripgrep fd docker docker-compose"
 
 # C# Support
 PKG_DEV_DOTNET="dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
@@ -164,15 +164,6 @@ function install_wm () {
     
     # Lightdm greeter
     sudo sed -i -e '/^#greeter-setup-script=$/s/#//g' -e 's/^greeter-setup-script=$/&\/usr\/bin\/numlockx on/g' /etc/lightdm/lightdm.conf
-}
-
-#
-# Install Doom Emacs
-#
-function install_doom_emacs () {
-    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
-    git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-    ~/.emacs.d/bin/doom install
 }
 
 #
