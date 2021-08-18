@@ -1,6 +1,6 @@
 [submodule ".config/qtile"]
 	path = .config/qtile
-	url = https://gitlab.com/mon-petit-linux/qtile
+	url = https://gitlab.com/dev.quentinfranchi/qtile
 [submodule ".config/leftwm"]
 	path = .config/leftwm
-	url = https://gitlab.com/mon-petit-linux/leftwm
+	url = https://gitlab.com/dev.quentinfranchi/leftwm
