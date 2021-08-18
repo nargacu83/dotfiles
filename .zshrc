@@ -119,10 +119,10 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
  
-# pacman and yay
+# pacman and paru
 alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
-alias yaysua="yay -Sua --noconfirm"              # update only AUR pkgs
-alias yaysyu="yay -Syu --noconfirm"              # update standard pkgs and AUR pkgs
+alias parusua="paru -Sua --noconfirm"              # update only AUR pkgs
+alias parusyu="paru -Syu --noconfirm"              # update standard pkgs and AUR pkgs
 alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
  
@@ -144,3 +144,6 @@ alias ls='ls --color=auto'
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
+
+# Created by `pipx` on 2021-04-03 19:28:24
+export PATH="$PATH:/home/quentin/.local/bin"
