@@ -44,7 +44,7 @@ PKG_ARCHIVE="unzip unrar unace lrzip squashfs-tools"
 
 PKG_APPS_GRAPHICS="gimp krita inkscape blender mpv"
 
-PKG_APPS_GAMING="lutris steam discord"
+PKG_APPS_GAMING="lutris steam element-desktop discord"
 
 PKG_APPS_FILE_MANAGER="gvfs gvfs-smb gvfs-mtp tumbler ffmpegthumbnailer pcmanfm-gtk3 file-roller filelight"
 
