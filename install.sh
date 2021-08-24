@@ -40,6 +40,8 @@ PKG_WM="qtile python-psutil"
 
 PKG_APPS="feh rofi redshift dunst xclip sxiv maim libqalculate openssh firefox converseen"
 
+PKG_NETWORK="nm-connection-editor"
+
 PKG_ARCHIVE="unzip unrar unace lrzip squashfs-tools"
 
 PKG_APPS_GRAPHICS="gimp krita inkscape blender mpv"
@@ -55,7 +57,7 @@ PKG_AUR_APPS="librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace a
 PKG_VM="qemu libvirt edk2-ovmf virt-manager dnsmasq ebtables"
 
 # Development related packages
-PKG_DEV="ripgrep fd docker docker-compose"
+PKG_DEV="emacs ripgrep fd docker docker-compose"
 
 # C# Support
 PKG_DEV_DOTNET="dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
@@ -224,6 +226,7 @@ function install_base () {
     sudo pacman -S --needed --noconfirm $PKG_FONTS
     sudo pacman -S --needed --noconfirm $PKG_AUDIO
     sudo pacman -S --needed --noconfirm $PKG_TERMINAL
+    sudo pacman -S --needed --noconfirm $PKG_NETWORK
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
