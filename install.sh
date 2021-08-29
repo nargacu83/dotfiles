@@ -391,6 +391,8 @@ function main () {
 
     install_base
 
+    install_dotfiles
+
     install_wm
 
     install_apps
@@ -398,7 +400,7 @@ function main () {
     install_dev
 
     install_wine
-    
+
     install_non_official_repository_apps
 
     upgrade_system
@@ -410,8 +412,6 @@ function main () {
     change_boot_order
 
     set_keyboard_layout
-    
-    install_dotfiles
 
     remove_install_folder
 
