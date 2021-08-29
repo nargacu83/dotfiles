@@ -1,0 +1,17 @@
+#!/bin/bash
+
+PATCHES_DIRECTORY="$(pwd)/../patches"
+
+# Check the directory validity
+[[ ! -d "$PATCHES_DIRECTORY" ]] && { echo 1>&2 "You are not in a valid directory"; exit 1; } 
+
+# Create a git branch per patch and apply them
+for patch in $( ls -p $PATCHES_DIRECTORY | grep -v / ); do
+  git checkout master &&
+  git checkout -b $patch && 
+  git apply $PATCHES_DIRECTORY/$patch &&
+  git add -A &&
+  git commit -m $patch || exit 1
+done
+
+git checkout master

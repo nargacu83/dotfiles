@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Autostart
+/home/$USER/.config/autostart/autostart.sh
+
+# Launch dwm
+dwm

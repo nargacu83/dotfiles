@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Quentin Franchi"
+      user-mail-address "dev.quentinfranchi@protonmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -27,6 +27,11 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-dracula)
 
+(setq doom-font (font-spec :family "JetBrains Mono" :size 16 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono") ; inherits `doom-font''s :size
+      doom-unicode-font (font-spec :family "JetBrains Mono" :size 16)
+      doom-big-font (font-spec :family "JetBrains Mono" :size 19))
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
@@ -34,7 +39,6 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -52,5 +56,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-(setq doom-font (font-spec :family "JetBrains Mono" :size 16))

@@ -275,7 +275,14 @@ function _install_spaceship () {
     mkdir $HOME/.cache
     mkdir $HOME/.cache/zsh
 }
-
+function _install_doom_emacs () {
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+    cd spaceship-prompt-git
+    makepkg -si --noconfirm --needed
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
+    mkdir $HOME/.cache
+    mkdir $HOME/.cache/zsh
+}
 
 #
 # Enable pacman multilib
