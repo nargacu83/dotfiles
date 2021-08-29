@@ -125,6 +125,14 @@ function check_root_password () {
 }
 
 #
+# Enable pacman parallel downloads
+#
+function enable_parallel_downloads () {
+    sudo sed -i '/^#\ParallelDownloads =/{N;s/#//g}' /etc/pacman.conf
+}
+
+
+#
 # Config GIT
 #
 function configure_git () {
@@ -159,13 +167,18 @@ function install_wm () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 
     # Packages
-    sudo pacman -S --needed --noconfirm $PKG_WM
+    # sudo pacman -S --needed --noconfirm $PKG_WM
     
     # Lightdm
     sudo systemctl enable lightdm
     
     # Lightdm greeter
     sudo sed -i -e '/^#greeter-setup-script=$/s/#//g' -e 's/^greeter-setup-script=$/&\/usr\/bin\/numlockx on/g' /etc/lightdm/lightdm.conf
+
+    # Install dwm
+    git clone --recurse-submodules https://gitlab.com/dev.quentinfranchi/dwm
+    cd dwm/dwm
+    suckupdate
 }
 
 #
@@ -363,6 +376,8 @@ function main () {
     anti_root
 
     set_variables_from_args "$@"
+
+    enable_parallel_downloads
 
     enable_multilib
 
