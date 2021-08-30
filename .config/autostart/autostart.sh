@@ -1,6 +1,11 @@
 #!/bin/bash
 export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
+# sxhkd
+if [ -x "$(command -v sxhkd)" ]; then
+  sxhkd &
+fi
+
 #set resolution and refresh rate
 if [ -x "$(command -v xrandr)" ]; then
   xrandr -s 2560x1080 -r 100
@@ -35,4 +40,8 @@ if [ -x "$(command -v redshift)" ]; then
 fi
 
 # Polybar
-polybar -r mainbar &> /dev/null &
+if [ -x "$(command -v polybar)" ]; then
+  polybar -r mainbar &> /dev/null &
+fi
+
+
