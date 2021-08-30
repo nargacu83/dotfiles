@@ -7,8 +7,8 @@
 #
 BACKUP_FOLDER="$HOME/.local/.dotfiles.backup"
 SCRIPT_FOLDER="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-TO_HOME_FOLDER=(.zshrc sxhkdrc)
-TO_XDG_CONFIG_FOLDER=(alacritty autostart bpytop doom dunst godot gtk-3.0 gtk-4.0 lutris MangoHud mpv picom redshift rofi wallpaper zsh mimeapps.list)
+TO_HOME_FOLDER=(.zshrc)
+TO_XDG_CONFIG_FOLDER=(alacritty autostart bpytop doom dunst godot gtk-3.0 gtk-4.0 lutris MangoHud mpv picom redshift rofi sxhkd wallpaper zsh mimeapps.list)
 
 
 #
