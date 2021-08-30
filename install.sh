@@ -52,7 +52,7 @@ PKG_APPS_FILE_MANAGER="gvfs gvfs-smb gvfs-mtp tumbler ffmpegthumbnailer pcmanfm-
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
-PKG_AUR_APPS="librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt"
+PKG_AUR_APPS="polybar librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt"
 
 PKG_VM="qemu libvirt edk2-ovmf virt-manager dnsmasq ebtables"
 
@@ -179,6 +179,8 @@ function install_wm () {
     git clone --recurse-submodules https://gitlab.com/dev.quentinfranchi/dwm
     cd dwm/dwm
     suckupdate
+
+    # Install polybar    
 }
 
 #
