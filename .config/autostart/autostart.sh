@@ -33,3 +33,6 @@ fi
 if [ -x "$(command -v redshift)" ]; then
   redshift &
 fi
+
+# Polybar
+polybar -r mainbar &> /dev/null &
