@@ -40,8 +40,8 @@ if [ -x "$(command -v redshift)" ]; then
 fi
 
 # Polybar
-if [ -x "$(command -v polybar)" ]; then
-  polybar -r mainbar &> /dev/null &
-fi
+# if [ -x "$(command -v polybar)" ]; then
+#   polybar -r mainbar &> /dev/null &
+# fi
 
 
