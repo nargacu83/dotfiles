@@ -1,6 +1,4 @@
-#
-# wm independent hotkeys
-#
+# Common hotkeys
 
 # terminal emulator
 super + Return
@@ -10,69 +8,10 @@ super + Return
 super + p
 	rofi -show drun -show-icons
 
-# brightness
-XF86MonBrightness{Up,Down}
-	light -{A,U} 10
+# launch file manager
+super + e
+	pcmanfm -d
 
-# pulseaudio volume
-XF86Audio{Raise,Lower}Volume
-	pamixer -{i,d} 5
-
-XF86AudioMute
-	pamixer -t
-
-# pulsemixer
-super + u
-	alacritty -e pulsemixer
-
-# screenshots with scrot/xclip
+# screenshots with rofi
 super + Print
 	~/.config/rofi/scripts/screenshot.sh
-
-#
-# awesome hotkeys
-#
-
-# quit/restart
-super + control + {q,r}
-	echo "awesome.{quit,restart}()" | awesome-client
-
-# close and kill
-super + {_, shift + } q
-	echo "client.focus:kill()" | awesome-client
-
-# set the client state
-super + {s,d,f,shift + f}
-	echo "change_client_state('{stacking,default,maximized,fullscreen}')" | awesome-client
-
-# reset the client color
-super + c
-	echo "require('util.client_colors').update()" | awesome-client
-
-# focus/swap clients
-super + {_,shift + }{j,k,h,l}
-	echo "require('awful').client.{focus,swap}.bydirection('{down,up,left,right}')" | awesome-client
-
-# focus the next/previous tag
-# super + {p,n}
-# 	echo "require('awful').tag.view{prev,next}()" | awesome-client
-
-# focus or send to the given desktop
-super + {1-9,0}{_, + ctrl, + shift}
-	echo "awful = require('awful') tag = awful.screen.focused().tags[{1-9,10}] {tag:view_only(),awful.tag.viewtoggle(tag),client.focus:move_to_tag(tag)}" | awesome-client
-
-# resize master
-super + ctrl + {h,l}
-	echo "require('awful').tag.incmwfact({-,_}0.05)" | awesome-client
-
-# previous client
-# super + Tab
-# 	echo "awful.client.focus.history.previous()" | awesome-client
-
-# next layout
-super + Tab
-	echo "awful.layout.inc(1)" | awesome-client
-
-# focus the next/previous screen
-super + ctrl + {j,k}
-	echo "awful.screen.focus_relative({_,-}1)" | awesome-client
