@@ -36,7 +36,7 @@ PKG_AUDIO="alsa-utils alsa-oss pipewire pipewire-alsa pipewire-pulse pavucontrol
 PKG_TERMINAL="alacritty zsh zsh-completions"
 
 # Window manager packages
-PKG_WM="qtile python-psutil"
+PKG_WM="sxhkd awesome"
 
 PKG_APPS="feh rofi redshift dunst xclip sxiv maim libqalculate openssh firefox converseen"
 
@@ -52,7 +52,7 @@ PKG_APPS_FILE_MANAGER="gvfs gvfs-smb gvfs-mtp tumbler ffmpegthumbnailer pcmanfm-
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
-PKG_AUR_APPS="polybar librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt"
+PKG_AUR_APPS="librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt"
 
 PKG_VM="qemu libvirt edk2-ovmf virt-manager dnsmasq ebtables"
 
@@ -167,20 +167,25 @@ function install_wm () {
     cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 
     # Packages
-    # sudo pacman -S --needed --noconfirm $PKG_WM
+    sudo pacman -S --needed --noconfirm $PKG_WM
     
     # Lightdm
     sudo systemctl enable lightdm
     
     # Lightdm greeter
     sudo sed -i -e '/^#greeter-setup-script=$/s/#//g' -e 's/^greeter-setup-script=$/&\/usr\/bin\/numlockx on/g' /etc/lightdm/lightdm.conf
+}
+
+#
+# Install DWM
+#
+function install_dwm () {
+    cd "$SCRIPT_FOLDER/$INSTALL_FOLDER"
 
     # Install dwm
     git clone --recurse-submodules https://gitlab.com/dev.quentinfranchi/dwm
     cd dwm/dwm
-    suckupdate
-
-    # Install polybar    
+    suckupdate 
 }
 
 #
