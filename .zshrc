@@ -147,3 +147,8 @@ alias rm='rm -i'
 
 # Created by `pipx` on 2021-04-03 19:28:24
 export PATH="$PATH:/home/quentin/.local/bin"
+
+### RANDOM COLOR SCRIPT ###
+# Get this script from dt's GitLab: gitlab.com/dwt1/shell-color-scripts
+# Or install it from the Arch User Repository: shell-color-scripts
+sh-colorscript random
