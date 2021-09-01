@@ -42,6 +42,8 @@ PKG_APPS="feh rofi redshift dunst xclip sxiv maim libqalculate openssh firefox c
 
 PKG_NETWORK="nm-connection-editor"
 
+PKG_PRINTER="cups cups-filters cups-pdf ghostscript gsfonts foomatic-db-engine foomatic-db foomatic-db-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds gutenprint foomatic-db-gutenprint-ppds splix system-config-printer hplip python-pyqt5 python-reportlab xsane"
+
 PKG_ARCHIVE="unzip unrar unace lrzip squashfs-tools"
 
 PKG_APPS_GRAPHICS="gimp krita inkscape blender mpv"
@@ -52,12 +54,12 @@ PKG_APPS_FILE_MANAGER="gvfs gvfs-smb gvfs-mtp tumbler ffmpegthumbnailer pcmanfm-
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
-PKG_AUR_APPS="librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt"
+PKG_AUR_APPS="librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt etcher-bin"
 
 PKG_VM="qemu libvirt edk2-ovmf virt-manager dnsmasq ebtables"
 
 # Development related packages
-PKG_DEV="emacs ripgrep fd docker docker-compose"
+PKG_DEV="godot emacs ripgrep fd docker docker-compose"
 
 # C# Support
 PKG_DEV_DOTNET="dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
@@ -247,6 +249,10 @@ function install_base () {
     sudo pacman -S --needed --noconfirm $PKG_AUDIO
     sudo pacman -S --needed --noconfirm $PKG_TERMINAL
     sudo pacman -S --needed --noconfirm $PKG_NETWORK
+
+    sudo pacman -S --needed --noconfirm $PKG_PRINTER
+    sudo systemctl enable cups
+
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
 
