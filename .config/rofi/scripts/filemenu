@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+cd $HOME
+DIR="$(fd -L -d 4 --type d . | rofi -dmenu -i -p "~/" -theme theme/filemenu.rasi)"
+if [ -d "$DIR" ]; then
+  pcmanfm -d "$DIR"
+fi
