@@ -54,12 +54,12 @@ PKG_APPS_FILE_MANAGER="gvfs gvfs-smb gvfs-mtp tumbler ffmpegthumbnailer pcmanfm-
 
 PKG_APPS_OFFICE="libreoffice-fresh"
 
-PKG_AUR_APPS="librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt etcher-bin"
+PKG_AUR_APPS="ttf-fork-awesome librewolf-bin freetube-bin vscodium-bin vscodium-bin-marketplace adwaita-qt etcher-bin"
 
 PKG_VM="qemu libvirt edk2-ovmf virt-manager dnsmasq ebtables"
 
 # Development related packages
-PKG_DEV="godot emacs ripgrep fd docker docker-compose"
+PKG_DEV="godot scons emacs ripgrep fd docker docker-compose"
 
 # C# Support
 PKG_DEV_DOTNET="dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono-msbuild"
