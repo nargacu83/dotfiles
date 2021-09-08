@@ -24,14 +24,17 @@ fi
 #start polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-#start notification-daemon
+#start notification daemon
 if [ -x "$(command -v dunst)" ]; then
   dunst &
 fi
 
 #set redshift for night light
 if [ -x "$(command -v redshift)" ]; then
- redshift &
+  redshift-gtk &
 fi
 
-
+#start pcmanfm deamon
+if [ -x "$(command -v pcmanfm)" ]; then
+  pcmanfm -d &
+fi
