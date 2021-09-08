@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DEFAULT_LAYOUT="fr"
+SECOND_LAYOUT="us"
+
+current_layout="$(setxkbmap -query | grep layout | awk '{print $2}')"
+
+[ "$current_layout" == "$DEFAULT_LAYOUT" ] && setxkbmap $SECOND_LAYOUT || setxkbmap $DEFAULT_LAYOUT

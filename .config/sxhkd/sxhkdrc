@@ -1,17 +1,31 @@
-# Common hotkeys
+## Common hotkeys
 
 # terminal emulator
 super + Return
 	alacritty
 
+# change keyboard layout
+super + shift + l
+	~/.config/sxhkd/scripts/changekblayout
+
+## Rofi
+
 # program launcher
 super + p
-	rofi -show drun -show-icons
+	~/.config/rofi/scripts/appmenu
 
-# launch file manager
-super + e
-	pcmanfm -d
+# window switcher
+alt + Tab
+	~/.config/rofi/scripts/windowmenu
+
+# powermenu
+super + ctrl + Escape
+	~/.config/rofi/scripts/powermenu
 
 # screenshots with rofi
 super + Print
-	~/.config/rofi/scripts/screenshot.sh
+	~/.config/rofi/scripts/screenshot
+
+# launch file manager
+super + e
+	pcmanfm
