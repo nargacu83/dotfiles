@@ -21,7 +21,7 @@ function install_dotfiles () {
     sudo mkdir /usr/share/xsessions
     
     # move stow_home dir to the install directory
-    mv -r stow_home "${INSTALL_DIRECTORY}/stow_home"
+    mv stow_home "${INSTALL_DIRECTORY}/stow_home"
     
     cd "${INSTALL_DIRECTORY}/stow_home" && stow * || print_error "Unable to install dotfiles"
 
