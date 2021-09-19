@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source "../install.sh"
+FILE_DIRECTORY="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+BASE_SCRIPT="$(dirname "$FILE_DIRECTORY")/install.sh"
+source ${BASE_SCRIPT}
 
 GRUB_RESOLUTION="2560x1080"
 GRUB_OPTIONS="--boot --theme vimix --screen ultrawide"

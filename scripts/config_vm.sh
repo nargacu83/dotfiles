@@ -2,7 +2,9 @@
 
 # Installs Virtual Machine packages
 
-source "../install.sh"
+FILE_DIRECTORY="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+BASE_SCRIPT="$(dirname "$FILE_DIRECTORY")/install.sh"
+source ${BASE_SCRIPT}
 
 PKG_VM="
 qemu
