@@ -1,0 +1,15 @@
+{"_id":"barColor","value":false}
+{"_id":"bounds","value":{"x":1286,"y":45,"width":1264,"height":1025,"maximized":false}}
+{"_id":"currentLocale","value":"fr-FR"}
+{"_id":"defaultInvidiousInstance","value":"https://yewtu.be"}
+{"_id":"defaultQuality","value":"1080"}
+{"_id":"disableSmoothScrolling","value":true}
+{"_id":"externalPlayer","value":"mpv"}
+{"_id":"hideLiveChat","value":true}
+{"_id":"hidePopularVideos","value":true}
+{"_id":"hideRecommendedVideos","value":false}
+{"_id":"hideTrendingVideos","value":true}
+{"_id":"invidiousInstance","value":"https://yewtu.be"}
+{"_id":"playNextVideo","value":false}
+{"_id":"sponsorBlockShowSkippedToast","value":true}
+{"_id":"useSponsorBlock","value":true}

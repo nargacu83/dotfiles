@@ -7,8 +7,7 @@
 # Source : https://gitlab.com/Mageas/linux/-/blob/master/Mageas/install.sh
 #
 
-# Global variables
-SCRIPT_FOLDER="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+source "../install.sh"
 
 # MOUNT CONFIG
 declare DISKS_TO_MOUNT_POINT=(
@@ -22,20 +21,6 @@ declare DISKS_TO_MOUNT=(
     "UUID=dfefbc94-b693-4ce5-8511-72f6c837a7ec    ${DISKS_TO_MOUNT_POINT[2]}   ext4    defaults    0 0"
 )
 
-#
-# Anti ROOT
-#
-function anti_root () {
-    if [[ $EUID -eq 0 ]]; then
-        local RED='\033[0;31m'; local BOLD='\033[1m'
-        printf "${RED}${BOLD}!! Please do not run this script as root !! \n" 1>&2
-        exit 1
-    fi
-}
-
-#
-# Config fstab
-#
 function config_fstab () {
     # Create mount folders
     for _mount_point in "${DISKS_TO_MOUNT_POINT[@]}"; do
@@ -56,13 +41,6 @@ function config_fstab () {
     done
 }
 
-#
-# Main
-#
-function main () {
-    anti_root
+print_message "Configuring fstab"
 
-    config_fstab
-}
-
-main "$@"
+config_fstab

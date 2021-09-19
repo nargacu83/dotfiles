@@ -18,7 +18,6 @@ application/javascript=VSCodium.desktop;
 
 [Default Applications]
 image/jpeg=feh.desktop
-x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_opt_eclipse_.desktop
 text/html=librewolf.desktop
 x-scheme-handler/http=librewolf.desktop
 x-scheme-handler/https=librewolf.desktop

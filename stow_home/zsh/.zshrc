@@ -1,3 +1,13 @@
+# Doom emacs
+export PATH="$HOME/.emacs.d/bin:$PATH"
+# Created by `pipx` on 2021-04-03 19:28:24
+export PATH="$PATH:/home/quentin/.local/bin"
+
+# History in cache directory:
+HISTSIZE=10000000
+SAVEHIST=10000000
+HISTFILE=~/.cache/zsh/history
+
 # Enable colors and change prompt:
 autoload -U colors && colors
 # Prompt without SPACESHIP
@@ -30,13 +40,6 @@ bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
-# PATH
-export PATH=$PATH:$HOME/.config/scripts:$HOME/.config/scripts/statusbar
-
-# History in cache directory:
-HISTSIZE=10000000
-SAVEHIST=10000000
-HISTFILE=~/.cache/zsh/history
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -103,7 +106,7 @@ ex ()
       *.7z)        7z x $1      ;;
       *.deb)       ar x $1      ;;
       *.tar.xz)    tar xf $1    ;;
-      *.tar.zst)   unzstd $1    ;;      
+      *.tar.zst)   unzstd $1    ;;
       *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
   else
@@ -113,25 +116,25 @@ ex ()
 
 ## Aliases
 # navigation
-alias ..='cd ..' 
+alias ..='cd ..'
 alias ...='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
- 
+
 # pacman and paru
 alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
 alias parusua="paru -Sua --noconfirm"              # update only AUR pkgs
 alias parusyu="paru -Syu --noconfirm"              # update standard pkgs and AUR pkgs
 alias unlock="sudo rm /var/lib/pacman/db.lck"    # remove pacman lock
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
- 
+
 # get fastest mirrors
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
- 
+
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -139,14 +142,11 @@ alias fgrep='fgrep --color=auto'
 
 # Colorize ls
 alias ls='ls --color=auto'
- 
+
 # confirm before overwriting something
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
-
-# Created by `pipx` on 2021-04-03 19:28:24
-export PATH="$PATH:/home/quentin/.local/bin"
 
 ### RANDOM COLOR SCRIPT ###
 # Get this script from dt's GitLab: gitlab.com/dwt1/shell-color-scripts
