@@ -89,7 +89,7 @@ sh "scripts/config_apps.sh"
 
 sh "scripts/config_gaming.sh"
 
-sh "scripts/config_aur.sh"
+# sh "scripts/config_aur.sh"
 
 sh "scripts/config_dev.sh"
 
