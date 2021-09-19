@@ -88,30 +88,30 @@ update_mirrors
 
 init_directory
 
-sh "$INSTALL_DIRECTORY/scripts/config_keyboard.sh"
+sh "./scripts/config_keyboard.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_system.sh"
+sh "./scripts/config_system.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_lts.sh"
+sh "./scripts/config_lts.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_grub.sh"
+sh "./scripts/config_grub.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_git.sh"
+sh "./scripts/config_git.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_wm.sh"
+sh "./scripts/config_wm.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_lightdm.sh"
+sh "./scripts/config_lightdm.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_apps.sh"
+sh "./scripts/config_apps.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_gaming.sh"
+sh "./scripts/config_gaming.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_aur.sh"
+sh "./scripts/config_aur.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_dev.sh"
+sh "./scripts/config_dev.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_vm.sh"
+sh "./scripts/config_vm.sh"
 
-sh "$INSTALL_DIRECTORY/scripts/config_fstab.sh"
+sh "./scripts/config_fstab.sh"
 
 clear_pacman_cache
