@@ -52,9 +52,6 @@ function install_librewolf_gnome_theme () {
     git clone https://github.com/rafaelmardojai/firefox-gnome-theme/ && cd firefox-gnome-theme && ./scripts/install.sh -f ~/.librewolf
 }
 
-function _install_doom_emacs () {
-}
-
 print_message "Configuring apps"
 
 sudo pacman -S --needed --noconfirm ${PKG_APPS}
