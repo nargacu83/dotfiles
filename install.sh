@@ -38,7 +38,7 @@ PKG_TERMINAL="alacritty zsh zsh-completions"
 # Window manager packages
 PKG_WM="sxhkd awesome"
 
-PKG_APPS="feh rofi redshift dunst xclip sxiv maim libqalculate openssh firefox converseen"
+PKG_APPS="stow feh rofi redshift dunst xclip sxiv maim libqalculate openssh firefox converseen"
 
 PKG_NETWORK="nm-connection-editor"
 
