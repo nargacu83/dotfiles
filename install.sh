@@ -12,7 +12,8 @@ function enable_parallel_downloads () {
 }
 
 function init_directory() {
-    [[ -d $INSTALL_DIRECTORY ]] && print_error "Install directory already exist"
+    echo "Install directory: ${INSTALL_DIRECTORY}"
+    [[ -d ${INSTALL_DIRECTORY} ]] && print_error "Install directory already exist"
     mkdir -p ${INSTALL_DIRECTORY} || print_error "Unable to create the install directory"
 }
 
