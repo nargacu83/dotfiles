@@ -2,9 +2,7 @@
 
 # Installs development related packages
 
-FILE_DIRECTORY="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-BASE_SCRIPT="$(dirname "$FILE_DIRECTORY")/install.sh"
-source ${BASE_SCRIPT}
+source "common.sh"
 
 # Game Engine
 PKG_ENGINE="godot scons"

@@ -2,9 +2,7 @@
 
 # Installs Window Manager packages
 
-FILE_DIRECTORY="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-BASE_SCRIPT="$(dirname "$FILE_DIRECTORY")/install.sh"
-source ${BASE_SCRIPT}
+source "common.sh"
 
 PKG_WM="
 sxhkd
