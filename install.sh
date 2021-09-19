@@ -20,10 +20,7 @@ function init_directory() {
 function install_dotfiles () {
     sudo mkdir /usr/share/xsessions
     
-    # move stow_home dir to the install directory
-    mv stow_home "${INSTALL_DIRECTORY}/stow_home"
-    
-    cd "${INSTALL_DIRECTORY}/stow_home" && stow * || print_error "Unable to install dotfiles"
+    cd stow_home && stow * || print_error "Unable to install dotfiles"
 
     sudo git clone https://gitlab.com/dev.quentinfranchi/dotfiles "/opt/dotfiles" && cd "/opt/dotfiles/stow_root"
     for directory in $( ls -p | grep / ); do

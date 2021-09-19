@@ -121,10 +121,9 @@ stow
 "
 
 function _install_spaceship () {
-    cd ${INSTALL_DIRECTORY}
     # Clone and build Spaceship
-    git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1 ${INSTALL_DIRECTORY}
-    cd "${INSTALL_DIRECTORY}/spaceship-prompt-git"
+    git clone https://aur.archlinux.org/spaceship-prompt-git.git --depth=1 "${INSTALL_DIRECTORY}/spaceship"
+    cd "${INSTALL_DIRECTORY}/spaceship"
     makepkg -si --noconfirm --needed
     mkdir -p ${HOME}/.cache/zsh
 }

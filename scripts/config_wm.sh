@@ -11,14 +11,17 @@ awesome
 "
 
 function install_dwm () {
-    cd ${INSTALL_DIRECTORY}
-
     # Install dwm
     git clone --recurse-submodules https://gitlab.com/dev.quentinfranchi/dwm "${INSTALL_DIRECTORY}/dwm"
     
     cd "${INSTALL_DIRECTORY}/dwm/dwm" && suckupdate
 }
 
+function install_awesome () {
+    git clone https://gitlab.com/dev.quentinfranchi/awesome "${HOME}/.config/awesome"
+}
+
 print_message "Configuring window manager"
 
 sudo pacman -S --needed --noconfirm ${PKG_WM}
+install_awesome
