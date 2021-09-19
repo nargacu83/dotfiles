@@ -148,4 +148,6 @@ sudo pacman -S --needed --noconfirm ${PKG_TERMINAL}
 _install_spaceship
 sudo chsh -s /bin/zsh ${USER}
 
+sudo pacman -S --needed --noconfirm ${PKG_DOTFILES}
+
 sudo grub-mkconfig -o /boot/grub/grub.cfg

@@ -49,8 +49,6 @@ function clear_pacman_cache () {
     sudo pacman -Sc --noconfirm
 }
 
-## NEW
-
 function check_privileges() {
     if [ "$(id -u)" = 0 ]; then
         echo "####################################"
@@ -62,10 +60,6 @@ function check_privileges() {
     sudo echo ""
     [[ ${?} -eq 1 ]] && print_error "Your root password is wrong"
 }
-
-number_of_steps=13
-
-## /NEW
 
 check_privileges
 
@@ -102,5 +96,7 @@ sh "scripts/config_dev.sh"
 sh "scripts/config_vm.sh"
 
 # sh "scripts/config_fstab.sh"
+
+install_dotfiles
 
 clear_pacman_cache
