@@ -66,40 +66,40 @@ number_of_steps=13
 
 ## /NEW
 
-# check_privileges
+check_privileges
 
-# enable_parallel_downloads
+enable_parallel_downloads
 
-# enable_multilib
+enable_multilib
 
-# update_mirrors
+update_mirrors
 
-# init_directory
+init_directory
 
 sh "scripts/config_keyboard.sh"
 
-# sh "scripts/config_system.sh"
+sh "scripts/config_system.sh"
 
-# sh "scripts/config_lts.sh"
+sh "scripts/config_lts.sh"
 
-# sh "scripts/config_grub.sh"
+sh "scripts/config_grub.sh"
 
-# sh "scripts/config_git.sh"
+sh "scripts/config_git.sh"
 
-# sh "scripts/config_wm.sh"
+sh "scripts/config_wm.sh"
 
-# sh "scripts/config_lightdm.sh"
+sh "scripts/config_lightdm.sh"
 
-# sh "scripts/config_apps.sh"
+sh "scripts/config_apps.sh"
 
-# sh "scripts/config_gaming.sh"
+sh "scripts/config_gaming.sh"
 
-# sh "scripts/config_aur.sh"
+sh "scripts/config_aur.sh"
 
-# sh "scripts/config_dev.sh"
+sh "scripts/config_dev.sh"
 
-# sh "scripts/config_vm.sh"
+sh "scripts/config_vm.sh"
 
 # sh "scripts/config_fstab.sh"
 
-# clear_pacman_cache
+clear_pacman_cache
