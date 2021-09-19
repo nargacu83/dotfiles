@@ -4,8 +4,8 @@
 # DON'T USE THIS SCRIPT WITHOUT CHANGING fstab
 #
 
-COMMON="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )/common.sh"
-source ${COMMON}
+GLOBALS="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )/globals.sh"
+source ${GLOBALS}
 
 function enable_parallel_downloads () {
     sudo sed -i '/^#\ParallelDownloads =/{N;s/#//g}' /etc/pacman.conf
@@ -66,40 +66,40 @@ number_of_steps=13
 
 ## /NEW
 
-check_privileges
+# check_privileges
 
-enable_parallel_downloads
+# enable_parallel_downloads
 
-enable_multilib
+# enable_multilib
 
-update_mirrors
+# update_mirrors
 
-init_directory
+# init_directory
 
 sh "scripts/config_keyboard.sh"
 
-sh "scripts/config_system.sh"
+# sh "scripts/config_system.sh"
 
-sh "scripts/config_lts.sh"
+# sh "scripts/config_lts.sh"
 
-sh "scripts/config_grub.sh"
+# sh "scripts/config_grub.sh"
 
-sh "scripts/config_git.sh"
+# sh "scripts/config_git.sh"
 
-sh "scripts/config_wm.sh"
+# sh "scripts/config_wm.sh"
 
-sh "scripts/config_lightdm.sh"
+# sh "scripts/config_lightdm.sh"
 
-sh "scripts/config_apps.sh"
+# sh "scripts/config_apps.sh"
 
-sh "scripts/config_gaming.sh"
+# sh "scripts/config_gaming.sh"
 
-sh "scripts/config_aur.sh"
+# sh "scripts/config_aur.sh"
 
-sh "scripts/config_dev.sh"
+# sh "scripts/config_dev.sh"
 
-sh "scripts/config_vm.sh"
+# sh "scripts/config_vm.sh"
 
-sh "scripts/config_fstab.sh"
+# sh "scripts/config_fstab.sh"
 
-clear_pacman_cache
+# clear_pacman_cache

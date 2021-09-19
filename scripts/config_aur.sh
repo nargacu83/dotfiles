@@ -2,7 +2,8 @@
 
 # Installs packages from the Arch User Repository
 
-source "common.sh"
+# Sourcing path is relative to install.sh
+source ./globals.sh
 
 PKG_AUR_APPS="
 librewolf-bin

@@ -2,7 +2,8 @@
 
 # Installs Window Manager packages
 
-source "common.sh"
+# Sourcing path is relative to install.sh
+source ./globals.sh
 
 PKG_WM="
 sxhkd

@@ -2,7 +2,8 @@
 
 # Installs Long Term Support kernel
 
-source "common.sh"
+# Sourcing path is relative to install.sh
+source ./globals.sh
 
 # Do not boot on LTS 
 function change_boot_order () {

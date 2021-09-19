@@ -2,7 +2,8 @@
 
 # System and dotfiles packages
 
-source "common.sh"
+# Sourcing path is relative to install.sh
+source ./globals.sh
 
 # Pacman related packages for AUR
 PKG_PACMAN="

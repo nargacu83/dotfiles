@@ -7,7 +7,8 @@
 # Source : https://gitlab.com/Mageas/linux/-/blob/master/Mageas/install.sh
 #
 
-source "common.sh"
+# Sourcing path is relative to install.sh
+source ./globals.sh
 
 # MOUNT CONFIG
 declare DISKS_TO_MOUNT_POINT=(

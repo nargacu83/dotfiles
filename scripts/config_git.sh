@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source "common.sh"
+# Sourcing path is relative to install.sh
+source ./globals.sh
 
 GIT_EMAIL="dev.quentinfranchi@protonmail.com"
 GIT_NAME="Quentin Franchi"

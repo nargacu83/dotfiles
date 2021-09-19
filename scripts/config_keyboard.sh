@@ -1,8 +1,9 @@
 #!/bin/bash
 
-source "common.sh"
-
 # Set the keyboard layout to French
+
+# Sourcing path is relative to install.sh
+source ./globals.sh
 
 print_message "Configuring keyboard"
 

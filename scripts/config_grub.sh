@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source "common.sh"
+# Sourcing path is relative to install.sh
+source ./globals.sh
 
 GRUB_RESOLUTION="2560x1080"
 GRUB_OPTIONS="--boot --theme vimix --screen ultrawide"
