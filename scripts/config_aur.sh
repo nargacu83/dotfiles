@@ -7,6 +7,7 @@ source ./globals.sh
 
 PKG_AUR_APPS="
 librewolf-bin
+brave-bin
 freetube
 vscodium-bin
 vscodium-bin-marketplace

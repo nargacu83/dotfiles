@@ -15,7 +15,6 @@ sxiv
 maim
 libqalculate
 openssh
-firefox
 converseen
 "
 
