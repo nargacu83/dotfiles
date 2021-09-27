@@ -7,7 +7,6 @@ source ./globals.sh
 
 PKG_WM="
 sxhkd
-awesome
 "
 
 function install_dwm () {
@@ -24,4 +23,4 @@ function install_awesome () {
 print_message "Configuring window manager"
 
 sudo pacman -S --needed --noconfirm ${PKG_WM}
-install_awesome
+install_dwm
