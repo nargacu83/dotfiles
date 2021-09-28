@@ -17,21 +17,6 @@ function init_directory() {
     mkdir -p ${INSTALL_DIRECTORY} || print_error "Unable to create the install directory"
 }
 
-function install_dotfiles () {
-    sudo mkdir /usr/share/xsessions
-    
-    cd stow_home && stow * || print_error "Unable to install dotfiles"
-
-    sudo git clone https://gitlab.com/dev.quentinfranchi/dotfiles "/opt/dotfiles" && cd "/opt/dotfiles/stow_root"
-    for directory in $( ls -p | grep / ); do
-        CONFLICTS=$(stow --no --verbose ${directory} 2>&1 | awk '/\* existing target is/ {print $NF}')
-        for f in ${CONFLICTS[@]}; do
-            [[ -f "/${f}" || -L "/${f}" ]] && sudo rm "/${f}"
-        done
-    done
-    sudo stow * || print_error "Unable to install dotfiles"
-}
-
 function enable_multilib () {
     sudo sed -i '/^#\[multilib\]/{N;s/#//g}' /etc/pacman.conf
 }
@@ -96,6 +81,6 @@ sh "scripts/config_vm.sh"
 
 # sh "scripts/config_fstab.sh"
 
-install_dotfiles
+sh "scripts/config_dotfiles.sh"
 
 clear_pacman_cache
