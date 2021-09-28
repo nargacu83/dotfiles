@@ -1,5 +1,9 @@
 #!/bin/bash
-export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+# dwmblocks
+if [ -x "$(command -v dwmblocks)" ]; then
+  dwmblocks &
+fi
 
 # sxhkd
 if [ -x "$(command -v sxhkd)" ]; then
