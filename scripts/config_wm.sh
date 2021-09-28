@@ -9,15 +9,16 @@ PKG_WM="
 sxhkd
 "
 
-function install_dwm () {
-    # Install dwm
-    git clone --recurse-submodules https://gitlab.com/dev.quentinfranchi/dwm "${INSTALL_DIRECTORY}/dwm"
-    
-    cd "${INSTALL_DIRECTORY}/dwm/dwm" && suckupdate
-}
+PKG_DWM="
+dwm
+dwmblocks
+"
 
-function install_awesome () {
-    git clone https://gitlab.com/dev.quentinfranchi/awesome "${HOME}/.config/awesome"
+function install_dwm () {
+    for _pkg in $PKG_DWM; do
+        git clone --recurse-submodules https://gitlab.com/dev.quentinfranchi/${_pkg} "${INSTALL_DIRECTORY}/${_pkg}" \
+            && cd "${INSTALL_DIRECTORY}/${_pkg}/${_pkg}" && suckupdate || ERROR "Unable to install ${_pkg}"
+    done
 }
 
 print_message "Configuring window manager"
