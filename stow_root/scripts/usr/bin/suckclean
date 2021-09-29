@@ -1,9 +1,16 @@
 #!/bin/bash
 
+PATCHES_DIRECTORY=""
+
+[[ ! -d "$(pwd)/../patches" ]] && { echo 1>&2 "You are not in a valid directory"; exit 1; }
+
 git checkout master &&
-make clean && rm -f config.h && git reset --hard origin/master && 
+make clean && git reset --hard origin/master &&
 for branch in $(git for-each-ref --format='%(refname)' refs/heads/ | cut -d'/' -f3); do
   if [ "$branch" != "master" ];then
     git branch -D $branch
   fi
+done
+for f in *.def.h; do
+  [ -f "${f:0:${#f}-6}.h" ] && rm -f "${f:0:${#f}-6}.h" || continue
 done
