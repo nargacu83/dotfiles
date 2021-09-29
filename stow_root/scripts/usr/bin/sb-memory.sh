@@ -1,5 +1,5 @@
 #!/bin/sh
 
-memory="$(free -h | awk '/^Mem:/ {print $3 "/" $2}')"
+memory="$(free -m | awk '/^Mem:/ {print $3 "MiB / " $2 "MiB"}')"
 
-echo "[ $memory]"
+echo "$memory "

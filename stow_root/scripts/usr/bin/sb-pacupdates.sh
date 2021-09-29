@@ -2,6 +2,8 @@
 
 pacupdates=$(checkupdates | wc -l)
 
-[ $pacupdates -eq 1 ] && sufix="update" || sufix="updates"
-
-echo "[ $pacupdates $sufix]"
+if [ $pacupdates -eq 0 ]; then
+    echo ""
+else
+    echo "$pacupdates MAJs "
+fi

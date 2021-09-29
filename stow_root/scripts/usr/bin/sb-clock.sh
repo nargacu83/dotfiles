@@ -1,5 +1,5 @@
 #!/bin/sh
 
-clock="$(date +'%b %d %Y | %H:%M')"
+clock="$(date +'%a %d %b %Y   %H:%M')"
 
-echo "[ $clock]"
+echo "$clock"
