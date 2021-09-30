@@ -18,7 +18,7 @@ ttf-fork-awesome
 "
 
 PKG_AUR_STYLE="
-adwaita-qt
+dracula-gtk-theme
 "
 
 function _install_paru () {
