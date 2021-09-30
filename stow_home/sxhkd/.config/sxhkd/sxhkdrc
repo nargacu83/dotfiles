@@ -24,7 +24,10 @@ super + ctrl + Escape
 
 # screenshots with rofi
 super + Print
-	~/.config/rofi/scripts/screenshot
+	~/.config/rofi/scripts/screenshot screen
+
+super + shift + Print
+	~/.config/rofi/scripts/screenshot selection
 
 # launch file manager
 super + e
