@@ -16,6 +16,7 @@ maim
 libqalculate
 openssh
 converseen
+btop
 "
 
 PKG_APPS_GRAPHICS="
