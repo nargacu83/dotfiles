@@ -47,11 +47,6 @@ PKG_APPS_OFFICE="
 libreoffice-fresh
 "
 
-function install_librewolf_gnome_theme () {
-    cd ${INSTALL_DIRECTORY}
-    git clone https://github.com/rafaelmardojai/firefox-gnome-theme/ && cd firefox-gnome-theme && ./scripts/install.sh -f ~/.librewolf
-}
-
 print_message "Configuring apps"
 
 sudo pacman -S --needed --noconfirm ${PKG_APPS}
