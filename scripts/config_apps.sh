@@ -19,6 +19,10 @@ converseen
 btop
 "
 
+PKG_APPS_BROWSER="
+firefox
+"
+
 PKG_APPS_GRAPHICS="
 gimp
 krita
@@ -50,6 +54,7 @@ libreoffice-fresh
 print_message "Configuring apps"
 
 sudo pacman -S --needed --noconfirm ${PKG_APPS}
+sudo pacman -S --needed --noconfirm ${PKG_APPS_BROWSER}
 sudo pacman -S --needed --noconfirm ${PKG_APPS_GRAPHICS}
 sudo pacman -S --needed --noconfirm ${PKG_APPS_FILE_MANAGER}
 sudo pacman -S --needed --noconfirm ${PKG_SOCIAL}
