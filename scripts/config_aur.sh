@@ -35,7 +35,7 @@ function _install_paru () {
 print_message "Configuring AUR related packages"
 
 _install_paru
-paru -S --noconfirm --noprovides --skipreview $PKG_AUR_APPS
-paru -S --noconfirm --noprovides --skipreview $PKG_AUR_FONTS
-paru -S --noconfirm --noprovides --skipreview $PKG_AUR_STYLE
-paru -S --noconfirm --noprovides --skipreview $PKG_AUR_PRINTER
+paru -S --noconfirm --noprovides --skipreview ${PKG_AUR_APPS}
+paru -S --noconfirm --noprovides --skipreview ${PKG_AUR_FONTS}
+paru -S --noconfirm --noprovides --skipreview ${PKG_AUR_STYLE}
+paru -S --noconfirm --noprovides --skipreview ${PKG_AUR_PRINTER}

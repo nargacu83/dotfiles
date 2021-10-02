@@ -21,10 +21,6 @@ function install_dotfiles () {
     sudo stow * || print_error "Unable to install dotfiles"
 }
 
-function install_themes () {
-    echo "Placeholder"
-}
-
 print_message "Installing dotfiles"
 install_dotfiles
 install_themes
