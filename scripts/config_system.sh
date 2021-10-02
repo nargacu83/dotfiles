@@ -83,21 +83,10 @@ nm-connection-editor
 
 # Printer drivers and management
 PKG_PRINTER="
-cups cups-filters
+cups
+cups-filters
 cups-pdf
-ghostscript
-gsfonts
-foomatic-db-engine
-foomatic-db
-foomatic-db-ppds
-foomatic-db-nonfree
-foomatic-db-nonfree-ppds
-gutenprint
-foomatic-db-gutenprint-ppds
-splix system-config-printer
-hplip python-pyqt5
-python-reportlab
-xsane
+system-config-printer
 "
 
 # Archive

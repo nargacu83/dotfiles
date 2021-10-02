@@ -17,6 +17,10 @@ PKG_AUR_FONTS="
 ttf-fork-awesome
 "
 
+PKG_AUR_PRINTER="
+epson-inkjet-printer-escpr
+"
+
 PKG_AUR_STYLE="
 dracula-gtk-theme
 "
@@ -34,3 +38,4 @@ _install_paru
 paru -S --noconfirm --noprovides --skipreview $PKG_AUR_APPS
 paru -S --noconfirm --noprovides --skipreview $PKG_AUR_FONTS
 paru -S --noconfirm --noprovides --skipreview $PKG_AUR_STYLE
+paru -S --noconfirm --noprovides --skipreview $PKG_AUR_PRINTER
