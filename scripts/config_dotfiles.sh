@@ -9,7 +9,7 @@ dotfiles_directory="${HOME}/.dotfiles"
 dotfiles_root_directory="/opt/dotfiles"
 
 function install_dotfiles () {
-    sudo mkdir /usr/share/xsessions
+    [ -d /usr/share/xsessions ] || sudo mkdir /usr/share/xsessions
     
     # Remove stow root directory
     rm -rf stow_home
