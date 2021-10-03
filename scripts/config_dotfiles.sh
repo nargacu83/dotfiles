@@ -23,12 +23,12 @@ function install_dotfiles () {
 
     [ -d /usr/share/xsessions ] || sudo mkdir /usr/share/xsessions
 
-    [[ -d "${dotfiles_root_directory}_temp" ]] && rm -rf "${dotfiles_root_directory}_temp"
+    [[ -d "${dotfiles_root_directory}_temp" ]] && sudo rm -rf "${dotfiles_root_directory}_temp"
 
     # move and install root part of the dotfiles
     sudo git clone https://gitlab.com/dev.quentinfranchi/dotfiles "${dotfiles_root_directory}_temp" \
-        && mv "${dotfiles_root_directory}_temp/stow_root" "${dotfiles_root_directory}" \
-        && rm -rf "${dotfiles_root_directory}_temp" \
+        && sudo mv "${dotfiles_root_directory}_temp/stow_root" "${dotfiles_root_directory}" \
+        && sudo rm -rf "${dotfiles_root_directory}_temp" \
         && cd "${dotfiles_root_directory}"
 
     for directory in $( ls -p | grep / ); do
