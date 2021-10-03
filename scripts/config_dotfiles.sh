@@ -11,6 +11,9 @@ dotfiles_root_directory="/opt/dotfiles"
 function install_dotfiles () {
     sudo mkdir /usr/share/xsessions
     
+    # Remove stow root directory
+    rm -rf stow_home
+
     # move and install user of the dotfiles
     mv stow_home "${dotfiles_directory}" && \
         cd "${dotfiles_directory}" \

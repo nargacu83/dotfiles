@@ -11,10 +11,13 @@ function enable_parallel_downloads () {
     sudo sed -i '/^#\ParallelDownloads =/{N;s/#//g}' /etc/pacman.conf
 }
 
-function init_directory() {
-    echo "Install directory: ${INSTALL_DIRECTORY}"
+function init_install_directory() {
     [[ -d ${INSTALL_DIRECTORY} ]] && print_error "Install directory already exist"
     mkdir -p ${INSTALL_DIRECTORY} || print_error "Unable to create the install directory"
+}
+
+function remove_install_directory() {
+    [[ -d ${INSTALL_DIRECTORY} ]] && rm -rf ${INSTALL_DIRECTORY}
 }
 
 function enable_multilib () {
@@ -53,7 +56,7 @@ enable_multilib
 
 update_mirrors
 
-init_directory
+init_install_directory
 
 sh "scripts/config_keyboard.sh"
 
@@ -64,6 +67,8 @@ sh "scripts/config_lts.sh"
 sh "scripts/config_grub.sh"
 
 sh "scripts/config_git.sh"
+
+sh "scripts/config_dotfiles.sh"
 
 sh "scripts/config_wm.sh"
 
@@ -81,6 +86,8 @@ sh "scripts/config_vm.sh"
 
 # sh "scripts/config_fstab.sh"
 
-sh "scripts/config_dotfiles.sh"
-
 clear_pacman_cache
+
+remove_install_directory
+
+print_message "Don't forget to delete ${FILE_DIRECTORY} after reboot."
