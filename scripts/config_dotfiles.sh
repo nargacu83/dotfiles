@@ -36,4 +36,3 @@ function install_dotfiles () {
 
 print_message "Installing dotfiles"
 install_dotfiles
-install_themes
