@@ -21,6 +21,7 @@ btop
 
 PKG_APPS_BROWSER="
 firefox
+firefox-i18n-fr
 "
 
 PKG_APPS_GRAPHICS="
