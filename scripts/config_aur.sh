@@ -6,7 +6,7 @@
 source ./globals.sh
 
 PKG_AUR_APPS="
-freetube
+freetube-bin
 vscodium-bin
 vscodium-bin-marketplace
 etcher-bin"
@@ -15,12 +15,12 @@ PKG_AUR_FONTS="
 ttf-fork-awesome
 "
 
-PKG_AUR_PRINTER="
-epson-inkjet-printer-escpr
-"
-
 PKG_AUR_STYLE="
 dracula-gtk-theme
+"
+
+PKG_AUR_PRINTER="
+epson-inkjet-printer-escpr
 "
 
 function _install_paru () {
