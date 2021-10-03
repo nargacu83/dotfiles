@@ -12,8 +12,8 @@ function install_dotfiles () {
     print_message "Installing user dotfiles"
 
     # Remove stow root directory
-    rm -rf stow_root
-
+    [[ -d "stow_root" ]] && rm -rf stow_root
+    
     # move and install user of the dotfiles
     mv stow_home "${dotfiles_directory}" && \
         cd "${dotfiles_directory}" \
@@ -22,6 +22,8 @@ function install_dotfiles () {
     print_message "Installing root dotfiles"
 
     [ -d /usr/share/xsessions ] || sudo mkdir /usr/share/xsessions
+
+    [[ -d "${dotfiles_root_directory}_temp" ]] && rm -rf "${dotfiles_root_directory}_temp"
 
     # move and install root part of the dotfiles
     sudo git clone https://gitlab.com/dev.quentinfranchi/dotfiles "${dotfiles_root_directory}_temp" \
