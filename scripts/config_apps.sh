@@ -52,6 +52,19 @@ PKG_APPS_OFFICE="
 libreoffice-fresh
 "
 
+PKG_UNOFFICIAL_REPO_APPS="
+ungoogled-chromium
+"
+
+function setup_unofficial_repository () {
+    # https://wiki.archlinux.org/title/Unofficial_user_repositories
+    # Current repo => https://aur.andontie.net/
+    sudo pacman-key --recv-key B545E9B7CD906FE3
+    sudo pacman-key --lsign-key B545E9B7CD906FE3
+
+    echo "[andontie-aur]\nServer = https://aur.andontie.net/$arch" >> /etc/pacman.conf
+}
+
 print_message "Configuring apps"
 
 sudo pacman -S --needed --noconfirm ${PKG_APPS}
@@ -60,3 +73,6 @@ sudo pacman -S --needed --noconfirm ${PKG_APPS_GRAPHICS}
 sudo pacman -S --needed --noconfirm ${PKG_APPS_FILE_MANAGER}
 sudo pacman -S --needed --noconfirm ${PKG_SOCIAL}
 sudo pacman -S --needed --noconfirm ${PKG_APPS_OFFICE}
+
+setup_unofficial_repository
+sudo pacman -Syy --needed --noconfirm ${PKG_UNOFFICIAL_REPO_APPS}
