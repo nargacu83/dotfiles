@@ -4,7 +4,7 @@
 
 # Global variables
 FILE_DIRECTORY="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-INSTALL_DIRECTORY="$(dirname "$FILE_DIRECTORY")/install"
+INSTALL_DIRECTORY="${FILE_DIRECTORY}/install"
 
 function print_message() {
     for i in $(seq 1 $((${#1}+14))); do echo -n "#"; done; echo
