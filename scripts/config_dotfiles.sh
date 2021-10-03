@@ -10,9 +10,6 @@ dotfiles_root_directory="/opt/dotfiles"
 
 function install_dotfiles () {
     print_message "Installing user dotfiles"
-
-    # Remove stow root directory
-    [[ -d "stow_root" ]] && rm -rf stow_root
     
     # move and install user of the dotfiles
     mv stow_home "${dotfiles_directory}" && \
