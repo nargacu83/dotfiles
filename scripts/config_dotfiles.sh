@@ -9,8 +9,8 @@ dotfiles_directory="${HOME}/.dotfiles"
 dotfiles_root_directory="/opt/dotfiles"
 
 function install_dotfiles () {
-    [ -d /usr/share/xsessions ] || sudo mkdir /usr/share/xsessions
-    
+    print_message "Installing user dotfiles"
+
     # Remove stow root directory
     rm -rf stow_root
 
@@ -19,6 +19,10 @@ function install_dotfiles () {
         cd "${dotfiles_directory}" \
         && stow * || print_error "Unable to install dotfiles"
     
+    print_message "Installing root dotfiles"
+
+    [ -d /usr/share/xsessions ] || sudo mkdir /usr/share/xsessions
+
     # move and install root part of the dotfiles
     sudo git clone https://gitlab.com/dev.quentinfranchi/dotfiles "${dotfiles_root_directory}_temp" \
         && mv "${dotfiles_root_directory}_temp/stow_root" "${dotfiles_root_directory}" \
@@ -34,5 +38,4 @@ function install_dotfiles () {
     sudo stow * || print_error "Unable to install dotfiles"
 }
 
-print_message "Installing dotfiles"
 install_dotfiles
