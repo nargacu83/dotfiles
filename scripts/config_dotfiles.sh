@@ -12,7 +12,7 @@ function install_dotfiles () {
     [ -d /usr/share/xsessions ] || sudo mkdir /usr/share/xsessions
     
     # Remove stow root directory
-    rm -rf stow_home
+    rm -rf stow_root
 
     # move and install user of the dotfiles
     mv stow_home "${dotfiles_directory}" && \
