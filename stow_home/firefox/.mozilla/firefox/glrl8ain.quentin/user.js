@@ -30,10 +30,16 @@ user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-f
 user_pref("browser.newtabpage.pinned", "[]");
 user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts", false);
 
+user_pref("dom.webnotifications.enabled", false);
+
 // Search Engine
 user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
 user_pref("browser.search.hiddenOneOffs", "Google,Bing,eBay,Qwant,Wikipédia (fr)");
 user_pref("extensions.reset_default_search.runonce.3", true);
+
+
+user_pref("privacy.resistFingerprinting", true);
+user_pref("geo.enabled", false);
 
 /** HTTPS Only **/
 user_pref("dom.security.https_only_mode", true);
