@@ -1,0 +1,118 @@
+#!/bin/sh
+
+# TODO: Objective of this script: Centralise media control for music
+
+radio=("Lofi Girl ☕️🎶"
+       "Chillhop ☕️🎶"
+       "The Bootleg Boy ☕️🎶"
+       "Radio Spinner ☕️🎶")
+
+radio_url=("https://youtu.be/5qap5aO4i9A"
+           "https://youtu.be/5yx6BWlEVcY"
+           "https://youtu.be/l7TxwBhtTUY"
+           "https://youtu.be/I83XWCSBgSc")
+
+playlist=()
+playlist_url=()
+
+video=()
+video_url=()
+
+mpv_args="--no-video --volume=30"
+rofi_menu_command="rofi -dmenu -no-lazy-grab -theme theme/filemenu.rasi | cut -d. -f1"
+
+notification(){
+    notify-send "En cours de lecture: " "$@" --icon=media-tape
+}
+
+menu_main(){
+    printf "1. Radio\n"
+    printf "2. Playlist\n"
+    printf "3. Video\n"
+}
+
+
+menu(){
+    for i in ${!$1[*]}; do
+        printf "$((i + 1)). ${$1[$i]}\n"
+    done
+}
+
+menu_radio(){
+    for i in ${!radio[*]}; do
+        printf "$((i + 1)). ${radio[$i]}\n"
+    done
+}
+
+menu_playlist(){
+    for i in ${!playlist[*]}; do
+        printf "$((i + 1)). ${playlist[$i]}\n"
+    done
+}
+
+menu_video(){
+    for i in ${!video[*]}; do
+        printf "$((i + 1)). ${video[$i]}\n"
+    done
+}
+
+launch_menu(){
+    if [ ${1} == "radio" ] || [ ${1} == "playlist" ] || [ ${1} == "video" ]
+    then
+        choice=$("menu" ${1} | ${rofi_menu_command})
+
+    else
+        echo "Unknown menu"
+    fi
+}
+
+# play the selected music
+# ${1} = Name
+# ${2} = URL
+play_music(){
+    notification ${1};
+    # run mpv with args and selected url
+    # added title arg to make sure the pkill command kills only this instance of mpv
+    mpv ${mpv_args} --title="radio-mpv" ${2}
+}
+
+mytest(){
+    echo ${$1}
+}
+
+main() {
+    mytest ${1}
+    exit
+    launch_menu radio
+    exit
+    choice=$(menu_test | rofi -dmenu -no-lazy-grab -theme theme/filemenu.rasi | cut -d. -f1)
+
+	case $choice in
+		1)
+			notification "Lofi Girl ☕️🎶";
+            URL="https://youtu.be/5qap5aO4i9A"
+			break
+			;;
+		2)
+			notification "Chillhop ☕️🎶";
+            URL="https://youtu.be/5yx6BWlEVcY"
+			break
+			;;
+		3)
+			notification "The Bootleg Boy ☕️🎶";
+            URL="https://youtu.be/l7TxwBhtTUY"
+			break
+			;;
+		4)
+			notification "Radio Spinner ☕️🎶";
+            URL="https://youtu.be/I83XWCSBgSc"
+			break
+			;;
+	esac
+    # run mpv with args and selected url
+    # added title arg to make sure the pkill command kills only this instance of mpv
+    mpv $ARGS --title="radio-mpv" $URL
+}
+
+main
+# pkill -f radio-mpv || main
