@@ -12,8 +12,8 @@ radio_url=("https://youtu.be/5qap5aO4i9A"
            "https://youtu.be/l7TxwBhtTUY"
            "https://youtu.be/I83XWCSBgSc")
 
-playlist=()
-playlist_url=()
+playlist=("John Wick Music")
+playlist_url=("https://youtube.com/playlist?list=PLoF6yioKKKUV0Uo3lnKmdfw-PpQLTPhKo")
 
 video=()
 video_url=()
@@ -31,10 +31,15 @@ menu_main(){
     printf "3. Video\n"
 }
 
-
+# TODO: OULA, ça me parait complexe de faire un truc dans ce genre
 menu(){
-    for i in ${!$1[*]}; do
-        printf "$((i + 1)). ${$1[$i]}\n"
+    array_name="${1}"
+    array_synthax="!${array_name}[*]"
+    echo "${array_synthax}"
+    exit
+    # echo ${!array_name[*]}
+    for i in "${!${!array_name}[*]}"; do
+        printf "$((i + 1)). ${!array_name[$i]}\n"
     done
 }
 
@@ -60,7 +65,7 @@ launch_menu(){
     if [ ${1} == "radio" ] || [ ${1} == "playlist" ] || [ ${1} == "video" ]
     then
         choice=$("menu" ${1} | ${rofi_menu_command})
-
+        # play_music ${radio[${choice}]}
     else
         echo "Unknown menu"
     fi
@@ -76,42 +81,8 @@ play_music(){
     mpv ${mpv_args} --title="radio-mpv" ${2}
 }
 
-mytest(){
-    echo ${$1}
-}
-
 main() {
-    mytest ${1}
-    exit
     launch_menu radio
-    exit
-    choice=$(menu_test | rofi -dmenu -no-lazy-grab -theme theme/filemenu.rasi | cut -d. -f1)
-
-	case $choice in
-		1)
-			notification "Lofi Girl ☕️🎶";
-            URL="https://youtu.be/5qap5aO4i9A"
-			break
-			;;
-		2)
-			notification "Chillhop ☕️🎶";
-            URL="https://youtu.be/5yx6BWlEVcY"
-			break
-			;;
-		3)
-			notification "The Bootleg Boy ☕️🎶";
-            URL="https://youtu.be/l7TxwBhtTUY"
-			break
-			;;
-		4)
-			notification "Radio Spinner ☕️🎶";
-            URL="https://youtu.be/I83XWCSBgSc"
-			break
-			;;
-	esac
-    # run mpv with args and selected url
-    # added title arg to make sure the pkill command kills only this instance of mpv
-    mpv $ARGS --title="radio-mpv" $URL
 }
 
 main
