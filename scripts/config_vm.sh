@@ -11,16 +11,14 @@ libvirt
 edk2-ovmf
 virt-manager
 dnsmasq
+ebtables
 "
-
-# TODO: Need to fix a little conflict
-PKG_TEMP="ebtables"
 
 print_message "Configuring Virtual Machine"
 
+sudo pacman -Rns iptables
 sudo pacman -S --needed --noconfirm ${PKG_VM}
-sudo pacman -S --needed --noconfirm ${PKG_TEMP}
-systemctl enable --now libvirtd
-virsh net-start default
-virsh net-autostart default
-usermod -aG kvm,input,libvirt quentin
+sudo systemctl enable --now libvirtd
+sudo virsh net-start default
+sudo virsh net-autostart default
+sudo usermod -aG kvm,input,libvirt quentin
