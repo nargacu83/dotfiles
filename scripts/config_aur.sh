@@ -7,8 +7,6 @@ source ./globals.sh
 
 PKG_AUR_APPS="
 freetube-bin
-vscodium-bin
-vscodium-bin-marketplace
 etcher-bin"
 
 PKG_AUR_FONTS="
