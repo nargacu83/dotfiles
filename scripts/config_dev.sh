@@ -20,6 +20,10 @@ PKG_DEV_DOTNET="dotnet-host dotnet-runtime dotnet-sdk dotnet-targeting-pack mono
 # Java Support
 PKG_DEV_JDK="jdk-openjdk jre-openjdk"
 
+function install_doom_emacs () {
+    git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs. && cd ~/.emacs.d/bin/doom && ./install
+}
+
 print_message "Configuring developement"
 
 sudo pacman -S --needed --noconfirm ${PKG_ENGINE}
@@ -27,3 +31,5 @@ sudo pacman -S --needed --noconfirm ${PKG_EDITORS}
 sudo pacman -S --needed --noconfirm ${PKG_DEV_DOCKER}
 sudo pacman -S --needed --noconfirm ${PKG_DEV_DOTNET}
 sudo pacman -S --needed --noconfirm ${PKG_DEV_JDK}
+
+install_doom_emacs
