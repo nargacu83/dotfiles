@@ -38,6 +38,11 @@ if [ -x "$(command -v redshift)" ]; then
   redshift-gtk &
 fi
 
+#start emacs deamon
+if [ -x "$(command -v emacs)" ]; then
+  emacs --daemon &
+fi
+
 #start pcmanfm deamon
 if [ -x "$(command -v pcmanfm)" ]; then
   pcmanfm -d &
