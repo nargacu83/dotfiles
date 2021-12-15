@@ -33,6 +33,12 @@ if [ -x "$(command -v dunst)" ]; then
   dunst &
 fi
 
+# easyeffects
+if [ -x "$(command -v easyeffects)" ]; then
+  easyeffects --gapplication-service -l MonPetitProfil &
+  setmicvolume
+fi
+
 #set redshift for night light
 if [ -x "$(command -v redshift)" ]; then
   redshift-gtk &
