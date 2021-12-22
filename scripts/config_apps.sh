@@ -52,6 +52,11 @@ PKG_APPS_OFFICE="
 libreoffice-fresh
 "
 
+
+function install_firefox_gnome_theme () {
+    git clone https://github.com/rafaelmardojai/firefox-gnome-theme ~/firefox-gnome-theme/ && ~/firefox-gnome-theme/scripts/install.sh
+}
+
 print_message "Configuring apps"
 
 sudo pacman -S --needed --noconfirm ${PKG_APPS}
@@ -60,3 +65,5 @@ sudo pacman -S --needed --noconfirm ${PKG_APPS_GRAPHICS}
 sudo pacman -S --needed --noconfirm ${PKG_APPS_FILE_MANAGER}
 sudo pacman -S --needed --noconfirm ${PKG_SOCIAL}
 sudo pacman -S --needed --noconfirm ${PKG_APPS_OFFICE}
+
+install_firefox_gnome_theme
