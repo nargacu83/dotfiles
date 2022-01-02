@@ -87,6 +87,7 @@ cups
 cups-filters
 cups-pdf
 system-config-printer
+imagescan
 "
 
 # Archive
