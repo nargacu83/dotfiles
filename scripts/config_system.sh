@@ -79,6 +79,7 @@ pavucontrol
 # Network management
 PKG_NETWORK="
 nm-connection-editor
+gufw
 "
 
 # Printer drivers and management
