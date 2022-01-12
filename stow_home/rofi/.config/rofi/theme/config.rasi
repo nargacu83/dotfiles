@@ -12,7 +12,7 @@ configuration {
   text-mono-font: "Cantarell 14";
   icon-font:      "forkawesome 20";
 
-  background-color: transparent;
+  background-color: @bg-dark;
   text-color: @fg;
   font: @text-font;
   border-color: @bg-dark;
@@ -22,30 +22,28 @@ configuration {
 /**** Layout ****/
 window {
   width:    1000px;
-  anchor:   center;
-  location: center;
+  anchor:   north;
+  location: north;
   x-offset: 0px;
-  y-offset: 0px;
+  y-offset: 35px;
   border: 2px;
-  children: [ inputbar, listview ];
+  children: [ listview, inputbar ];
 }
 
 listview {
-  lines: 12;
+  lines: 6;
   fixed-height: true;
-  /* reverse: true; */
+  reverse: true;
   columns: 2;
   scrollbar: true;
   spacing: 1px;
-  /* Remove strange gap between listview and inputbar */
-  margin: -2px 0 0;
 }
 
 scrollbar {
   handle-width: 2px;
 }
 inputbar {
-  children: [ textbox-icon, prompt, entry ];
+  children: [ prompt, entry ];
   border: 0 0 0;
 }
 textbox-icon, prompt {
@@ -61,6 +59,7 @@ entry, element {
   padding: 10px 13px;
 }
 element-icon {
+  background-color: transparent;
   size: 24px;
   margin: 0px 8px 0px 0px;
 }
@@ -75,16 +74,10 @@ scrollbar {
   handle-color: @accent;
   border-color: @bg-dark;
 }
-listview, inputbar {
-  background-color: @bg-dark;
-}
 textbox-icon, prompt, entry {
   text-color: @accent;
 }
 prompt, entry {
-  background-color: @bg;
-}
-textbox-icon, prompt {
   background-color: @bg;
 }
 prompt {
@@ -105,6 +98,9 @@ element selected {
   background-color: @accent;
   text-color: @bg-dark;
 }
+element-text {
+  background-color: transparent;
+}
 element-text selected {
-    text-color: @bg-dark;
+  text-color: @bg-dark;
 }

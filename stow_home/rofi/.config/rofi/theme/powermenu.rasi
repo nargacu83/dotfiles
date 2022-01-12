@@ -4,25 +4,25 @@
  */
 @import "appmenu.rasi"
 
-window {
-  children: [ listview ];
-  width: 500px;
-  height: 426px;
-  anchor:   center;
-  location: center;
-  x-offset: 0px;
-  y-offset: 0px;
-}
+/* window { */
+/*   children: [ listview ]; */
+/*   width: 500px; */
+/*   height: 426px; */
+/*   anchor:   center; */
+/*   location: center; */
+/*   x-offset: 0px; */
+/*   y-offset: 0px; */
+/* } */
 
-listview {
-  scrollbar: false;
-}
+/* listview { */
+/*   scrollbar: false; */
+/* } */
 
-element {
-  padding: 30px;
-  background-color: @bg-light;
-}
-element.selected {
-  background-color: @accent;
-  text-color: @bg;
-}
+/* element { */
+/*   padding: 30px; */
+/*   background-color: @bg-light; */
+/* } */
+/* element.selected { */
+/*   background-color: @accent; */
+/*   text-color: @bg; */
+/* } */

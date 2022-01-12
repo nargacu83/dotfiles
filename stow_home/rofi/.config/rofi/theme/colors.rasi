@@ -5,7 +5,7 @@
   bg:       #1E2029FA;
   bg-light: #1c1c1c;
   bg-focus: #282a36;
-  bg-dark:  #181a23;
+  bg-dark:  #000000;
   fg:       #f8f8f2;
   fg-list:  #f8f8f2;
   on:       #8BD49C;
