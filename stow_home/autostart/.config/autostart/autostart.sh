@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# dwmblocks
-if [ -x "$(command -v dwmblocks)" ]; then
-  dwmblocks &
-fi
+# Status bar
+statusbar &
 
 # sxhkd
 if [ -x "$(command -v sxhkd)" ]; then
