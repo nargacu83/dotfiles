@@ -21,17 +21,17 @@ configuration {
 
 /**** Layout ****/
 window {
-  width:    1000px;
+  width:    800px;
   anchor:   north;
   location: north;
   x-offset: 0px;
   y-offset: 35px;
-  border: 2px;
+  border: 1px;
   children: [ listview, inputbar ];
 }
 
 listview {
-  lines: 6;
+  lines: 5;
   fixed-height: true;
   reverse: true;
   columns: 2;
