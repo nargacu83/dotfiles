@@ -1,7 +1,8 @@
 [global]
 alignment = left
+offset = 10x45
 bounce_freq = 0
-browser = librewolf -new-tab
+browser = firefox -new-tab
 corner_radius = 0
 dmenu = rofi -dmenu -p dunst:
 follow = none
