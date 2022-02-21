@@ -7,10 +7,15 @@ source ./globals.sh
 
 PKG_AUR_APPS="
 freetube-bin
-etcher-bin"
+etcher-bin
+itch
+joshuto
+material-maker-bin
+"
 
 PKG_AUR_FONTS="
 ttf-fork-awesome
+nerd-fonts-jetbrains-mono
 "
 
 PKG_AUR_STYLE="

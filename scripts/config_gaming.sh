@@ -57,7 +57,8 @@ lib32-vulkan-icd-loader"
 PKG_GAMING_APPS="
 gamemode
 lutris
-steam"
+steam
+"
 
 print_message "Configuring gaming"
 
