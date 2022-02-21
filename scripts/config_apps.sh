@@ -16,6 +16,17 @@ libqalculate
 openssh
 converseen
 btop
+neofetch
+onefetch
+radeontop
+yt-dlp
+fragments
+flatpak
+"
+
+PKG_APPS_FLATPAK="
+com.discordapp.Discord
+com.github.micahflee.torbrowser-launcher
 "
 
 PKG_APPS_BROWSER="
@@ -40,16 +51,15 @@ ffmpegthumbnailer
 pcmanfm-gtk3
 file-roller
 filelight
-ranger
 "
 
 PKG_SOCIAL="
 element-desktop
-discord
 "
 
 PKG_APPS_OFFICE="
 libreoffice-fresh
+libreoffice-fresh-fr
 "
 
 
@@ -65,5 +75,7 @@ sudo pacman -S --needed --noconfirm ${PKG_APPS_GRAPHICS}
 sudo pacman -S --needed --noconfirm ${PKG_APPS_FILE_MANAGER}
 sudo pacman -S --needed --noconfirm ${PKG_SOCIAL}
 sudo pacman -S --needed --noconfirm ${PKG_APPS_OFFICE}
+
+flatpak install -y ${PKG_APPS_FLATPAK}
 
 install_firefox_gnome_theme
