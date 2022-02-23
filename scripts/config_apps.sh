@@ -27,6 +27,8 @@ flatpak
 PKG_APPS_FLATPAK="
 com.discordapp.Discord
 com.github.micahflee.torbrowser-launcher
+com.obsproject.Studio
+io.dbeaver.DBeaverCommunity
 "
 
 PKG_APPS_BROWSER="

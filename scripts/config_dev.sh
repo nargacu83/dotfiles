@@ -39,10 +39,6 @@ jdk-openjdk
 jre-openjdk
 "
 
-PKG_DEV_WEB="
-dbeaver
-"
-
 function install_doom_emacs () {
     git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d && ~/.emacs.d/bin/doom -y install
 }
@@ -54,6 +50,5 @@ sudo pacman -S --needed --noconfirm ${PKG_EDITORS}
 sudo pacman -S --needed --noconfirm ${PKG_DEV_DOCKER}
 sudo pacman -S --needed --noconfirm ${PKG_DEV_DOTNET}
 sudo pacman -S --needed --noconfirm ${PKG_DEV_JDK}
-sudo pacman -S --needed --noconfirm ${PKG_DEV_WEB}
 
 install_doom_emacs
