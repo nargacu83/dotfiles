@@ -1,0 +1,10 @@
+# Configurations related to the display
+[display]
+# Collapse the preview window when there is no preview available
+collapse_preview = true
+# Show borders around different views
+show_borders = false
+# Show hidden files
+show_hidden = true
+# Show file icons (requires a supporting font)
+show_icons = true
