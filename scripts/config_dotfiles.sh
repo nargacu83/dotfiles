@@ -19,12 +19,11 @@ function install_dotfiles () {
     [[ -d "${dotfiles_root_directory}_temp" ]] && sudo rm -rf "${dotfiles_root_directory}_temp"
 
     # move and install root part of the dotfiles
-    # sudo git clone https://gitlab.com/dev.quentinfranchi/dotfiles "${dotfiles_root_directory}_temp" \
-    #     && sudo mv "${dotfiles_root_directory}_temp/stow_root" "${dotfiles_root_directory}" \
-    #     && sudo rm -rf "${dotfiles_root_directory}_temp" \
-    #     && cd "${dotfiles_root_directory}"
+    sudo git clone https://gitlab.com/dev.quentinfranchi/dotfiles "${dotfiles_root_directory}_temp" \
+        && sudo mv "${dotfiles_root_directory}_temp/stow_root" "${dotfiles_root_directory}" \
+        && sudo rm -rf "${dotfiles_root_directory}_temp" \
+        && cd "${dotfiles_root_directory}"
 
-    cd stow_root
     for directory in $( ls -p | grep / ); do
         CONFLICTS=$(stow --no --verbose ${directory} 2>&1 | awk '/\* existing target is/ {print $NF}')
         for f in ${CONFLICTS[@]}; do
