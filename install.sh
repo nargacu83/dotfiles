@@ -89,5 +89,3 @@ sh "scripts/config_vm.sh"
 clear_pacman_cache
 
 remove_install_directory
-
-print_message "Don't forget to delete ${FILE_DIRECTORY} after reboot."
