@@ -52,7 +52,10 @@ lib32-gtk3
 gst-plugins-base-libs
 lib32-gst-plugins-base-libs
 vulkan-icd-loader
-lib32-vulkan-icd-loader"
+lib32-vulkan-icd-loader
+vkd3d
+lib32-vkd3d
+"
 
 PKG_GAMING_APPS="
 gamemode
