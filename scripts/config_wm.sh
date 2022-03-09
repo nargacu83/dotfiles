@@ -11,7 +11,6 @@ sxhkd
 
 PKG_DWM="
 dwm
-dwmblocks
 "
 
 function install_dwm () {
