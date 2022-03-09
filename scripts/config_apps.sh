@@ -22,6 +22,7 @@ radeontop
 yt-dlp
 qbittorrent
 flatpak
+gitui
 "
 
 PKG_APPS_FLATPAK="
