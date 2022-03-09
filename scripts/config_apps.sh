@@ -20,7 +20,7 @@ neofetch
 onefetch
 radeontop
 yt-dlp
-fragments
+qbittorrent
 flatpak
 "
 
