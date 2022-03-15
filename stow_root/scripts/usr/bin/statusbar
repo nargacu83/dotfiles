@@ -11,7 +11,7 @@ _updates() {
     if [ $v -eq 0 ]; then
         printf ""
     else
-        printf "${v} MAJs  "
+        printf "${v} MAJs "
     fi
 }
 
@@ -28,8 +28,9 @@ _clock() {
 interval=0
 while true; do
 
-	[ $(($interval % 300)) = 0 ] && _updates=$(_updates)
+    [ $(($interval % 300)) = 0 ] && _updates=$(_updates)
     interval=$((interval + 1))
 
-    sleep 1 && xsetroot -name "$(_memory)${_updates}$(_date)$(_clock)"
+    # using ";" to separate the status text, left side is in the middle
+    sleep 1 && xsetroot -name "$(_date)$(_clock);$(_memory)${_updates}"
 done
