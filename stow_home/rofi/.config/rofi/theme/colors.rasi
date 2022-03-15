@@ -1,10 +1,10 @@
 /* colors */
 
 * {
-  accent:   #51afef;
+  accent:   #bd93f9;
   bg:       #1E2029FA;
   bg-light: #1c1c1c;
-  bg-focus: #282c34;
+  bg-focus: #282a36;
   bg-dark:  #000000;
   fg:       #ffffff;
   fg-list:  #ffffff;

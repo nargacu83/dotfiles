@@ -1,0 +1,54 @@
+#!/bin/sh
+
+# Modified script from: https://github.com/Carbon-Bl4ck/Rofi-Beats
+# add more args here according to preference
+ARGS="--no-video --volume=30"
+
+notification(){
+# change the icon to whatever you want. Make sure your notification server 
+# supports it and already configured.
+
+# Now it will receive argument so the user can rename the radio title
+# to whatever they want
+
+	notify-send "En cours de lecture: " "$@" --icon=media-tape
+}
+
+menu(){
+	printf "1. Lofi Girl\n"
+	printf "2. Chillhop\n"
+	printf "3. The Bootleg Boy\n"
+	printf "4. Radio Spinner\n"
+}
+
+main() {
+	choice=$(menu | rofi -dmenu -no-lazy-grab -theme theme/appmenu.rasi | cut -d. -f1)
+
+	case $choice in
+		1)
+			notification "Lofi Girl ☕️🎶";
+            URL="https://youtu.be/5qap5aO4i9A"
+			break
+			;;
+		2)
+			notification "Chillhop ☕️🎶";
+            URL="https://youtu.be/5yx6BWlEVcY"
+			break
+			;;
+		3)
+			notification "The Bootleg Boy ☕️🎶";
+            URL="https://youtu.be/l7TxwBhtTUY"
+			break
+			;;
+		4)
+			notification "Radio Spinner ☕️🎶";
+            URL="https://youtu.be/I83XWCSBgSc"
+			break
+			;;
+	esac
+    # run mpv with args and selected url
+    # added title arg to make sure the pkill command kills only this instance of mpv
+    mpv $ARGS --title="radio-mpv" $URL
+}
+
+pkill -f radio-mpv || main

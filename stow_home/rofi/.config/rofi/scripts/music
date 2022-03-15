@@ -2,10 +2,10 @@
 
 # TODO: Objective of this script: Centralise media control for music
 
-radio=("Lofi Girl ☕️🎶"
-       "Chillhop ☕️🎶"
-       "The Bootleg Boy ☕️🎶"
-       "Radio Spinner ☕️🎶")
+radio=("https://youtu.be/5qap5aO4i9A;Lofi Girl"
+       "https://youtu.be/5yx6BWlEVcY;Chillhop"
+       "https://youtu.be/l7TxwBhtTUY;The Bootleg Boy"
+       "https://youtu.be/I83XWCSBgSc;Radio Spinner")
 
 radio_url=("https://youtu.be/5qap5aO4i9A"
            "https://youtu.be/5yx6BWlEVcY"
@@ -19,7 +19,7 @@ video=()
 video_url=()
 
 mpv_args="--no-video --volume=30"
-rofi_menu_command="rofi -dmenu -no-lazy-grab -theme theme/filemenu.rasi | cut -d. -f1"
+rofi_menu_command="rofi -dmenu -no-lazy-grab -theme theme/appmenu.rasi | cut -d. -f1"
 
 notification(){
     notify-send "En cours de lecture: " "$@" --icon=media-tape
@@ -31,54 +31,50 @@ menu_main(){
     printf "3. Video\n"
 }
 
-# TODO: OULA, ça me parait complexe de faire un truc dans ce genre
 menu(){
-    array_name="${1}"
-    array_synthax="!${array_name}[*]"
-    echo "${array_synthax}"
-    exit
-    # echo ${!array_name[*]}
-    for i in "${!${!array_name}[*]}"; do
-        printf "$((i + 1)). ${!array_name[$i]}\n"
-    done
-}
-
-menu_radio(){
-    for i in ${!radio[*]}; do
-        printf "$((i + 1)). ${radio[$i]}\n"
-    done
-}
-
-menu_playlist(){
-    for i in ${!playlist[*]}; do
-        printf "$((i + 1)). ${playlist[$i]}\n"
-    done
-}
-
-menu_video(){
-    for i in ${!video[*]}; do
-        printf "$((i + 1)). ${video[$i]}\n"
-    done
+    case ${1} in
+        "radio")
+            array=("${radio[@]}")
+            ;;
+        "playlist")
+            array=("${playlist[@]}")
+            ;;
+        "video")
+            array=("${video[@]}")
+            ;;
+        *) "Unknown menu";;
+    esac
+    IFS=';' read -ra selected <<< "$array"
+    echo ${selected}
+    # IFS='||' read -ra array <<< "${radio}"
+    # for i in "${array[@]}"; do
+    #     readarray -d , -t line<<<${1}
+    #     # for w in line; do
+    #     # done
+    #     echo "${line[0]}"
+    # done
+    # for (( i=0; i<${#array[@]}; i++ ));
+    # do
+    #     printf "$((i + 1)). ${radio[$i]}\n"
+    # done
 }
 
 launch_menu(){
-    if [ ${1} == "radio" ] || [ ${1} == "playlist" ] || [ ${1} == "video" ]
-    then
-        choice=$("menu" ${1} | ${rofi_menu_command})
-        # play_music ${radio[${choice}]}
-    else
-        echo "Unknown menu"
-    fi
+    choice=$("menu" ${1} | ${rofi_menu_command})
+    # play_music "${array[${choice}]}" "${array_url[${choice}]}"
 }
 
 # play the selected music
 # ${1} = Name
 # ${2} = URL
 play_music(){
+
+
     notification ${1};
+    notification ${2};
     # run mpv with args and selected url
     # added title arg to make sure the pkill command kills only this instance of mpv
-    mpv ${mpv_args} --title="radio-mpv" ${2}
+    # mpv ${mpv_args} --title="radio-mpv" ${2}
 }
 
 main() {

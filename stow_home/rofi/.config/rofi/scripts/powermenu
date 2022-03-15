@@ -11,7 +11,7 @@ log_out=" Deconnexion"
 # Variable passed to rofi
 options="$power_off\n$reboot\n$lock\n$suspend\n$log_out"
 
-condition=$(echo -e "$options" | $rofi_command -dmenu -selected-row 2)
+condition=$(echo -e "$options" | $rofi_command -dmenu)
 
 case $condition in
     $power_off)
