@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+# Styles
+NC='\033[0m' # No Color
+BOLD=$(tput bold)
+NORMAL=$(tput sgr0)
+
+function print_message() {
+    echo -e "${BOLD}${2}==>${NC} ${BOLD}${1}${NORMAL}"
+}
+
+print_message "Checking for System and AUR packages updates..." ${BLUE}
+paru
+
+print_message "Checking for Flatpak updates..." ${BLUE}
+flatpak update
+
+print_message "Checking for Rust updates..." ${BLUE}
+rustup update
+
+print_message "Cleaning..." ${BLUE}
+paru --noconfirm -Scc
+
+print_message "Updates finished" ${GREEN}
