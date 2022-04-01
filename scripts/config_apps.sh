@@ -26,6 +26,7 @@ gitui
 "
 
 PKG_APPS_FLATPAK="
+com.github.tchx84.Flatseal
 com.discordapp.Discord
 com.github.micahflee.torbrowser-launcher
 com.obsproject.Studio
