@@ -6,7 +6,6 @@
 source ./globals.sh
 
 PKG_AUR_APPS="
-freetube-bin
 etcher-bin
 itch
 joshuto
