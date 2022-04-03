@@ -26,12 +26,13 @@ gitui
 "
 
 PKG_APPS_FLATPAK="
-io.freetubeapp.FreeTube
 com.github.tchx84.Flatseal
-com.discordapp.Discord
-com.github.micahflee.torbrowser-launcher
+com.usebottles.bottles
+io.freetubeapp.FreeTube
 com.obsproject.Studio
+com.github.micahflee.torbrowser-launcher
 io.dbeaver.DBeaverCommunity
+com.discordapp.Discord
 "
 
 PKG_APPS_BROWSER="
