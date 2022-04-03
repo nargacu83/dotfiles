@@ -27,7 +27,6 @@ gitui
 
 PKG_APPS_FLATPAK="
 com.github.tchx84.Flatseal
-com.usebottles.bottles
 io.freetubeapp.FreeTube
 com.obsproject.Studio
 com.github.micahflee.torbrowser-launcher

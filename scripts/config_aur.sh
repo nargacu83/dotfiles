@@ -10,6 +10,7 @@ etcher-bin
 itch
 joshuto
 material-maker-bin
+bottles
 "
 
 PKG_AUR_FONTS="
