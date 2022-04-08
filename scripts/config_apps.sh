@@ -6,7 +6,7 @@
 source ./globals.sh
 
 PKG_APPS="
-feh
+nitrogen
 rofi
 redshift
 dunst
