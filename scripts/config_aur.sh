@@ -6,11 +6,10 @@
 source ./globals.sh
 
 PKG_AUR_APPS="
-etcher-bin
+ventoy-bin
 itch
 joshuto
 material-maker-bin
-bottles
 "
 
 PKG_AUR_FONTS="
