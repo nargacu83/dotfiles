@@ -20,7 +20,6 @@ neofetch
 onefetch
 radeontop
 yt-dlp
-qbittorrent
 flatpak
 gitui
 "
