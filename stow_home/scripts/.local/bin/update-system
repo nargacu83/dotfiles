@@ -20,6 +20,9 @@ paru
 print_message "Checking for Flatpak updates..." ${BLUE}
 flatpak update
 
+print_message "Checking for Doom Emacs updates..." ${BLUE}
+doom upgrade
+
 print_message "Checking for Rust updates..." ${BLUE}
 rustup update
 
