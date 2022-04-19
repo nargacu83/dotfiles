@@ -1,14 +1,14 @@
 [Default Applications]
 inode/directory=pcmanfm.desktop
-text/x-csharp=emacs.desktop
-text/plain=emacs.desktop
+text/x-csharp=emacsclient.desktop
+text/plain=emacsclient.desktop
 text/csv=libreoffice-calc.desktop
 text/html=firefox.desktop
-image/jpeg=feh.desktop
-image/svg+xml=feh.desktop
-image/png=feh.desktop
+image/jpeg=nsxiv.desktop
+image/svg+xml=nsxiv.desktop
+image/png=nsxiv.desktop
 image/gif=mpv.desktop
-application/json=emacs.desktop
+application/json=emacsclient.desktop
 application/xhtml+xml=firefox.desktop
 application/x-extension-htm=firefox.desktop
 application/x-extension-html=firefox.desktop
@@ -23,3 +23,6 @@ x-scheme-handler/unknown=firefox.desktop
 x-scheme-handler/chrome=firefox.desktop
 x-scheme-handler/nxm=modorganizer2-nxm-handler.desktop
 x-scheme-handler/unityhub=unityhub-handler.desktop
+
+[Added Associations]
+application/octet-stream=org.gnome.FileRoller.desktop;emacsclient.desktop;
