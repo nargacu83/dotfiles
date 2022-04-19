@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=UnrealEngine
-Exec=/home/quentin/PROJECTS/Logiciels/UnrealEngine/Engine/Binaries/Linux/UE4Editor %U
+Exec=/mnt/PROJECTS/Perso/Unreal/UnrealEngine/Engine/Binaries/Linux/UnrealEditor %U
 Terminal=false
 Type=Application
 Icon=unreal-engine
