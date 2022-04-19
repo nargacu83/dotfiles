@@ -9,6 +9,7 @@ PKG_AUR_APPS="
 ventoy-bin
 itch
 joshuto
+nsxiv
 material-maker-bin
 "
 
