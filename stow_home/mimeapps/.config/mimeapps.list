@@ -1,5 +1,5 @@
 [Default Applications]
-inode/directory=pcmanfm.desktop
+inode/directory=org.gnome.Nautilus.desktop
 text/x-csharp=emacsclient.desktop
 text/plain=emacsclient.desktop
 text/csv=libreoffice-calc.desktop
@@ -7,7 +7,7 @@ text/html=firefox.desktop
 image/jpeg=nsxiv.desktop
 image/svg+xml=nsxiv.desktop
 image/png=nsxiv.desktop
-image/gif=mpv.desktop
+image/gif=nsxiv.desktop
 application/json=emacsclient.desktop
 application/xhtml+xml=firefox.desktop
 application/x-extension-htm=firefox.desktop

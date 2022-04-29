@@ -49,10 +49,13 @@ if [ -x "$(command -v emacs)" ]; then
   emacs --daemon &
 fi
 
-#start pcmanfm deamon
-if [ -x "$(command -v pcmanfm)" ]; then
-  pcmanfm -d &
+# file manager
+if [ -x "$(command -v nautilus)" ]; then
+  nautilus --gapplication-service &
 fi
+# if [ -x "$(command -v pcmanfm)" ]; then
+#   pcmanfm -d &
+# fi
 
 # Make sure to synchronize time
 timedatectl set-ntp true

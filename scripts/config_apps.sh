@@ -52,7 +52,8 @@ gvfs-smb
 gvfs-mtp
 tumbler
 ffmpegthumbnailer
-pcmanfm-gtk3
+nautilus
+nautilus-share
 file-roller
 filelight
 "
