@@ -12,16 +12,18 @@ source ./globals.sh
 
 # MOUNT CONFIG
 declare DISKS_TO_MOUNT_POINT=(
-    "/mnt/PROJECTS"
+    "/mnt/PRO"
+    "/mnt/PERSO"
     "/mnt/GAMES"
-    "/mnt/FAST"
+    "/mnt/GAMES2"
     "/mnt/VM"
 )
 declare DISKS_TO_MOUNT=(
     "UUID=e3534ff7-8cd8-438f-80ea-e683214b9614    ${DISKS_TO_MOUNT_POINT[0]}   ext4    defaults    0 0"
     "UUID=d7bbe9d8-4f98-4d87-b26a-34c75907f71a    ${DISKS_TO_MOUNT_POINT[1]}   ext4    defaults    0 0"
-    "UUID=cd160b21-cc65-4953-a138-3f9449cfcd95    ${DISKS_TO_MOUNT_POINT[2]}   ext4    defaults    0 0"
-    "UUID=dfefbc94-b693-4ce5-8511-72f6c837a7ec    ${DISKS_TO_MOUNT_POINT[3]}   ext4    defaults    0 0"
+    "UUID=cf103adb-84b5-4050-a100-a69b00daba41    ${DISKS_TO_MOUNT_POINT[2]}   ext4    defaults    0 0"
+    "UUID=cd160b21-cc65-4953-a138-3f9449cfcd95    ${DISKS_TO_MOUNT_POINT[3]}   ext4    defaults    0 0"
+    "UUID=dfefbc94-b693-4ce5-8511-72f6c837a7ec    ${DISKS_TO_MOUNT_POINT[4]}   ext4    defaults    0 0"
 )
 
 function config_fstab () {
