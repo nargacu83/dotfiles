@@ -6,6 +6,7 @@
 source ./globals.sh
 
 PKG_AUR_APPS="
+picom-jonaburg-git
 ventoy-bin
 itch
 joshuto
