@@ -6,7 +6,7 @@
 source ./globals.sh
 
 PKG_VM="
-qemu
+qemu-full
 libvirt
 edk2-ovmf
 virt-manager
