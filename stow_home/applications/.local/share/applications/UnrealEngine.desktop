@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=UnrealEngine
-Exec=/mnt/PERSO/Projects/Unreal/UnrealEngine/Engine/Binaries/Linux/UnrealEditor %U
-Terminal=false
-Type=Application
-Icon=unreal-engine
-Comment=A 3D game engine by Epic Games which can be used non-commercially for free.
