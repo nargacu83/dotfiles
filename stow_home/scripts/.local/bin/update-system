@@ -15,18 +15,16 @@ function print_message() {
 }
 
 print_message "Checking for system and aur packages updates..." ${BLUE}
-paru && paru --noconfirm -Scc
+paru && paru --noconfirm -Scc || exit
 
 print_message "Checking for Flatpak updates..." ${BLUE}
-flatpak update
+flatpak update || exit
 
 print_message "Checking for Doom Emacs updates..." ${BLUE}
-doom upgrade
-doom purge
-killall emacs
-emacs --daemon &
+doom upgrade && doom purge || exit
+systemctl --user restart emacs
 
 print_message "Checking for Rust updates..." ${BLUE}
-rustup update
+rustup update || exit
 
 print_message "Updates finished" ${GREEN}
