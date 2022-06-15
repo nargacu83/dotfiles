@@ -22,6 +22,8 @@ radeontop
 yt-dlp
 flatpak
 gitui
+libratbag
+piper
 "
 
 PKG_APPS_FLATPAK="
