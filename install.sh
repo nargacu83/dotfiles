@@ -26,7 +26,7 @@ INSTALL_FLATPAKS=1
 ENABLE_MULTILIB=1
 # If PARALLEL_DOWNLOADS is greater than 0, it will be set otherwise ignored
 PARALLEL_DOWNLOADS=0
-
+FSTAB=()
 errors=()
 
 function print_message() {
@@ -90,7 +90,7 @@ function enable_parallel_downloads () {
 }
 
 function init_install_directory() {
-    [[ -d ${INSTALL_DIRECTORY} ]] && print_error "Install directory already exist"
+    [[ -d ${INSTALL_DIRECTORY} ]] && print_message "Install directory already exist"
     mkdir -p ${INSTALL_DIRECTORY} || print_error "Unable to create the install directory"
 }
 
@@ -204,15 +204,7 @@ for i in "${!args[@]}"; do
   esac
 done
 
-# VARS
-
-INSTALL_AUR=1
-INSTALL_FLATPAKS=1
-ENABLE_MULTILIB=1
-PARALLEL_DOWNLOADS=0
-FSTAB=()
-
-# check_privileges
+check_privileges
 
 check_config
 source "${CONFIG_DIRECTORY}/${SELECTED_CONFIG}"
@@ -221,26 +213,40 @@ source "${CONFIG_DIRECTORY}/${SELECTED_CONFIG}"
 [ "$PACKAGES" = "" ] && print_error "PACKAGES is not defined"
 
 if [ ${PARALLEL_DOWNLOADS} -gt 0 ]; then
-  echo "enable_parallel_downloads"
-  # enable_parallel_downloads
+  enable_parallel_downloads
 fi
 
 if [ ${ENABLE_MULTILIB} -eq 1 ]; then
-  echo "enable_multilib"
-  # enable_multilib
+  enable_multilib
 fi
 
-source "${SCRIPTS_DIRECTORY}/config_fstab"
+source "${SCRIPTS_DIRECTORY}/_config_fstab"
 
-# update_mirrors
+update_mirrors
 
+init_install_directory
 
-# init_install_directory
+source "${SCRIPTS_DIRECTORY}/_install_packages"
 
-# for script in "${SCRIPTS[@]}"; do
-#     source "${SCRIPTS_DIRECTORY}/${script}"
-# done
+for script in "${SCRIPTS[@]}"; do
+    source "${SCRIPTS_DIRECTORY}/${script}"
+done
 
-# clear_pacman_cache
+clear_pacman_cache
 
-# remove_install_directory
+remove_install_directory
+
+print_message "Installation completed with ${#errors[@]} errors."
+
+# Check for errors
+if [ ${#errors[@]} -gt 0 ]; then
+  print_message "See logs/install.0.log for more informations."
+fi
+
+# # Check for errors
+# if [ ${#errors[@]} -gt 0 ]; then
+#     print_message "Packages not installed:"
+#     for package in "${errors[@]}"; do
+#         print_inner_message ${package}
+#     done
+# fi

@@ -2,12 +2,25 @@
 
 INSTALL_AUR=1
 INSTALL_FLATPAKS=1
-ENABLE_MULTILIB=1
+ENABLE_MULTILIB=0
 PARALLEL_DOWNLOADS=2
 
-# SCRIPTS=(
-#     "install_firefox_gnome_theme"
-# )
+SCRIPTS=(
+    "install_lts_kernel"
+    "install_dwm"
+    "configure_git"
+    "configure_grub"
+    "configure_spaceship"
+    "configure_lightdm"
+    "configure_vm"
+    "configure_keyboard"
+    "install_paru"
+    "install_reflector"
+    "systemctl"
+    "install_dotfiles"
+    "install_doom_emacs"
+    "install_firefox_gnome_theme"
+)
 
 PACKAGES=(
     # Git

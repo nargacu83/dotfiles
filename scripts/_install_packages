@@ -18,27 +18,3 @@ if [ ${INSTALL_FLATPAKS} -eq 1 ]; then
         flatpak install -y $flatpak || print_error "Could not install flatpak: $flatpak"
     done
 fi
-
-# errors=()
-# for package in "${PACKAGES[@]}"; do
-#     doas pacman -S --needed --noconfirm $package || errors+=($package)
-# done
-
-# # Check for errors
-# if [ ${#errors[@]} -gt 0 ]; then
-#     echo "Packages not installed:" > ./config_apps.log
-#     for package in "${errors[@]}"; do
-#         echo $package > ./config_apps.log
-#     done
-# fi
-# errors=()
-
-
-# # Check for errors
-# if [ ${#errors[@]} -gt 0 ]; then
-#     echo "Packages not installed:" > ./config_apps.log
-#     for package in "${errors[@]}"; do
-#         echo $package > ./config_apps.log
-#     done
-# fi
-install_firefox_gnome_theme
