@@ -1,0 +1,259 @@
+#!/usr/bin/env bash
+
+INSTALL_AUR=1
+INSTALL_FLATPAKS=1
+
+PACKAGES=(
+    # Git
+    "git-lfs"
+
+    # Pacman related packages for AUR
+    "base-devel"
+    "pacman-contrib"
+    "reflector"
+
+    # CPU & GPU drivers
+    "amd-ucode"
+    "xf86-video-amdgpu"
+    "xf86-video-ati"
+    "mesa lib32-mesa"
+    "vulkan-radeon"
+    "lib32-vulkan-radeon"
+    "libva-mesa-driver"
+    "lib32-libva-mesa-driver"
+    "libva-mesa-driver"
+    "mesa-vdpau"
+    "lib32-mesa-vdpau"
+
+    "lightdm"
+    "lightdm-gtk-greeter"
+
+    "gnome-themes-extra"
+
+    # Fonts packages
+    "gnu-free-fonts"
+    "ttf-jetbrains-mono"
+    "noto-fonts-emoji"
+    "ttf-bitstream-vera"
+    "ttf-croscore"
+    "ttf-dejavu"
+    "ttf-droid"
+    "ttf-ibm-plex"
+    "ttf-liberation"
+    "ttf-linux-libertine"
+    "noto-fonts"
+
+    "polkit"
+    "polkit-gnome"
+
+    # Display server & display manager packages
+    "xorg-server"
+    "xorg-xrandr"
+    "xorg-xsetroot"
+    "xorg-xprop"
+    "numlockx"
+    "xcb-util-cursor"
+    "picom"
+
+    # Audio
+    "alsa-utils"
+    "alsa-oss"
+    "pipewire"
+    "pipewire-alsa"
+    "pipewire-pulse"
+    "pavucontrol"
+
+    # Network management
+    "nm-connection-editor"
+    "gufw"
+
+    # Printers
+    "cups"
+    "cups-filters"
+    "cups-pdf"
+    "system-config-printer"
+    "imagescan"
+
+    # Archive
+    "unzip"
+    "unrar"
+    "unace"
+    "lrzip"
+    "squashfs-tools"
+
+    # Terminal
+    "alacritty"
+    "zsh"
+    "zsh-completions"
+
+    "stow"
+
+    # WM
+    "sxhkd"
+
+    # Apps
+    "nitrogen"
+    "rofi"
+    "redshift"
+    "dunst"
+    "xclip"
+    "maim"
+    "libqalculate"
+    "openssh"
+    "converseen"
+    "btop"
+    "radeontop"
+    "neofetch"
+    "onefetch"
+    "yt-dlp"
+    "flatpak"
+    "gitui"
+
+    # Mouse
+    "libratbag"
+    "piper"
+
+    # Browser
+    "firefox"
+    "firefox-i18n-fr"
+
+    # Graphics
+    "gimp"
+    "krita"
+    "inkscape"
+    "blender"
+    "mpv"
+
+    # File Manager
+    "gvfs"
+    "gvfs-smb"
+    "gvfs-mtp"
+    "tumbler"
+    "ffmpegthumbnailer"
+    "nautilus"
+    "nautilus-share"
+    "file-roller"
+
+    # Office
+    "libreoffice-fresh"
+    "libreoffice-fresh-fr"
+
+    # Editor
+    "emacs"
+    "ripgrep"
+    "fd"
+
+    # Game Engine
+    "godot"
+    "scons"
+
+    # Docker
+    "docker"
+    "docker-compose"
+
+    # .NET
+    "dotnet-host"
+    "dotnet-runtime"
+    "dotnet-sdk"
+    "dotnet-targeting-pack"
+    "mono-msbuild"
+
+    # Java
+    "jdk-openjdk"
+    "jre-openjdk"
+
+    # Gaming
+    "wine-staging"
+    "giflib"
+    "lib32-giflib"
+    "libpng"
+    "lib32-libpng"
+    "libldap"
+    "lib32-libldap"
+    "gnutls"
+    "lib32-gnutls"
+    "mpg123"
+    "lib32-mpg123"
+    "openal"
+    "lib32-openal"
+    "v4l-utils"
+    "lib32-v4l-utils"
+    "libpulse"
+    "lib32-libpulse"
+    "libgpg-error"
+    "lib32-libgpg-error"
+    "alsa-plugins"
+    "lib32-alsa-plugins"
+    "alsa-lib"
+    "lib32-alsa-lib"
+    "libjpeg-turbo"
+    "lib32-libjpeg-turbo"
+    "sqlite"
+    "lib32-sqlite"
+    "libxcomposite"
+    "lib32-libxcomposite"
+    "libxinerama"
+    "lib32-libgcrypt"
+    "libgcrypt"
+    "lib32-libxinerama"
+    "ncurses"
+    "lib32-ncurses"
+    "opencl-icd-loader"
+    "lib32-opencl-icd-loader"
+    "libxslt"
+    "lib32-libxslt"
+    "libva"
+    "lib32-libva"
+    "gtk3"
+    "lib32-gtk3"
+    "gst-plugins-base-libs"
+    "lib32-gst-plugins-base-libs"
+    "vulkan-icd-loader"
+    "lib32-vulkan-icd-loader"
+    "vkd3d"
+    "lib32-vkd3d"
+
+    "gamemode"
+    "lutris"
+    "steam"
+)
+
+AUR=(
+    "picom-jonaburg-git"
+    "ventoy-bin"
+    "itch"
+    "joshuto"
+    "nsxiv"
+    "material-maker-bin"
+
+    # Fonts
+    "ttf-fork-awesome"
+    "nerd-fonts-jetbrains-mono"
+
+    # Themes
+    "dracula-gtk-theme"
+
+    # Printer drivers
+    "epson-inkjet-printer-escpr"
+    "epson-inkjet-printer-escpr2"
+)
+
+FLATPAKS=(
+   "com.github.tchx84.Flatseal"
+   "io.freetubeapp.FreeTube"
+   "co.obsproject.Studio"
+   "com.github.micahflee.torbrowse-launcher"
+   "io.dbeaver.DBeaverCommunity"
+   # Chat
+   "im.riot.Riot"
+   "chat.revolt.RevoltDesktop"
+   "com.discordapp.Discord"
+)
+
+FSTAB=(
+    "e3534ff7-8cd8-438f-80ea-e683214b9614 -> /mnt/PRO    -> ext4"
+    "d7bbe9d8-4f98-4d87-b26a-34c75907f71a -> /mnt/PERSO  -> ext4"
+    "cf103adb-84b5-4050-a100-a69b00daba41 -> /mnt/GAMES  -> ext4"
+    "cd160b21-cc65-4953-a138-3f9449cfcd95 -> /mnt/GAMES2 -> ext4"
+    "dfefbc94-b693-4ce5-8511-72f6c837a7ec -> /mnt/VM     -> ext4"
+)

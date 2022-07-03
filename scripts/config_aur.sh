@@ -6,21 +6,15 @@
 source ./globals.sh
 
 PKG_AUR_APPS="
-picom-jonaburg-git
-ventoy-bin
-itch
-joshuto
-nsxiv
-material-maker-bin
+
 "
 
 PKG_AUR_FONTS="
-ttf-fork-awesome
-nerd-fonts-jetbrains-mono
+
 "
 
 PKG_AUR_STYLE="
-dracula-gtk-theme
+
 "
 
 PKG_AUR_PRINTER="

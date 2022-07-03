@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+function install_firefox_gnome_theme () {
+    git clone https://github.com/rafaelmardojai/firefox-gnome-theme ~/firefox-gnome-theme/ && ~/firefox-gnome-theme/scripts/install.sh
+}
+
+print_message "Installing apps"
+for package in "${PACKAGES[@]}"; do
+    doas pacman -S --needed --noconfirm $package || print_message "Could not install package: $package"
+done
+
+# errors=()
+# for package in "${PACKAGES[@]}"; do
+#     doas pacman -S --needed --noconfirm $package || errors+=($package)
+# done
+
+# # Check for errors
+# if [ ${#errors[@]} -gt 0 ]; then
+#     echo "Packages not installed:" > ./config_apps.log
+#     for package in "${errors[@]}"; do
+#         echo $package > ./config_apps.log
+#     done
+# fi
+# errors=()
+
+print_inner_message "Installing Flatpaks..."
+for flatpak in "${FLATPAKS[@]}"; do
+    flatpak install -y $flatpak || print_error "Could not install flatpak: $flatpak"
+done
+
+# # Check for errors
+# if [ ${#errors[@]} -gt 0 ]; then
+#     echo "Packages not installed:" > ./config_apps.log
+#     for package in "${errors[@]}"; do
+#         echo $package > ./config_apps.log
+#     done
+# fi
+install_firefox_gnome_theme

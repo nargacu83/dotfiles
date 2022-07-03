@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Wanna have some juicy printers working?
+doas systemctl enable cups
+
+# Hello from the TTY, i would like to have a GUI please
+doas systemctl enable lightdm
+
+doas systemctl enable --now libvirtd
+
+# Enable automatic mirrors update
+doas systemctl enable reflector.timer
+doas systemctl start reflector.timer
+
+# Update mirrors right now
+doas systemctl start reflector.service

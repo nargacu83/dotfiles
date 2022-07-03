@@ -5,14 +5,6 @@
 # Sourcing path is relative to install.sh
 source ./globals.sh
 
-PKG_WM="
-sxhkd
-"
-
-PKG_DWM="
-dwm
-"
-
 function install_dwm () {
     for _pkg in $PKG_DWM; do
         git clone --recurse-submodules https://gitlab.com/dev.quentinfranchi/${_pkg} "${INSTALL_DIRECTORY}/${_pkg}" \
@@ -21,6 +13,4 @@ function install_dwm () {
 }
 
 print_message "Configuring window manager"
-
-sudo pacman -S --needed --noconfirm ${PKG_WM}
 install_dwm
