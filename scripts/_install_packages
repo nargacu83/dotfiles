@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-print_message "Installing pacman packages"
+print_message "Updating keyring..."
+# Install archlinux keyring to avoid PGP Signature errors
+pacman_install archlinux-keyring
+# Update for the keyring
+doas pacman -Syu --noconfirm || print_message "Unable to update the system"
+
+print_message "Installing pacman packages..."
 for package in "${PACKAGES[@]}"; do
     pacman_install $package || print_message "Could not install package: $package"
 done
