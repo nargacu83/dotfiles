@@ -86,8 +86,8 @@ function flatpak_install() {
 }
 
 function enable_parallel_downloads () {
-    doas sed 's/#ParallelDownloads = 5/ParallelDownloads = '${PARALLEL_DOWNLOADS}'/' ${CURRENT_DIRECTORY}/pacman.conf
-
+    doas sed 's/#ParallelDownloads = 5/ParallelDownloads = '${PARALLEL_DOWNLOADS}'/' /etc/pacman.conf
+}
 
 function init_install_directory() {
     [[ -d ${INSTALL_DIRECTORY} ]] && print_error "Install directory already exist"
@@ -210,19 +210,19 @@ INSTALL_AUR=1
 INSTALL_FLATPAKS=1
 ENABLE_MULTILIB=1
 PARALLEL_DOWNLOADS=0
+FSTAB=()
 
 # check_privileges
 
 check_config
-
 source "${CONFIG_DIRECTORY}/${SELECTED_CONFIG}"
 
 # Check packages from config file
 [ "$PACKAGES" = "" ] && print_error "PACKAGES is not defined"
 
-
 if [ ${PARALLEL_DOWNLOADS} -gt 0 ]; then
-  enable_parallel_downloads
+  echo "enable_parallel_downloads"
+  # enable_parallel_downloads
 fi
 
 if [ ${ENABLE_MULTILIB} -eq 1 ]; then
@@ -230,14 +230,16 @@ if [ ${ENABLE_MULTILIB} -eq 1 ]; then
   # enable_multilib
 fi
 
+source "${SCRIPTS_DIRECTORY}/config_fstab"
+
 # update_mirrors
+
 
 # init_install_directory
 
-# source "${SCRIPTS_DIRECTORY}/config_fstab"
-for script in "${SCRIPTS[@]}"; do
-    source "${SCRIPTS_DIRECTORY}/${script}"
-done
+# for script in "${SCRIPTS[@]}"; do
+#     source "${SCRIPTS_DIRECTORY}/${script}"
+# done
 
 # clear_pacman_cache
 
