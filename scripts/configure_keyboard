@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+print_message "Configuring keyboard in French..."
+
+doas localectl set-keymap fr
+doas localectl set-x11-keymap fr

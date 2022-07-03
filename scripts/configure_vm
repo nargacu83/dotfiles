@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+print_message "Configuring Virtual Machine"
+
+doas pacman --noconfirm -Rns iptables
+doas systemctl enable --now libvirtd
+doas virsh net-start default
+doas virsh net-autostart default
+doas usermod -aG kvm,input,libvirt quentin

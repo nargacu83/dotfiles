@@ -5,6 +5,10 @@ INSTALL_FLATPAKS=1
 ENABLE_MULTILIB=1
 PARALLEL_DOWNLOADS=2
 
+SCRIPTS=(
+    "default/install_firefox_gnome_theme"
+)
+
 PACKAGES=(
     # Git
     "git-lfs"
@@ -218,6 +222,14 @@ PACKAGES=(
     "gamemode"
     "lutris"
     "steam"
+
+    # Virtual Machine
+    "qemu-full"
+    "libvirt"
+    "edk2-ovmf"
+    "virt-manager"
+    "dnsmasq"
+    "ebtables"
 )
 
 AUR=(

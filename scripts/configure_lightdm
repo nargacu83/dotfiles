@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+print_message "Configuring LightDM..."
+
+ # Enable Lightdm
+doas systemctl enable lightdm
+# Lightdm greeter
+doas sed -i -e '/^#greeter-setup-script=$/s/#//g' -e 's/^greeter-setup-script=$/&\/usr\/bin\/numlockx on/g' /etc/lightdm/lightdm.conf

@@ -1,12 +1,23 @@
 #!/usr/bin/env bash
-function install_firefox_gnome_theme () {
-    git clone https://github.com/rafaelmardojai/firefox-gnome-theme ~/firefox-gnome-theme/ && ~/firefox-gnome-theme/scripts/install.sh
-}
 
-print_message "Installing apps"
+print_message "Installing pacman packages"
 for package in "${PACKAGES[@]}"; do
-    doas pacman -S --needed --noconfirm $package || print_message "Could not install package: $package"
+    pacman_install $package || print_message "Could not install package: $package"
 done
+
+if [ ${INSTALL_AUR} -eq 1 ]; then
+    print_inner_message "Installing AUR packages..."
+    for package in "${AUR[@]}"; do
+        aur_install $package || print_error "Could not install AUR package: $package"
+    done
+fi
+
+if [ ${INSTALL_FLATPAKS} -eq 1 ]; then
+    print_inner_message "Installing Flatpaks..."
+    for flatpak in "${FLATPAKS[@]}"; do
+        flatpak install -y $flatpak || print_error "Could not install flatpak: $flatpak"
+    done
+fi
 
 # errors=()
 # for package in "${PACKAGES[@]}"; do
@@ -22,10 +33,6 @@ done
 # fi
 # errors=()
 
-print_inner_message "Installing Flatpaks..."
-for flatpak in "${FLATPAKS[@]}"; do
-    flatpak install -y $flatpak || print_error "Could not install flatpak: $flatpak"
-done
 
 # # Check for errors
 # if [ ${#errors[@]} -gt 0 ]; then

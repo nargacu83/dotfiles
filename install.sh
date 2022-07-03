@@ -12,11 +12,20 @@ NORMAL=$(tput sgr0)
 
 # Global variables
 CURRENT_DIRECTORY="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+
 [ "$INSTALL_DIRECTORY" = "" ] && INSTALL_DIRECTORY="${CURRENT_DIRECTORY}/install"
 [ "$CONFIG_DIRECTORY" = "" ] && CONFIG_DIRECTORY="${CURRENT_DIRECTORY}/config"
 [ "$DOTFILES_DIRECTORY" = "" ] && DOTFILES_DIRECTORY="${INSTALL_DIRECTORY}/dotfiles"
 [ "$LOGS_DIRECTORY" = "" ] && LOGS_DIRECTORY="${CURRENT_DIRECTORY}/logs"
-SCRIPTS_DIRECTORY="${CURRENT_DIRECTORY}/scripts"
+[ "$SCRIPTS_DIRECTORY" = "" ] && SCRIPTS_DIRECTORY="${CURRENT_DIRECTORY}/scripts"
+
+# Initialize variables
+MULTIPLE_LOG_FILES=0
+INSTALL_AUR=1
+INSTALL_FLATPAKS=1
+ENABLE_MULTILIB=1
+# If PARALLEL_DOWNLOADS is greater than 0, it will be set otherwise ignored
+PARALLEL_DOWNLOADS=0
 
 errors=()
 
@@ -37,24 +46,29 @@ function print_error() {
 }
 
 function log() {
+  [[ -d ${LOGS_DIRECTORY} ]] || mkdir ${LOGS_DIRECTORY}
+
   count=0
   logfile="install.${count}.log"
 
+  # Use multiple log files
+  if [ ${MULTIPLE_LOG_FILES} -eq 1 ]; then
   # log file already exists
-  # if [ -f "${LOGS_DIRECTORY}/${logfile}" ]; then
-  #   # get it's new possible name
-  #   while [ -f "${LOGS_DIRECTORY}/${logfile}" ]; do
-  #       count=$(($count + 1))
-  #       logfile="install.${count}.log"
-  #   done
+    if [ -f "${LOGS_DIRECTORY}/${logfile}" ]; then
+      # get it's new possible name
+      while [ -f "${LOGS_DIRECTORY}/${logfile}" ]; do
+          count=$(($count + 1))
+          logfile="install.${count}.log"
+      done
 
-  #   # rename the existing file
-  #   mv "${LOGS_DIRECTORY}/install.0.log" "${LOGS_DIRECTORY}/install.${count}.log"
+      # rename the existing file
+      mv "${LOGS_DIRECTORY}/install.0.log" "${LOGS_DIRECTORY}/install.${count}.log"
 
-  #   # reset the name
-  #   count=0
-  #   logfile="install.${count}.log"
-  # fi
+      # reset the name
+      count=0
+      logfile="install.${count}.log"
+    fi
+  fi
 
   echo "${1}" >> "${LOGS_DIRECTORY}/${logfile}"
 }
@@ -71,10 +85,9 @@ function flatpak_install() {
     flatpak install -y ${1} || print_error "Could not install flatpak: ${1}"
 }
 
-
 function enable_parallel_downloads () {
-    doas sed -i '/^#\ParallelDownloads =/{N;s/#//g}' /etc/pacman.conf
-}
+    doas sed 's/#ParallelDownloads = 5/ParallelDownloads = '${PARALLEL_DOWNLOADS}'/' ${CURRENT_DIRECTORY}/pacman.conf
+
 
 function init_install_directory() {
     [[ -d ${INSTALL_DIRECTORY} ]] && print_error "Install directory already exist"
@@ -152,7 +165,7 @@ usage()
     echo "--no-flatpak"
     echo "--no-aur"
     echo "--no-multilib"
-    echo "--parallel"
+    echo "--parallel-downloads <amount>"
 }
 
 args=()
@@ -176,7 +189,7 @@ for i in "${!args[@]}"; do
     --no-multilib)
       ENABLE_MULTILIB=0
       ;;
-    --parallel)
+    --parallel-downloads)
       PARALLEL_DOWNLOADS=${args[$(($i + 1))]}
       if ! [[ $PARALLEL_DOWNLOADS =~ '^[0-9]+$' ]] ; then
         PARALLEL_DOWNLOADS=0
@@ -191,23 +204,40 @@ for i in "${!args[@]}"; do
   esac
 done
 
+# VARS
+
+INSTALL_AUR=1
+INSTALL_FLATPAKS=1
+ENABLE_MULTILIB=1
+PARALLEL_DOWNLOADS=0
+
 # check_privileges
 
 check_config
 
-# enable_parallel_downloads
+source "${CONFIG_DIRECTORY}/${SELECTED_CONFIG}"
 
-# enable_multilib
+# Check packages from config file
+[ "$PACKAGES" = "" ] && print_error "PACKAGES is not defined"
+
+
+if [ ${PARALLEL_DOWNLOADS} -gt 0 ]; then
+  enable_parallel_downloads
+fi
+
+if [ ${ENABLE_MULTILIB} -eq 1 ]; then
+  echo "enable_multilib"
+  # enable_multilib
+fi
 
 # update_mirrors
 
 # init_install_directory
 
 # source "${SCRIPTS_DIRECTORY}/config_fstab"
-
-# for script in "${SCRIPTS[@]}"; do
-#     source "${SCRIPTS_DIRECTORY}/${script}"
-# done
+for script in "${SCRIPTS[@]}"; do
+    source "${SCRIPTS_DIRECTORY}/${script}"
+done
 
 # clear_pacman_cache
 

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+print_message "Installing Doom Emacs..."
+
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d \
+    && ~/.emacs.d/bin/doom -y install \
+    && ~/.emacs.d/bin/doom sync
