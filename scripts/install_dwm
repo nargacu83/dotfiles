@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function install_dwm () {
+    git clone --recurse-submodules https://gitlab.com/dev.quentinfranchi/dwm "${INSTALL_DIRECTORY}/dwm"
+    cd "${INSTALL_DIRECTORY}/${_pkg}/${_pkg}"
+    ./dwm-config --install || print_error "Unable to install DWM"
+}
+
+print_message "Installing DWM"
+install_dwm

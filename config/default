@@ -2,6 +2,8 @@
 
 INSTALL_AUR=1
 INSTALL_FLATPAKS=1
+ENABLE_MULTILIB=1
+PARALLEL_DOWNLOADS=2
 
 PACKAGES=(
     # Git
@@ -219,6 +221,7 @@ PACKAGES=(
 )
 
 AUR=(
+    # Apps
     "picom-jonaburg-git"
     "ventoy-bin"
     "itch"
