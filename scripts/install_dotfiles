@@ -8,14 +8,15 @@ print_inner_message "Installing user dotfiles"
 cd stow_home && stow * || print_error "Unable to install dotfiles"
 
 print_inner_message "Installing root dotfiles"
+
 # Check
 [ -d /usr/share/xsessions ] || doas mkdir /usr/share/xsessions
 [[ -d "${dotfiles_root_directory}_temp" ]] && doas rm -rf "${dotfiles_root_directory}_temp"
 
 # move and install root part of the dotfiles
 doas git clone https://gitlab.com/dev.quentinfranchi/dotfiles "${dotfiles_root_directory}_temp" \
-    && sudo mv "${dotfiles_root_directory}_temp/stow_root" "${dotfiles_root_directory}" \
-    && sudo rm -rf "${dotfiles_root_directory}_temp" \
+    && doas mv "${dotfiles_root_directory}_temp/stow_root" "${dotfiles_root_directory}" \
+    && doas rm -rf "${dotfiles_root_directory}_temp" \
     && cd "${dotfiles_root_directory}"
 
 for directory in $( ls -p | grep / ); do

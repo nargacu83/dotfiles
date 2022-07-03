@@ -13,11 +13,10 @@ NORMAL=$(tput sgr0)
 # Global variables
 CURRENT_DIRECTORY="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-[ "$INSTALL_DIRECTORY" = "" ] && INSTALL_DIRECTORY="${CURRENT_DIRECTORY}/install"
-[ "$CONFIG_DIRECTORY" = "" ] && CONFIG_DIRECTORY="${CURRENT_DIRECTORY}/config"
-[ "$DOTFILES_DIRECTORY" = "" ] && DOTFILES_DIRECTORY="${INSTALL_DIRECTORY}/dotfiles"
-[ "$LOGS_DIRECTORY" = "" ] && LOGS_DIRECTORY="${CURRENT_DIRECTORY}/logs"
-[ "$SCRIPTS_DIRECTORY" = "" ] && SCRIPTS_DIRECTORY="${CURRENT_DIRECTORY}/scripts"
+INSTALL_DIRECTORY="${CURRENT_DIRECTORY}/install"
+CONFIG_DIRECTORY="${CURRENT_DIRECTORY}/config"
+LOGS_DIRECTORY="${CURRENT_DIRECTORY}/logs"
+SCRIPTS_DIRECTORY="${CURRENT_DIRECTORY}/scripts"
 
 # Initialize variables
 MULTIPLE_LOG_FILES=0
@@ -209,7 +208,11 @@ check_privileges
 check_config
 source "${CONFIG_DIRECTORY}/${SELECTED_CONFIG}"
 
-# Check packages from config file
+# Check configurable directories
+[ "$DOTFILES_DIRECTORY" = "" ] && DOTFILES_DIRECTORY="${INSTALL_DIRECTORY}/dotfiles"
+[ "$DOTFILES_ROOT_DIRECTORY" = "" ] && DOTFILES_ROOT_DIRECTORY="/opt/dotfiles_root"
+
+# Check configurable vars
 [ "$PACKAGES" = "" ] && print_error "PACKAGES is not defined"
 
 if [ ${PARALLEL_DOWNLOADS} -gt 0 ]; then
