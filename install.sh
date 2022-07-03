@@ -23,6 +23,7 @@ MULTIPLE_LOG_FILES=0
 INSTALL_AUR=1
 INSTALL_FLATPAKS=1
 ENABLE_MULTILIB=1
+INSTALL_FSTAB=1
 # If PARALLEL_DOWNLOADS is greater than 0, it will be set otherwise ignored
 PARALLEL_DOWNLOADS=0
 FSTAB=()
@@ -223,7 +224,9 @@ if [ ${ENABLE_MULTILIB} -eq 1 ]; then
   enable_multilib
 fi
 
-source "${SCRIPTS_DIRECTORY}/_config_fstab"
+if [ ${INSTALL_FSTAB} -eq 1 ]; then
+  source "${SCRIPTS_DIRECTORY}/_config_fstab"
+fi
 
 update_mirrors
 
