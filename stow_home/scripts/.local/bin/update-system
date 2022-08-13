@@ -14,17 +14,47 @@ function print_message() {
     echo -e "${BOLD}${2}==>${NC} ${BOLD}${1}${NORMAL}"
 }
 
-print_message "Checking for system and aur packages updates..." ${BLUE}
-paru && paru --noconfirm -Scc || exit
+function ask {
+    read -r -p "${BOLD}:: ${1:-Are you sure?} [Y/n] " response
+    case "$response" in
+        [nN])
+            false
+            ;;
+        *)
+            true
+            ;;
+    esac
+}
 
-print_message "Checking for Flatpak updates..." ${BLUE}
-flatpak update || exit
+if ask "Do you want to update mirrors?"; then
+    print_message "Updating mirrors..." ${BLUE}
+    doas reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist --country France || exit
+fi
 
-print_message "Checking for Doom Emacs updates..." ${BLUE}
-doom upgrade && doom purge || exit
-systemctl --user restart emacs
+if ask "Do you want to update archlinux-keyring?"; then
+    print_message "Updating archlinux-keyring..." ${BLUE}
+    doas pacman --needed --noconfirm -Sy archlinux-keyring || exit
+fi
 
-print_message "Checking for Rust updates..." ${BLUE}
-rustup update || exit
+if ask "Do you want to update system and aur packages?"; then
+    print_message "Checking for system and aur packages updates..." ${BLUE}
+    paru && paru --noconfirm -Scc || exit
+fi
+
+if ask "Do you want to update Flatpaks?"; then
+    print_message "Checking for Flatpak updates..." ${BLUE}
+    flatpak update || exit
+fi
+
+if ask "Do you want to update Doom Emacs?"; then
+    print_message "Checking for Doom Emacs updates..." ${BLUE}
+    doom upgrade && doom sync && doom purge || exit
+    systemctl --user restart emacs
+fi
+
+if ask "Do you want to update Rust?"; then
+    print_message "Checking for Rust updates..." ${BLUE}
+    rustup update || exit
+fi
 
 print_message "Updates finished" ${GREEN}
