@@ -28,7 +28,7 @@ function ask {
 
 if ask "Do you want to update mirrors?"; then
     print_message "Updating mirrors..." ${BLUE}
-    doas reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist --country France || exit
+    doas reflector --latest 5 --age 12 --sort rate --save /etc/pacman.d/mirrorlist --country France || exit
 fi
 
 if ask "Do you want to update archlinux-keyring?"; then
@@ -48,7 +48,7 @@ fi
 
 if ask "Do you want to update Doom Emacs?"; then
     print_message "Checking for Doom Emacs updates..." ${BLUE}
-    doom upgrade && doom sync && doom purge || exit
+    doom upgrade --force && doom sync && doom purge || exit
     systemctl --user restart emacs
 fi
 
