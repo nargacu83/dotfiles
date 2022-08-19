@@ -28,7 +28,7 @@ function ask {
 
 if ask "Do you want to update mirrors?"; then
     print_message "Updating mirrors..." ${BLUE}
-    doas reflector --latest 5 --age 12 --sort rate --country France --save /etc/pacman.d/mirrorlist || exit
+    doas reflector --latest 5 --age 12 --sort rate --protocol https --country France --save /etc/pacman.d/mirrorlist || exit
 fi
 
 if ask "Do you want to update archlinux-keyring?"; then
