@@ -57,4 +57,9 @@ if ask "Do you want to update Rust?"; then
     rustup update || exit
 fi
 
+if ask "Do you want to force sync time?"; then
+    print_message "Forcing sync of time..." ${BLUE}
+    timedatectl set-ntp true || exit
+fi
+
 print_message "Updates finished" ${GREEN}
