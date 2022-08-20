@@ -1,18 +1,18 @@
 ## Common hotkeys
 
-# # terminal emulator
+# terminal emulator
 super + Return
 	alacritty
 
-# # launch emacs
+# launch emacs
 super + F1
 	emacsclient -c -a 'emacs'
 
-# # launch file manager
+# launch file manager
 super + e
 	dolphin
 
-# # kill session
+# kill session
 super + control + q
 	loginctl kill-session $XDG_SESSION_ID
 
@@ -23,6 +23,9 @@ super + Print
 super + shift + Print
 	~/.config/rofi/scripts/screenshot selection
 
+# program launcher
+super + p
+	krunner
 # Switch desktop workaround for KDE Plasma
 # super + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
 # 	qdbus org.kde.KWin /KWin setCurrentDesktop ^{1-9,10}
