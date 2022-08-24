@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-dracula)
 
 (setq doom-font (font-spec :family "JetBrains Mono" :size 16 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "JetBrains Mono") ; inherits `doom-font''s :size
@@ -111,7 +111,22 @@
 
 ;; Doom
 
+(after! doom (doom/set-frame-opacity 90))
+
+;; Stop annoying message when exiting
 (setq confirm-kill-emacs nil)
+
+;; Prevent auto yank a region
+(fset 'evil-visual-update-x-selection 'ignore)
+
+;; Disable auto format
+(setq +format-on-save-enabled-modes
+      '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
+            sql-mode         ; sqlformat is currently broken
+            tex-mode         ; latexindent is broken
+            latex-mode
+            c-mode
+            cmake-mode))
 
 ;; Keybindings
 
@@ -125,22 +140,30 @@
       :desc "Go to right window" "w <right>" #'windmove-right)
 
 ;; LSP config
+(after! lsp-mode
+  (setq lsp-lens-enable t)
+  (setq lsp-lens-place-position 'above-line)
+  (setq lsp-headerline-breadcrumb-enable nil)
+  ;; Disable file watchers
+  (setq lsp-enable-file-watchers nil)
+  ;; Disable sideline
+  (setq lsp-ui-sideline-enable nil))
 
-(setq lsp-lens-enable t)
-(setq lsp-lens-place-position 'above-line)
-
+;; Rust
 (after! rustic
   (setq rustic-lsp-server 'rust-analyzer)
   (setq lsp-rust-analyzer-cargo-watch-command "clippy")
   (setq lsp-rust-analyzer-cargo-load-out-dirs-from-check t)
   (setq lsp-rust-analyzer-proc-macro-enable t)
+  (setq lsp-rust-analyzer-server-display-inlay-hints t)
+  (setq lsp-rust-analyzer-inlay-hints-mode t)
   (setq lsp-rust-analyzer-display-chaining-hints t)
   (setq lsp-rust-analyzer-display-parameter-hints t)
-  (setq lsp-rust-analyzer-server-display-inlay-hints t)
   (setq lsp-rust-all-features t)
   (setq lsp-rust-full-docs t))
 
-;; Disable file watchers
-(setq lsp-enable-file-watchers nil)
-;; Disable sideline
-(setq lsp-ui-sideline-enable nil)
+;; Godot
+(setq gdscript-gdformat-save-and-format t) ;; Save all buffers and format them with gdformat anytime Godot executable is run.
+
+;; Unity
+(setenv "FrameworkPathOverride" "/lib/mono/4.5")
