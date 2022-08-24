@@ -111,7 +111,7 @@
 
 ;; Doom
 
-(after! doom (doom/set-frame-opacity 90))
+;; (after! doom (doom/set-frame-opacity 90)) ;; Doesn't seem to work
 
 ;; Stop annoying message when exiting
 (setq confirm-kill-emacs nil)
