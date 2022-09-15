@@ -4,7 +4,6 @@ window:
     y: 20
 
   dynamic_padding: true
-  opacity: 0.9
 
 font:
   normal:
