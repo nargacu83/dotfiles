@@ -368,3 +368,6 @@ error-message {
     background-color:            @background;
     text-color:                  @foreground;
 }
+
+// Change this if you want other colors
+@import "colors/dracula.rasi"
