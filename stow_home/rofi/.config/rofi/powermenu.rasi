@@ -1,0 +1,10 @@
+/*-*- mode: css; -*-*/
+@import "launcher.rasi"
+
+window {
+    height:                      364px;
+}
+
+mainbox {
+    children:                    [ "listbox" ];
+}

@@ -3,7 +3,7 @@
 # Cleaned up and changed version of https://github.com/b4skyx/scmenu
 
 # Set inital options and choices
-dmenu_cmd="rofi -dmenu -no-lazy-grab -theme theme/filemenu.rasi"
+dmenu_cmd="rofi -dmenu -no-lazy-grab -theme screenshot.rasi"
 save_folder="${HOME}/Screenshots"
 options=("Ecran\nSélection")
 choice=""
