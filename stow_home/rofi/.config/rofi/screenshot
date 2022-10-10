@@ -36,8 +36,9 @@ function runner() {
 
 # Function to save the screenshot
 function save_clip() {
+	file_dimension=$(identify -format '%wx%h' /tmp/screenshot.png)
 	options=("Copier dans le presse-papier\nSauvegarder l'image")
-	choice=$(echo -e "$options" | $dmenu_cmd -p $title)
+	choice=$(echo -e "$options" | $dmenu_cmd -p $title -mesg "<span> </span> ${file_dimension} - ${file_name}")
 
 	if [ "$choice" = "Copier dans le presse-papier" ]
 	then
