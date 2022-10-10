@@ -18,10 +18,10 @@ super + control + q
 
 # screenshots with rofi
 super + Print
-	~/.config/rofi/scripts/screenshot screen
+	~/.config/rofi/screenshot screen
 
 super + shift + Print
-	~/.config/rofi/scripts/screenshot selection
+	~/.config/rofi/screenshot selection
 
 # program launcher
 super + p
