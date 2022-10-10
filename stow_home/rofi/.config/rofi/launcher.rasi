@@ -15,7 +15,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:           "Noto Sans 10";
+    font:           "Cantarell 10";
     bd-radius:  6px;
 }
 

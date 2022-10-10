@@ -2,7 +2,7 @@
 @import "launcher.rasi"
 
 window {
-    height:                      364px;
+    height:                      262px;
 }
 
 mainbox {
