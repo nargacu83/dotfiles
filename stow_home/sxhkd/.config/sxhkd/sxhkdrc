@@ -5,7 +5,7 @@ super + Return
 	alacritty
 
 # launch emacs
-super + F1
+super + a
 	emacsclient -c -a 'emacs'
 
 # launch file manager
