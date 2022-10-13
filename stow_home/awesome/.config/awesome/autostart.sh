@@ -29,9 +29,9 @@ if [ -x "$(command -v sxhkd)" ]; then
 fi
 
 # #set redshift for night light
-# if [ -x "$(command -v redshift)" ]; then
-#   redshift-gtk &
-# fi
+if [ -x "$(command -v redshift)" ]; then
+  redshift-gtk &
+fi
 
 if [ -x "$(command -v emacs)" ]; then
   systemctl --user start emacs
