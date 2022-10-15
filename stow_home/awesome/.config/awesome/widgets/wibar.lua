@@ -34,7 +34,7 @@ function wibar.get(s)
             {
                 widget = wibox.container.margin,
                 left = 5,
-                right = 10,
+                right = 5,
                 top = 10,
                 bottom = 10,
                 taglist
@@ -58,7 +58,7 @@ function wibar.get(s)
                 {
                     widget = wibox.container.place,
                     layout = wibox.layout.fixed.horizontal,
-                    spacing = 10,
+                    spacing = 5,
 
                     mymemory,
                     myarchupdates,

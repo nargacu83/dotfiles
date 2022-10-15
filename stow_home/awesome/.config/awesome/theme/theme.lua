@@ -41,9 +41,9 @@ theme.tasklist_plain_task_name = false
 theme.gap_single_client = true
 theme.useless_gap   = dpi(2)
 theme.border_width  = 2
-theme.border_normal = "#282a36"
-theme.border_focus  = "#44475a"
-theme.border_marked = "#ff5555"
+theme.border_normal = theme.bg_occupied
+theme.border_focus  = theme.bg_focus
+theme.border_marked = theme.bg_urgent
 
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
