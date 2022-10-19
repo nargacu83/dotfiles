@@ -174,20 +174,6 @@ function update_clients_gaps(t)
     for _, c in pairs(t.screen.clients) do
         update_client_gaps(c)
     end
-    -- is_max = t.layout.name == "max"
-    -- beautiful.gap_single_client = not is_max
-    -- border_width = beautiful.border_width
-
-    -- -- Define width to zero if it is in the max layout
-    -- if is_max then
-    --     border_width = 0
-    -- end
-
-    -- for _, c in pairs(t.screen.clients) do
-    --     if not c.fullscreen or c.maximized then
-    --         c.border_width = border_width
-    --     end
-    -- end
 end
 
 --- Autostart

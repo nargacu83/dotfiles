@@ -85,7 +85,13 @@ M = {
     --       "FreeTube"
 	-- 	}
 	-- }, properties = { screen = 1, tag = "1" } },
-	
+
+	{ rule_any = {
+		name = {
+			"JDownloader 2",
+		}
+	}, properties = { floating = false } },
+
 	{ rule_any = {
 		class = {
 			"element",
