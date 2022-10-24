@@ -34,18 +34,22 @@ function wibar.get(s)
         { -- Left widgets
             widget = wibox.container.margin,
             left = 5,
-            right = 5,
+            {
+                widget = wibox.container.place,
+                layout = wibox.layout.fixed.horizontal,
+                spacing = 5,
+
+                mydateclock,
+                myhourclock,
+            },
+        },
+        { -- Middle widgets
+            widget = wibox.container.margin,
+            -- left = 5,
+            -- right = 5,
             top = 10,
             bottom = 10,
             taglist
-        },
-        { -- Middle widgets
-            widget = wibox.container.place,
-            layout = wibox.layout.fixed.horizontal,
-            spacing = 10,
-
-            mydateclock,
-            myhourclock,
         },
         { -- Right widgets
             widget = wibox.container.place,
@@ -56,7 +60,7 @@ function wibar.get(s)
                 {
                     widget = wibox.container.place,
                     layout = wibox.layout.fixed.horizontal,
-                    spacing = 10,
+                    spacing = 5,
 
                     mymemory,
                     myarchupdates,
