@@ -25,7 +25,6 @@ function wibar.get(s)
     })
 
     local taglist = mytaglist.get(s)
-    local tasklist = mytasklist.get(s)
 
     -- Add widgets to the wibox
     mywibox:setup {
@@ -40,22 +39,10 @@ function wibar.get(s)
             bottom = 10,
             taglist
         },
-        -- { -- Left widgets
-        --     {
-        --         widget = wibox.container.margin,
-        --         left = 5,
-        --         right = 5,
-        --         top = 10,
-        --         bottom = 10,
-        --         taglist
-        --     },
-        --     tasklist,
-        --     layout = wibox.layout.align.horizontal,
-        -- },
         { -- Middle widgets
             widget = wibox.container.place,
             layout = wibox.layout.fixed.horizontal,
-            spacing = 5,
+            spacing = 10,
 
             mydateclock,
             myhourclock,
@@ -69,7 +56,7 @@ function wibar.get(s)
                 {
                     widget = wibox.container.place,
                     layout = wibox.layout.fixed.horizontal,
-                    spacing = 5,
+                    spacing = 10,
 
                     mymemory,
                     myarchupdates,
