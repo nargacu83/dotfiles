@@ -3,12 +3,12 @@ local wibox = require("wibox")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-local widget_padding = 8
+-- local widget_padding = 8
 local wibar_height = 35
 
 -- Widget imports
 local mytaglist = require("widgets.taglist")
-local mytasklist = require("widgets.tasklist")
+-- local mytasklist = require("widgets.tasklist")
 local mysystray = require("widgets.systray")
 local mymemory = require("widgets.memory")
 local myarchupdates = require("widgets.archupdates")

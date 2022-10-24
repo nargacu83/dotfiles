@@ -6,8 +6,8 @@ local dpi = xresources.apply_dpi
 local bg_shape = function (cr, w, h) gears.shape.rounded_rect(cr, w, h, 3) end
 local systray = {
     widget = wibox.container.margin,
-    top = dpi(4),
-    bottom = dpi(4),
+    top = dpi(2),
+    bottom = dpi(2),
     wibox.widget.systray(),
 }
 
