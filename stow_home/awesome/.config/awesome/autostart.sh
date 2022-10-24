@@ -43,3 +43,7 @@ fi
 
 #start polkit
 /usr/lib/polkit-kde-authentication-agent-1 &
+
+if [ -x "$(command -v nm-applet)" ]; then
+  nm-applet &
+fi
