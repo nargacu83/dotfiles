@@ -12,7 +12,8 @@ local mytasklist = require("widgets.tasklist")
 local mysystray = require("widgets.systray")
 local mymemory = require("widgets.memory")
 local myarchupdates = require("widgets.archupdates")
-local mytextclock = require("widgets.textclock")
+local myhourclock = require("widgets.hourclock")
+local mydateclock = require("widgets.dateclock")
 
 local wibar = {}
 
@@ -30,24 +31,34 @@ function wibar.get(s)
     mywibox:setup {
         layout = wibox.layout.align.horizontal,
         expand = "none",
+
         { -- Left widgets
-            {
-                widget = wibox.container.margin,
-                left = 5,
-                right = 5,
-                top = 10,
-                bottom = 10,
-                taglist
-            },
-            tasklist,
-            layout = wibox.layout.align.horizontal,
+            widget = wibox.container.margin,
+            left = 5,
+            right = 5,
+            top = 10,
+            bottom = 10,
+            taglist
         },
+        -- { -- Left widgets
+        --     {
+        --         widget = wibox.container.margin,
+        --         left = 5,
+        --         right = 5,
+        --         top = 10,
+        --         bottom = 10,
+        --         taglist
+        --     },
+        --     tasklist,
+        --     layout = wibox.layout.align.horizontal,
+        -- },
         { -- Middle widgets
             widget = wibox.container.place,
-            {
-                widget = wibox.container.margin,
-                mytextclock,
-            }
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 5,
+
+            mydateclock,
+            myhourclock,
         },
         { -- Right widgets
             widget = wibox.container.place,

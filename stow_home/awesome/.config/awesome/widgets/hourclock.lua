@@ -1,8 +1,8 @@
 local wibox = require("wibox")
 
-local textclock = {
-    format = "%a %d %B - %H:%M",
+local hourclock = {
+    format = "%H:%M",
     widget = wibox.widget.textclock
 }
 
-return textclock
+return hourclock
