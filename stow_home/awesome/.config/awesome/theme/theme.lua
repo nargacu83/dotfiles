@@ -8,7 +8,7 @@ local theme = {}
 
 theme.font          = "Cantarell Bold 10"
 
-theme.bg_normal     = "#282a36E6"
+theme.bg_normal     = "#282a36BF"
 theme.bg_focus      = "#bd93f9"
 theme.bg_urgent     = "#f8f8f2"
 theme.bg_occupied   = "#44475a"
