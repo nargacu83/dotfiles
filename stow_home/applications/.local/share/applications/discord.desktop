@@ -3,7 +3,7 @@ Version=1.0
 Name=Discord
 GenericName=Fck Electron
 Comment=Chie sur des gens que tu appeles amis.
-Exec=/usr/lib/firefox/firefox -P Discord https://discord.com/app --class=discord
+Exec=/usr/lib/firefox/firefox -P discord https://discord.com/app --class=discord
 Icon=firefox
 Terminal=false
 X-MultipleArgs=false
