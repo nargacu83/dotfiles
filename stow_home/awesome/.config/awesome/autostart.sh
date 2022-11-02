@@ -28,6 +28,11 @@ if [ -x "$(command -v sxhkd)" ]; then
   sxhkd -c ~/.config/sxhkd/dwm.conf &
 fi
 
+# enable numlock
+if [ -x "$(command -v numlockx)" ]; then
+  numlockx on
+fi
+
 # #set redshift for night light
 if [ -x "$(command -v redshift)" ]; then
   redshift-gtk &
@@ -46,4 +51,9 @@ fi
 
 if [ -x "$(command -v nm-applet)" ]; then
   nm-applet &
+fi
+
+# bluetooth
+if [ -x "$(command -v blueman-applet)" ]; then
+  blueman-applet &
 fi
