@@ -85,6 +85,12 @@ end)
 root.keys(keys.globalkeys)
 awful.rules.rules = require("rules")
 
+-- Prevent any already opened apps to steal focus
+awful.ewmh.add_activate_filter(function()
+    return false
+end, "ewmh")
+
+
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
