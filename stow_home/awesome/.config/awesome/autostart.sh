@@ -1,6 +1,6 @@
 #!/bin/env sh
 
-export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORMTHEME=qt5ct
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 #set resolution and refresh rate
@@ -25,7 +25,7 @@ fi
 
 # sxhkd
 if [ -x "$(command -v sxhkd)" ]; then
-  sxhkd -c ~/.config/sxhkd/dwm.conf &
+  sxhkd &
 fi
 
 # enable numlock
@@ -47,6 +47,7 @@ if [ -x "$(command -v easyeffects)" ]; then
 fi
 
 #start polkit
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/polkit-kde-authentication-agent-1 &
 
 if [ -x "$(command -v nm-applet)" ]; then
