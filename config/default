@@ -272,7 +272,6 @@ FLATPAKS=(
    "io.freetubeapp.FreeTube"
    "co.obsproject.Studio"
    "com.github.micahflee.torbrowse-launcher"
-   "io.dbeaver.DBeaverCommunity"
    # Chat
    "im.riot.Riot"
    "chat.revolt.RevoltDesktop"
@@ -280,8 +279,9 @@ FLATPAKS=(
 )
 
 FSTAB=(
-    "d7bbe9d8-4f98-4d87-b26a-34c75907f71a -> /mnt/PERSO  -> ext4"
-    "cf103adb-84b5-4050-a100-a69b00daba41 -> /mnt/GAMES  -> ext4"
-    "cd160b21-cc65-4953-a138-3f9449cfcd95 -> /mnt/GAMES2 -> ext4"
-    "83e09479-85e0-45e1-82a3-217add68fe9e -> /mnt/VM     -> ext4"
+    "d7bbe9d8-4f98-4d87-b26a-34c75907f71a -> /mnt/PERSO -> defaults -> ext4"
+    "cf103adb-84b5-4050-a100-a69b00daba41 -> /mnt/GAMES -> defaults -> ext4"
+    "cd160b21-cc65-4953-a138-3f9449cfcd95 -> /mnt/GAMES2 -> defaults -> ext4"
+    "83e09479-85e0-45e1-82a3-217add68fe9e -> /mnt/VM -> defaults -> ext4"
+    "e3534ff7-8cd8-438f-80ea-e683214b9614 -> /mnt/PRO -> defaults,noauto,x-gvfs-show -> ext4"
 )

@@ -10,12 +10,18 @@ print_message "Configuring fstab"
 for disk in "${FSTAB[@]}"; do
     uuid=$(echo "$disk" | awk -F" -> " '{print $1}' | xargs)
     mount_point=$(echo "$disk" | awk -F" -> " '{print $2}' | xargs)
-    fstype=$(echo "$disk" | awk -F" -> " '{print $3}' | xargs)
+    options=$(echo "$disk" | awk -F" -> " '{print $3}' | xargs)
+    fstype=$(echo "$disk" | awk -F" -> " '{print $4}' | xargs)
+
+
 
     # Create mount point
     if [ ! -d "$mount_point" ]; then
         mkdir $mount_point
     fi
+
+
+    disk="$uuid $mount_point $fstype $options 0 0"
 
     # Check if the given disk is already present in fstab
     if grep -q $uuid "/etc/fstab"; then
@@ -23,6 +29,6 @@ for disk in "${FSTAB[@]}"; do
     else
         echo "" | sudo tee -a /etc/fstab
         echo "# Generated from dotfiles" | sudo tee -a /etc/fstab
-        echo "$disk" | sudo tee -a /etc/fstab
+        echo "$uuid $mount_point $fstype $options 0 0" | sudo tee -a /etc/fstab
     fi
 done
