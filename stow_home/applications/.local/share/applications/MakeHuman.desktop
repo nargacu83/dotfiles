@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=MakeHuman
-Exec=/opt/makehuman/makehuman %U
+Exec=/usr/bin/makehuman %U
 Terminal=false
 Type=Application
 Icon=makehuman
