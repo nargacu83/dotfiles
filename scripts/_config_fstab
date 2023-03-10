@@ -29,6 +29,6 @@ for disk in "${FSTAB[@]}"; do
     else
         echo "" | sudo tee -a /etc/fstab
         echo "# Generated from dotfiles" | sudo tee -a /etc/fstab
-        echo "$uuid $mount_point $fstype $options 0 0" | sudo tee -a /etc/fstab
+        echo "$disk" | sudo tee -a /etc/fstab
     fi
 done
