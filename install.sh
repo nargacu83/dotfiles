@@ -74,7 +74,7 @@ function log() {
 }
 
 function pacman_install() {
-    doas pacman -S --needed --noconfirm ${1} || print_message "Could not install package: ${1}"
+    sudo pacman -S --needed --noconfirm ${1} || print_message "Could not install package: ${1}"
 }
 
 function aur_install() {
@@ -86,7 +86,7 @@ function flatpak_install() {
 }
 
 function enable_parallel_downloads () {
-    doas sed 's/#ParallelDownloads = 5/ParallelDownloads = '${PARALLEL_DOWNLOADS}'/' /etc/pacman.conf
+    sudo sed 's/#ParallelDownloads = 5/ParallelDownloads = '${PARALLEL_DOWNLOADS}'/' /etc/pacman.conf
 }
 
 function init_install_directory() {
@@ -99,19 +99,19 @@ function remove_install_directory() {
 }
 
 function enable_multilib () {
-    doas sed -i '/^#\[multilib\]/{N;s/#//g}' /etc/pacman.conf
+    sudo sed -i '/^#\[multilib\]/{N;s/#//g}' /etc/pacman.conf
 }
 
 function update_mirrors () {
-    doas pacman -Syy --noconfirm
+    sudo pacman -Syy --noconfirm
 }
 
 function upgrade_system () {
-    doas pacman -Syu --noconfirm
+    sudo pacman -Syu --noconfirm
 }
 
 function clear_pacman_cache () {
-    doas pacman -Sc --noconfirm
+    sudo pacman -Sc --noconfirm
 }
 
 function check_privileges() {
@@ -122,7 +122,7 @@ function check_privileges() {
         exit 1
     fi
 
-    doas echo ""
+    sudo echo ""
     [[ ${?} -eq 1 ]] && print_error "Your root password is wrong"
 }
 
