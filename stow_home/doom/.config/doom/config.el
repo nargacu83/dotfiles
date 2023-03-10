@@ -167,3 +167,6 @@
 
 ;; Unity
 (setenv "FrameworkPathOverride" "/lib/mono/4.5")
+
+;; XAML and Avalonia XAML
+(require 'nxml-mode (add-to-list 'auto-mode-alist '("\\.a?xaml\\'" . nxml-mode)))
