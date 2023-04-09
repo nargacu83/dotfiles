@@ -1,12 +1,9 @@
 [Desktop Entry]
-Version=1.0
-Name=Discord
-GenericName=Fck Electron
-Comment=Chie sur des gens que tu appeles amis.
-Exec=/usr/lib/firefox/firefox -P discord https://discord.com/app --class=discord
-Icon=firefox
-Terminal=false
-X-MultipleArgs=false
-Type=Application
-StartupNotify=true
+Name=Discord NSC
 StartupWMClass=discord
+Comment=All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.
+GenericName=Internet Messenger
+Exec=flatpak run com.discordapp.Discord --disable-smooth-scrolling
+Icon=com.discordapp.Discord
+Type=Application
+Categories=Network;InstantMessaging;
