@@ -1,5 +1,9 @@
 system:
   aco: true
-  env:
-    MANGOHUD: '1'
-  game_path: ~/GAMES/Lutris/Games
+  disable_compositor: true
+  game_path: /mnt/GAMES/Lutris/
+  gamemode: true
+  gamescope: false
+  gamescope_game_res: 2560x1080
+  gamescope_output_res: 2560x1080
+  terminal_app: /usr/bin/alacritty
