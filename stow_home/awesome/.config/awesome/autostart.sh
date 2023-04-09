@@ -35,7 +35,7 @@ fi
 
 # #set redshift for night light
 if [ -x "$(command -v redshift)" ]; then
-  redshift-gtk &
+  gammastep-indicator &
 fi
 
 if [ -x "$(command -v emacs)" ]; then
@@ -47,8 +47,8 @@ if [ -x "$(command -v easyeffects)" ]; then
 fi
 
 #start polkit
-# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/polkit-kde-authentication-agent-1 &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# /usr/lib/polkit-kde-authentication-agent-1 &
 
 if [ -x "$(command -v nm-applet)" ]; then
   nm-applet &
