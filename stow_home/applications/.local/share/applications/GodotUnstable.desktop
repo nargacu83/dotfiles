@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=4.0a2
-Name=Godot 4.0a2
-Comment=An advanced, feature packed, multi-platform 2D and 3D game engine.
-Exec=/home/quentin/Applications/godot.64
-Icon=godot
-Terminal=false
