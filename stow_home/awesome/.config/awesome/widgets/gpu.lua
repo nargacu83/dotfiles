@@ -1,13 +1,13 @@
 local wibox = require("wibox")
 local gears = require("gears")
 local beautiful = require("beautiful")
-require("status.memory")
+require("status.gpu")
 
 local icon = {
   widget = wibox.container.place,
   {
     widget = wibox.widget.imagebox,
-    image = os.getenv("HOME") .. "/.config/awesome/theme/icons/cpu.svg",
+    image = os.getenv("HOME") .. "/.config/awesome/theme/icons/monitor.svg",
     forced_width = 15,
     resize = true,
   },
@@ -15,7 +15,7 @@ local icon = {
 
 local bg_shape = function(cr, w, h) gears.shape.rounded_rect(cr, w, h, 3) end
 
-local memory = wibox.widget {
+local gpu = wibox.widget {
   widget = wibox.widget.textbox
 }
 
@@ -36,16 +36,16 @@ local widget = {
         layout = wibox.layout.fixed.horizontal,
         spacing = 5,
         icon,
-        memory
+        gpu
       }
     },
   },
 }
 
-awesome.connect_signal("status::memory", function(usage, total)
-  memory.font = beautiful.font
-  local markup = usage .. " / " .. total .. " MiB"
-  memory.markup = markup
+awesome.connect_signal("status::gpu", function(usage, total)
+  gpu.font = beautiful.font
+  local markup = usage .. " MiB" .. " / " .. total .. " MiB"
+  gpu.markup = markup
 end)
 
 return widget
