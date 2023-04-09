@@ -33,8 +33,8 @@ if [ -x "$(command -v numlockx)" ]; then
   numlockx on
 fi
 
-# #set redshift for night light
-if [ -x "$(command -v redshift)" ]; then
+# #set night light
+if [ -x "$(command -v gammastep-indicator)" ]; then
   gammastep-indicator &
 fi
 
