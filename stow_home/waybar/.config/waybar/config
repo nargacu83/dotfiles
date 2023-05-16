@@ -13,8 +13,15 @@
 
     // Modules configuration
     "wlr/workspaces": {
+        // "format": "",
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+        },
     },
     "keyboard-state": {
         "numlock": true,
@@ -37,7 +44,7 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
-        "format": "  {usage}%",
+        "format": "   {usage}%",
         "on-click": "alacritty -e btop",
         "tooltip": false
     },
@@ -82,7 +89,7 @@
     "custom/memory": {
         "exec": "$HOME/.config/waybar/scripts/memory.sh",
         "interval": 2,
-        "format": "  {}",
+        "format": "   {}",
         "tooltip": false,
         "on-click": "alacritty -e btop",
     },

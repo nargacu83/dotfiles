@@ -8,12 +8,15 @@
 }
 
 window#waybar {
-    background: rgba(40, 42, 54, 0);
+    background: rgba(40, 42, 54, 0.75);
 }
 
 tooltip {
-    background: rgba(68, 71, 90, 0.75);
-    border-radius: 6px;
+    /* background: rgba(68, 71, 90, 0.75); */
+    background: rgba(40, 42, 54, 0.75);
+    border-color: #44475a;
+    border-width: 2px;
+    border-radius: 4px;
 }
 
 #custom-language,
@@ -34,14 +37,14 @@ tooltip {
     color: #f8f8f2;
     /* background: #44475a; */
     padding: 2px 8px;
-    margin-top: 4px;
+    margin: 4px 0px;
 
     border-radius: 4px;
-    border-width: 2px;
+    border-width: 0px;
     border-style: solid;
     border-color: #44475a;
 
-    background: rgba(40, 42, 54, 1.0);
+    background: rgba(40, 42, 54, 0.0);
 }
 
 #workspaces {
@@ -54,33 +57,39 @@ tooltip {
     border-width: 2px;
     border-style: solid;
     border-color: #44475a;
-    background: rgba(40, 42, 54, 1.0);
+    background: rgba(40, 42, 54, 0.5);
+    color: #f8f8f2;
     margin: 0px 2px;
     padding: 0px 3px;
 }
 
 #workspaces button.active {
+    color: #f8f8f2;
     border-color: #bd93f9;
+    /* background-color: #bd93f9; */
 }
 
-#workspaces button.focused {
-    border-color: #f8f8f2;
+#workspaces button.persistent {
+    color: #44475a;
 }
 
 #workspaces button.urgent {
     border-color: #f8f8f2;
+    /* background-color: #f8f8f2; */
 }
 
-#workspaces button:hover {
-    background: none;
-}
+/* #workspaces button:hover { */
+/*     background: none; */
+/* } */
 
 #tray {
     margin-right: 4px;
 }
 
 #custom-updates {
-    border-color: #6272a4;
+    color: #cba6f7;
+    /* background-color: #6272a4; */
+    /* border-color: #6272a4; */
     margin-right: 4px;
 }
 
