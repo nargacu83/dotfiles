@@ -10,8 +10,8 @@ local wibar_height = 35
 local mytaglist = require("widgets.taglist")
 -- local mytasklist = require("widgets.tasklist")
 local mysystray = require("widgets.systray")
--- local mycpu = require("widgets.cpu")
--- local mygpu = require("widgets.gpu")
+local mycpu = require("widgets.cpu")
+local mygpu = require("widgets.gpu")
 local mymemory = require("widgets.memory")
 local myarchupdates = require("widgets.archupdates")
 local myhourclock = require("widgets.hourclock")
@@ -65,6 +65,8 @@ function wibar.get(s)
                     widget = wibox.container.place,
                     layout = wibox.layout.fixed.horizontal,
                     spacing = 5,
+                    mycpu,
+                    mygpu,
                     mymemory,
                     myarchupdates,
                     mysystray,

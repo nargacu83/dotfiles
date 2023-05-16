@@ -42,9 +42,9 @@ local widget = {
   },
 }
 
-awesome.connect_signal("status::gpu", function(usage, total)
+awesome.connect_signal("status::gpu", function(usage)
   gpu.font = beautiful.font
-  local markup = usage .. " MiB" .. " / " .. total .. " MiB"
+  local markup = usage
   gpu.markup = markup
 end)
 

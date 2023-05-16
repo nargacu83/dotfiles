@@ -44,7 +44,7 @@ local widget = {
 
 awesome.connect_signal("status::cpu", function(usage)
   cpu.font = beautiful.font
-  local markup = usage .. " %"
+  local markup = usage
   cpu.markup = markup
 end)
 

@@ -2,6 +2,9 @@
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 export _JAVA_AWT_WM_NONREPARENTING=1
+export GTK_IM_MODULE='fcitx'
+export QT_IM_MODULE='fcitx'
+export XMODIFIERS='@im=fcitx'
 
 #set resolution and refresh rate
 if [ -x "$(command -v xrandr)" ]; then
@@ -58,3 +61,18 @@ fi
 if [ -x "$(command -v blueman-applet)" ]; then
   blueman-applet &
 fi
+
+# multilingual inputs
+if [ -x "$(command -v fcitx5)" ]; then
+  fcitx5 -d &
+fi
+
+
+# Atomic
+sleep 1
+killall xdg-desktop-portal-hyprland
+killall xdg-desktop-portal-wlr
+killall xdg-desktop-portal
+/usr/libexec/xdg-desktop-portal-hyprland &
+sleep 2
+/usr/lib/xdg-desktop-portal &
