@@ -9,9 +9,9 @@ export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 
-#set background
-if [ -x "$(command -v hyprpaper)" ]; then
-  hyprpaper &
+# wallpaper
+if [ -x "$(command -v swww)" ]; then
+  swww init &
 fi
 
 #start notification daemon
