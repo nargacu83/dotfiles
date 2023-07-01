@@ -42,11 +42,11 @@ if [ -x "$(command -v gammastep-indicator)" ]; then
 fi
 
 if [ -x "$(command -v emacs)" ]; then
-  systemctl --user start emacs
+  systemctl --user is-active --quiet emacs || systemctl --user restart emacs
 fi
 
 if [ -x "$(command -v easyeffects)" ]; then
-  systemctl --user start easyeffects
+  systemctl --user is-active --quiet easyeffects || systemctl --user restart easyeffects
 fi
 
 #start polkit
@@ -67,12 +67,9 @@ if [ -x "$(command -v fcitx5)" ]; then
   fcitx5 -d &
 fi
 
-
-# Atomic
 sleep 1
 killall xdg-desktop-portal-hyprland
 killall xdg-desktop-portal-wlr
 killall xdg-desktop-portal
-/usr/libexec/xdg-desktop-portal-hyprland &
 sleep 2
 /usr/lib/xdg-desktop-portal &
