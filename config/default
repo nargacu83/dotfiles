@@ -159,12 +159,11 @@ PACKAGES=(
     "libreoffice-fresh-fr"
 
     # Editor
-    "emacs"
+    "nvim"
     "ripgrep"
     "fd"
 
     # Game Engine
-    "godot"
     "scons"
 
     # Docker
@@ -234,8 +233,8 @@ PACKAGES=(
     "lib32-vkd3d"
 
     "gamemode"
-    "lutris"
-    "steam"
+    "gamescope"
+    "lutris" # TODO: Try the flatpak
 
     # Virtual Machine
     "qemu-full"
@@ -250,7 +249,6 @@ AUR=(
     # Apps
     "picom-jonaburg-git"
     "ventoy-bin"
-    "itch"
     "joshuto"
     "material-maker-bin"
 
@@ -269,11 +267,16 @@ AUR=(
 FLATPAKS=(
    "com.github.tchx84.Flatseal"
    "io.freetubeapp.FreeTube"
+   "com.logseq.Logseq"
+   "com.valvesoftware.Steam"
+   "org.freedesktop.Platform.VulkanLayer.MangoHud"
+   "org.freedesktop.Platform.VulkanLayer.gamescope"
+   "com.github.Matoking.protontricks"
+   "io.itch.itch"
+   "io.github.RodZill4.Material-Maker"
+   "org.godotengine.Godot"
+   "io.github.achetagames.epic_asset_manager"
    "co.obsproject.Studio"
-   "com.github.micahflee.torbrowse-launcher"
-   # Chat
-   "im.riot.Riot"
-   "chat.revolt.RevoltDesktop"
    "com.discordapp.Discord"
 )
 
