@@ -9,7 +9,7 @@ local theme = {}
 theme.font          = "Cantarell Bold 10"
 
 theme.bg_normal     = "#282a36BF"
-theme.bg_focus      = "#bd93f9"
+theme.bg_focus      = "#bd93f9ee"
 theme.bg_urgent     = "#f8f8f2"
 theme.bg_occupied   = "#44475a"
 theme.bg_minimize   = "#44475a"
@@ -21,7 +21,7 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#f8f8f2"
 theme.fg_minimize   = "#f8f8f2"
 
-theme.taglist_shape_border_width = 2
+theme.taglist_shape_border_width = dpi(2)
 theme.taglist_shape_border_color_focus = theme.bg_focus
 theme.taglist_bg_empty = "#00000000"
 theme.taglist_shape_border_color = theme.bg_occupied
@@ -40,7 +40,7 @@ theme.tasklist_plain_task_name = false
 
 theme.gap_single_client = true
 theme.useless_gap   = dpi(2)
-theme.border_width  = 2
+theme.border_width  = dpi(1)
 theme.border_normal = theme.bg_occupied
 theme.border_focus  = theme.bg_focus
 theme.border_marked = theme.bg_urgent
