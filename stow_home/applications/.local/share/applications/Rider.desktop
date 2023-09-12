@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=2021.2.2
-Name=JetBrains Rider 2021.2.2
-Comment=A cross-platform .NET IDE by JetBrains.
-Exec="/home/quentin/Applications/JetBrains Rider-2021.2.2/bin/rider.sh"
-Icon=/home/quentin/Applications/JetBrains Rider-2021.2.2/bin/rider.svg
-Terminal=false
