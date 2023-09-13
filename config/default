@@ -12,7 +12,6 @@ SCRIPTS=(
     "configure_gdm"
     "configure_vm"
     "configure_keyboard"
-    "install_paru"
     "install_reflector"
     "systemctl"
     "install_dotfiles"

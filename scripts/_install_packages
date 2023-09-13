@@ -12,10 +12,15 @@ for package in "${PACKAGES[@]}"; do
 done
 
 if [ ${INSTALL_AUR} -eq 1 ]; then
-    print_inner_message "Installing AUR packages..."
-    for package in "${AUR[@]}"; do
-        aur_install $package || print_error "Could not install AUR package: $package"
-    done
+  print_message "Installing AUR package manager..."
+  git clone https://aur.archlinux.org/paru.git "${INSTALL_DIRECTORY}/paru"
+  cd "${INSTALL_DIRECTORY}/paru"
+  makepkg -si --noconfirm --needed
+
+  print_inner_message "Installing AUR packages..."
+  for package in "${AUR[@]}"; do
+      aur_install $package || print_error "Could not install AUR package: $package"
+  done
 fi
 
 if [ ${INSTALL_FLATPAKS} -eq 1 ]; then
