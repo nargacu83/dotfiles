@@ -242,11 +242,11 @@ clear_pacman_cache
 
 remove_install_directory
 
-print_message "Installation completed with ${#errors[@]} errors."
+print_message "Installation completed."
 
 # Check for errors
 if [ ${#errors[@]} -gt 0 ]; then
-  print_message "See logs/install.0.log for more informations."
+  print_message "There are ${#errors[@]} errors. See logs/install.0.log for more informations."
 fi
 
 # # Check for errors

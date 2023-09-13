@@ -7,6 +7,7 @@ ENABLE_MULTILIB=1
 PARALLEL_DOWNLOADS=0
 
 SCRIPTS=(
+    "configure_zsh"
     "configure_git"
     "configure_gdm"
     "configure_vm"
@@ -20,7 +21,6 @@ SCRIPTS=(
 )
 
 PACKAGES=(
-    "gdm"
     "starship"
 
     # Git
@@ -45,8 +45,7 @@ PACKAGES=(
     "mesa-vdpau"
     "lib32-mesa-vdpau"
 
-    "sddm"
-
+    "gdm"
     "gnome-themes-extra"
 
     # Fonts packages
@@ -111,6 +110,7 @@ PACKAGES=(
 
     # WM
     "sxhkd"
+    "awesome"
 
     # Apps
     "nitrogen"
