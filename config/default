@@ -105,6 +105,8 @@ PACKAGES=(
     "alacritty"
     "zsh"
     "zsh-completions"
+    "zsh-syntax-highlighting"
+    "zsh-autosuggestions"
 
     "stow"
 

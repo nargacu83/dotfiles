@@ -1,3 +1,6 @@
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Doom emacs
 export PATH="$HOME/.emacs.d/bin:$PATH"
 # Created by `pipx` on 2021-04-03 19:28:24
