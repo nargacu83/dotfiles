@@ -160,7 +160,7 @@ PACKAGES=(
     "libreoffice-fresh-fr"
 
     # Editor
-    "nvim"
+    "neovim"
     "ripgrep"
     "fd"
 

@@ -2,8 +2,8 @@
 
 print_message "Configuring Virtual Machine"
 
-doas pacman --noconfirm -Rns iptables
-doas systemctl enable --now libvirtd
-doas virsh net-start default
-doas virsh net-autostart default
-doas usermod -aG kvm,input,libvirt quentin
+sudo pacman --noconfirm -Rns iptables
+sudo systemctl enable --now libvirtd
+sudo virsh net-start default
+sudo virsh net-autostart default
+sudo usermod -aG kvm,input,libvirt quentin
