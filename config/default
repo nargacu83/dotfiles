@@ -16,7 +16,6 @@ SCRIPTS=(
     "install_reflector"
     "install_dotfiles"
     "install_nvchad"
-    "install_firefox_gnome_theme"
 )
 
 PACKAGES=(
@@ -44,7 +43,7 @@ PACKAGES=(
     "mesa-vdpau"
     "lib32-mesa-vdpau"
 
-    "gdm"
+    "lightdm"
     "gnome-themes-extra"
 
     # Fonts packages

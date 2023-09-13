@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-print_message "Configuring GDM..."
-
- # Enable Lightdm
-sudo systemctl enable gdm
