@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+print_message "Configuring CUPS"
+
+sudo systemctl enable cups
