@@ -4,7 +4,7 @@ print_message "Updating keyring..."
 # Install archlinux keyring to avoid PGP Signature errors
 pacman_install archlinux-keyring
 # Update for the keyring
-doas pacman -Syu --noconfirm || print_message "Unable to update the system"
+sudo pacman -Syu --noconfirm || print_message "Unable to update the system"
 
 print_message "Installing pacman packages..."
 for package in "${PACKAGES[@]}"; do
