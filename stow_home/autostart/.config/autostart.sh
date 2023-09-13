@@ -48,9 +48,6 @@ elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then
   QT_QPA_PLATFORM=qt5ct;wayland;xcb
   GDK_BACKEND=wayland
 
-  # Fix polkit not starting in wayland
-  exec $(echo $(nix eval nixpkgs#polkit_gnome.outPath)/libexec/polkit-gnome-authentication-agent-1 | sed 's/"//g' &) &
-
   # Hyprland specific
   if [ "$XDG_CURRENT_DESKTOP" == "Hyprland" ]; then
     XDG_CURRENT_DESKTOP=Hyprland
@@ -78,6 +75,9 @@ elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then
   fi
 fi
 
+# Start polkit-gnome
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 #start notification daemon
 if [ -x "$(command -v dunst)" ]; then
   dunst &
@@ -93,5 +93,3 @@ if [ -x "$(command -v fcitx5)" ]; then
   fcitx5 -d &
 fi
 
-# Fixes xdg-open calls not opening links
-systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service
