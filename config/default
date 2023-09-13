@@ -9,7 +9,7 @@ PARALLEL_DOWNLOADS=0
 SCRIPTS=(
     "configure_zsh"
     "configure_git"
-    "configure_gdm"
+    "configure_lightdm"
     "configure_vm"
     "configure_keyboard"
     "configure_cups"
