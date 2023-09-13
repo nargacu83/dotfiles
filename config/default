@@ -44,6 +44,7 @@ PACKAGES=(
     "lib32-mesa-vdpau"
 
     "lightdm"
+    "lightdm-gtk-greeter"
     "gnome-themes-extra"
 
     # Fonts packages
