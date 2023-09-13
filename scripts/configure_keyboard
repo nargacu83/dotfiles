@@ -2,5 +2,5 @@
 
 print_message "Configuring keyboard in French..."
 
-doas localectl set-keymap fr
-doas localectl set-x11-keymap fr
+sudo localectl set-keymap fr
+sudo localectl set-x11-keymap fr

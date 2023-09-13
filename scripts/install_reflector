@@ -3,8 +3,8 @@
 pacman_install reflector
 
 # Enable automatic mirrors update
-doas systemctl enable reflector.timer
-doas systemctl start reflector.timer
+sudo systemctl enable reflector.timer
+sudo systemctl start reflector.timer
 
 # Update mirrors right now
-doas systemctl start reflector.service
+sudo systemctl start reflector.service

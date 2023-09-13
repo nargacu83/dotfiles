@@ -7,23 +7,22 @@ ENABLE_MULTILIB=1
 PARALLEL_DOWNLOADS=0
 
 SCRIPTS=(
-    "install_lts_kernel"
-    "install_dwm"
     "configure_git"
-    "configure_grub"
-    "configure_spaceship"
-    "configure_lightdm"
+    "configure_gdm"
     "configure_vm"
     "configure_keyboard"
     "install_paru"
     "install_reflector"
     "systemctl"
     "install_dotfiles"
-    "install_doom_emacs"
+    "install_nvchad"
     "install_firefox_gnome_theme"
 )
 
 PACKAGES=(
+    "gdm"
+    "starship"
+
     # Git
     "git-lfs"
 
