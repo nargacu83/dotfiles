@@ -3,5 +3,5 @@
 print_message "Configuring AUR related packages"
 
 git clone https://aur.archlinux.org/paru.git "${INSTALL_FOLDER}/paru"
-cd "${INSTALL_FOLDER}/paru"
+cd "${INSTALL_DIRECTORY}/paru"
 makepkg -si --noconfirm --needed
