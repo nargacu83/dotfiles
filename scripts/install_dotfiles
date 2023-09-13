@@ -12,7 +12,7 @@ print_inner_message "Installing root dotfiles"
 [[ -d "${DOTFILES_ROOT_DIRECTORY}_temp" ]] && sudo rm -rf "${dotfiles_root_directory}_temp"
 
 # move and install root part of the dotfiles
-sudo git clone https://gitlab.com/dev.quentinfranchi/dotfiles "${DOTFILES_ROOT_DIRECTORY}_temp" \
+sudo git clone https://github.com/dev.quentinfranchi/dotfiles "${DOTFILES_ROOT_DIRECTORY}_temp" \
     && sudo mv "${DOTFILES_ROOT_DIRECTORY}_temp/stow_root" "${dotfiles_root_directory}" \
     && sudo rm -rf "${DOTFILES_ROOT_DIRECTORY}_temp" \
     && cd "${DOTFILES_ROOT_DIRECTORY}"
