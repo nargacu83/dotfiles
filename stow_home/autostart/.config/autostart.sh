@@ -1,5 +1,14 @@
 #!/usr/bin/env sh
 
+export GTK_IM_MODULE="fcitx"
+export QT_IM_MODULE="fcitx"
+export XMODIFIERS="@im=fcitx"
+# Java applications fix, i don't remember for what
+export _JAVA_AWT_WM_NONREPARENTING=1
+# QT Theme
+# export QT_STYLE_OVERRIDE="kvantum"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 resolution="2560x1080"
 refresh_rate="100"
 
@@ -76,7 +85,7 @@ elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then
 fi
 
 # Start polkit-gnome
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 #start notification daemon
 if [ -x "$(command -v dunst)" ]; then
