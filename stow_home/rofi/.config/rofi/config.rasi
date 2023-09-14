@@ -182,7 +182,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:           "Noto Sans 10";
+    font:           "Cantarell 10";
     background:     #1E1F29FF;
     background-alt: #282A36FF;
     foreground:     #FFFFFFFF;
@@ -233,7 +233,6 @@ inputbar {
     spacing:                     10px;
     padding:                     40px 40px 155px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/background.png", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];
