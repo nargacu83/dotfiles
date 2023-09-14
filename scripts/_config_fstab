@@ -21,7 +21,7 @@ for disk in "${FSTAB[@]}"; do
     fi
 
 
-    disk="$uuid $mount_point $fstype $options 0 0"
+    disk="UUID=$uuid $mount_point $fstype $options 0 0"
 
     # Check if the given disk is already present in fstab
     if grep -q $uuid "/etc/fstab"; then
