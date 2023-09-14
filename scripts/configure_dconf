@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+print_message "Configuring DCONF..."
+
+for keyvalue in "${DCONF[@]}"; do
+  key=$(echo "$keyvalue" | awk -F" = " '{print $1}' | xargs)
+  value=$(echo "$keyvalue" | awk -F" = " '{print $2}' | xargs)
+
+  dconf write ${key} "'${value}'"
+done
+

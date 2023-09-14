@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-INSTALL_PACKAGES=0
+INSTALL_PACKAGES=1
 INSTALL_FSTAB=0
-INSTALL_AUR=0
+INSTALL_AUR=1
 INSTALL_FLATPAKS=1
 ENABLE_MULTILIB=1
 PARALLEL_DOWNLOADS=0
@@ -13,6 +13,7 @@ SCRIPTS=(
     "configure_lightdm"
     "configure_vm"
     "configure_keyboard"
+    "configure_dconf"
     "configure_cups"
     "install_reflector"
     "install_dotfiles"
@@ -312,3 +313,29 @@ FSTAB=(
     "83e09479-85e0-45e1-82a3-217add68fe9e -> /mnt/VM -> defaults,nofail,noauto,x-gvfs-show -> ext4"
     "45b03bfe-40d7-45e4-8839-59792ca9fd9a -> /mnt/NEH -> defaults,nofail,noauto,x-gvfs-show -> ext4"
 )
+
+DCONF=(
+  "/org/gnome/desktop/interface/font-name = Cantarell 10"
+  "/org/gnome/desktop/interface/document-font-name = Cantarell 10"
+  "/org/gnome/desktop/interface/gtk-theme = Dracula"
+  "/org/gnome/desktop/interface/icon-theme = Dracula"
+  "/org/gnome/desktop/interface/cursor-theme = Bibata-Original-Classic"
+  "/org/gnome/desktop/interface/cursor-size = 16"
+  "/org/gnome/desktop/interface/font-hinting = full"
+  "/org/gnome/desktop/interface/font-antialiasing = rgba"
+
+  # Disable middle-click paste
+  "/org/gnome/desktop/interface/gtk-enable-primary-paste = false"
+  "/org/gnome/desktop/wm/preferences/theme = Dracula"
+  # Remove min-max-close buttons
+  "/org/gnome/desktop/wm/preferences/button-layout = "
+
+  # Disable events sounds
+  "/org/gnome/desktop/sound/event-sounds = false"
+  "/org/gnome/desktop/sound/input-feedback-sounds = false"
+
+# Disable recent files
+  "/org/gnome/desktop/privacy/remember-recent-files = false"
+  "/org/gnome/desktop/privacy/remember-recent-files/recent-files-max-age = 0"
+)
+
