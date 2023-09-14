@@ -1,6 +1,7 @@
+
 [Desktop Entry]
 Type=Application
 Name=Unreal Engine 5
 Icon=lutris_unreal-engine-5
-Exec=env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/220
+Exec=env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/219
 Categories=Game
