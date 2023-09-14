@@ -7,9 +7,12 @@ pacman_install archlinux-keyring
 sudo pacman -Syu --noconfirm || print_message "Unable to update the system"
 
 print_message "Installing pacman packages..."
-for package in "${PACKAGES[@]}"; do
-    pacman_install $package || print_message "Could not install package: $package"
-done
+
+if [ ${INSTALL_PACKAGES} -eq 1 ]; then
+  for package in "${PACKAGES[@]}"; do
+      pacman_install $package || print_message "Could not install package: $package"
+  done
+fi
 
 if [ ${INSTALL_AUR} -eq 1 ]; then
   print_message "Installing AUR package manager..."
@@ -24,8 +27,19 @@ if [ ${INSTALL_AUR} -eq 1 ]; then
 fi
 
 if [ ${INSTALL_FLATPAKS} -eq 1 ]; then
-    print_inner_message "Installing Flatpaks..."
-    for flatpak in "${FLATPAKS[@]}"; do
-        flatpak install -y $flatpak || print_error "Could not install flatpak: $flatpak"
-    done
+  print_inner_message "Installing Flatpaks..."
+  for flatpak in "${FLATPAKS[@]}"; do
+      flatpak install -y $flatpak || print_error "Could not install flatpak: $flatpak"
+  done
+
+  print_inner_message "Configuring Flatpaks..."
+  flatpak --user override --reset
+  
+  flatpak --user override --filesystem=$HOME/.icons/:ro
+  flatpak --user override --filesystem=/usr/share/icons/:ro
+
+  print_inner_message "Applying theme..."
+  for flatpak in "${FLATPAK_APPLY_THEME[@]}"; do
+      flatpak --user override --env=GTK_THEME=$gtk_theme $flatpak
+  done
 fi
