@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+INSTALL_PACKAGES=0
 INSTALL_FSTAB=0
 INSTALL_AUR=0
-INSTALL_FLATPAKS=0
+INSTALL_FLATPAKS=1
 ENABLE_MULTILIB=1
 PARALLEL_DOWNLOADS=0
 
@@ -116,6 +117,7 @@ PACKAGES=(
     "awesome"
 
     # Apps
+    "less"
     "nitrogen"
     "rofi"
     "gammastep"
@@ -135,8 +137,11 @@ PACKAGES=(
     "flatpak"
     "gitui"
     "easyeffects"
+    "calf"
     "fcitx5-im"
     "fcitx5-anthy"
+    "fcitx5-mozc"
+    "obs-studio"
 
     # Mouse
     "libratbag"
@@ -147,6 +152,7 @@ PACKAGES=(
     "firefox-i18n-fr"
 
     # Graphics
+    "imv"
     "gimp"
     "inkscape"
     "blender"
@@ -175,9 +181,10 @@ PACKAGES=(
     # Game Engine
     "scons"
 
-    # Docker
     "docker"
     "docker-compose"
+
+    "rustup"
 
     # .NET
     "dotnet-host"
@@ -189,6 +196,8 @@ PACKAGES=(
     # Java
     "jdk-openjdk"
     "jre-openjdk"
+
+    "npm"
 
     # Gaming
     "wine-staging"
@@ -257,7 +266,6 @@ PACKAGES=(
 AUR=(
     # Apps
     "picom-jonaburg-git"
-    "ventoy-bin"
     "joshuto"
 
     # Themes
@@ -267,6 +275,8 @@ AUR=(
     # Printer drivers
     "epson-inkjet-printer-escpr"
     "epson-inkjet-printer-escpr2"
+
+    "opencl-amd"
 )
 
 FLATPAKS=(
@@ -281,7 +291,16 @@ FLATPAKS=(
    "io.github.RodZill4.Material-Maker"
    "org.godotengine.Godot"
    "io.github.achetagames.epic_asset_manager"
-   "co.obsproject.Studio"
+   "com.discordapp.Discord"
+   "org.gtk.Gtk3theme.adw-gtk3-dark"
+)
+
+FLATPAK_GTK_THEME="adw-gtk2-dark"
+FLATPAK_APPLY_THEME=(
+   "io.freetubeapp.FreeTube"
+   "info.beyondallreason.bar"
+   "com.valvesoftware.Steam"
+   "org.godotengine.Godot"
    "com.discordapp.Discord"
 )
 
