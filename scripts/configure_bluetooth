@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+print_message "Configuring bluetooth..."
+sudo systemctl enable --now bluetooth.service

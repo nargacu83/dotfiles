@@ -14,6 +14,7 @@ SCRIPTS=(
     "configure_vm"
     "configure_keyboard"
     "configure_dconf"
+    "configure_bluetooth"
     "configure_cups"
     "install_reflector"
     "install_dotfiles"
@@ -89,6 +90,8 @@ PACKAGES=(
     "nm-connection-editor"
     "network-manager-applet"
     "gufw"
+    "bluez"
+    "blueman"
 
     # Printers
     "cups"
@@ -180,6 +183,7 @@ PACKAGES=(
     "fd"
 
     # Game Engine
+    "python"
     "scons"
 
     "docker"
