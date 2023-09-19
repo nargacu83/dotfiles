@@ -8,18 +8,18 @@ local theme = {}
 
 theme.font          = "Cantarell Bold 10"
 
-theme.bg_normal     = "#282a36BF"
-theme.bg_focus      = "#bd93f9ee"
+theme.bg_normal     = "#1e1e2eBF"
+theme.bg_focus      = "#cba6f7ee"
 theme.bg_urgent     = "#f8f8f2"
-theme.bg_occupied   = "#44475a"
-theme.bg_minimize   = "#44475a"
-theme.bg_systray    = "#44475a"
+theme.bg_occupied   = "#313244"
+theme.bg_minimize   = "#313244"
+theme.bg_systray    = "#313244"
 theme.systray_icon_spacing = 5
 
-theme.fg_normal     = "#f8f8f2"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#f8f8f2"
-theme.fg_minimize   = "#f8f8f2"
+theme.fg_normal     = "#ffffff"
+theme.fg_focus      = "#cdd6f4"
+theme.fg_urgent     = "#b4befe"
+theme.fg_minimize   = "#bac2de"
 
 theme.taglist_shape_border_width = dpi(2)
 theme.taglist_shape_border_color_focus = theme.bg_focus
@@ -48,7 +48,6 @@ theme.border_marked = theme.bg_urgent
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
 
--- theme.wallpaper = "~/.config/wallpaper/background.jpg"
 theme.icon_theme = nil
 
 return theme

@@ -1,6 +1,7 @@
 local gears = require("gears")
 local wibox = require("wibox")
 local xresources = require("beautiful.xresources")
+local beautiful = require("beautiful")
 local dpi = xresources.apply_dpi
 
 local bg_shape = function (cr, w, h) gears.shape.rounded_rect(cr, w, h, 3) end
@@ -18,7 +19,7 @@ local widget = {
 
     {
         widget = wibox.container.background,
-        bg = "#44475a",
+        bg = "#313244",
         shape = bg_shape,
         {
             widget = wibox.container.margin,

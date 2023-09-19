@@ -27,7 +27,6 @@ local widget = {
 
     {
         widget = wibox.container.background,
-        bg = "#6272a4",
         shape = bg_shape,
         {
             widget = wibox.container.margin,

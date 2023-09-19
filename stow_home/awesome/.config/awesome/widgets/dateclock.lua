@@ -22,7 +22,6 @@ local hourclock = {
 
     {
         widget = wibox.container.background,
-        bg = "#44475a",
         shape = bg_shape,
         {
             widget = wibox.container.margin,
