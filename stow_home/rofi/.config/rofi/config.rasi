@@ -369,4 +369,4 @@ error-message {
 }
 
 // Change this if you want other colors
-@import "colors/dracula.rasi"
+@import "colors/catppuccin.rasi"
