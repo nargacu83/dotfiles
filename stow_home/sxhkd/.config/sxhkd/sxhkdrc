@@ -19,10 +19,6 @@ super + Print
 super + shift + Print
 	~/.config/rofi/screenshot selection
 
-# # launch music radio
-# super + r
-# 	~/.config/rofi/scripts/radio
-
 # change keyboard layout
 super + shift + l
 	~/.config/sxhkd/scripts/changekblayout
