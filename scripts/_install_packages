@@ -12,14 +12,23 @@ if [ ${INSTALL_PACKAGES} -eq 1 ]; then
   for package in "${PACKAGES[@]}"; do
       pacman_install $package || print_message "Could not install package: $package"
   done
+
+  # Remove desktop portal gnome
+  sudo pacman -Runs xdg-desktop-portal-gnome
 fi
 
 if [ ${INSTALL_AUR} -eq 1 ]; then
   print_message "Installing AUR package manager..."
+  
+  # Download and set the default Rust version to stable 
+  rustup default stable
+
+  # Install paru
   git clone https://aur.archlinux.org/paru.git "${INSTALL_DIRECTORY}/paru"
   cd "${INSTALL_DIRECTORY}/paru"
   makepkg -si --noconfirm --needed
 
+  # Install AUR packages
   print_inner_message "Installing AUR packages..."
   for package in "${AUR[@]}"; do
       aur_install $package || print_error "Could not install AUR package: $package"
