@@ -92,10 +92,11 @@ elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then
     wallpapers ${wallpapers_directory}
   fi
 
-
-  # #set night light
-  if [ -x "$(command -v gammastep-indicator)" ]; then
-    gammastep-indicator -m wayland &
+  if [ "$XDG_CURRENT_DESKTOP" != "KDE" ]; then
+    # #set night light
+    if [ -x "$(command -v gammastep-indicator)" ]; then
+      gammastep-indicator -m wayland &
+    fi
   fi
 fi
 
