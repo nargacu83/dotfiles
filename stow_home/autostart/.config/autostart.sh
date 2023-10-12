@@ -11,6 +11,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 
 resolution="2560x1080"
 refresh_rate="100"
+wallpapers_directory="/mnt/DATA/Nextcloud/Wallpapers/Current"
 
 # launch the given program in the background only if an instance isn't already running
 function launch_once() {
@@ -23,14 +24,39 @@ if [ "$XDG_SESSION_TYPE" == "x11" ]; then
     xrandr -s ${resolution} -r ${refresh_rate}
   fi
 
-  #boot picom if it exists
-  if [ -x "$(command -v picom)" ]; then
-    picom --daemon
-  fi
+  if [ "$XDG_CURRENT_DESKTOP" != "KDE" ]; then
+    #boot picom if it exists
+    if [ -x "$(command -v picom)" ]; then
+      picom --daemon --experimental-backend
+    fi
 
-  # sxhkd
-  if [ -x "$(command -v sxhkd)" ]; then
-    launch_once sxhkd
+    # sxhkd
+    if [ -x "$(command -v sxhkd)" ]; then
+      sxhkd
+    fi
+
+    #set background
+    if [ -x "$(command -v nitrogen)" ]; then
+      nitrogen --restore &
+    fi
+
+    # Start polkit-gnome
+    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+    # Network manager GUI
+    if [ -x "$(command -v nm-applet)" ]; then
+      nm-applet --indicator &
+    fi
+
+    # #set night light
+    if [ -x "$(command -v gammastep-indicator)" ]; then
+      launch_once gammastep-indicator
+    fi
+  else
+    # sxhkd
+    if [ -x "$(command -v sxhkd)" ]; then
+      sxhkd -c ~/.config/sxhkd/plasma.conf
+    fi
   fi
 
   # enable numlock
@@ -38,21 +64,10 @@ if [ "$XDG_SESSION_TYPE" == "x11" ]; then
     numlockx on
   fi
 
-  #set background
-  if [ -x "$(command -v nitrogen)" ]; then
-    nitrogen --restore &
-  fi
-
   # bluetooth
   if [ -x "$(command -v blueman-applet)" ]; then
     blueman-applet &
   fi
-
-  # #set night light
-  if [ -x "$(command -v gammastep-indicator)" ]; then
-    launch_once gammastep-indicator
-  fi
-
 elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then
   QT_QPA_PLATFORM=qt5ct;wayland;xcb
   GDK_BACKEND=wayland
@@ -64,7 +79,7 @@ elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then
     XDG_SESSION_DESKTOP=Hyprland
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
-    hyprctl setcursor $XCURSOR_THEME $XCURSOR_SIZE
+    # hyprctl setcursor $XCURSOR_THEME $XCURSOR_SIZE
 
     if [ -x "$(command -v waybar)" ]; then
       waybar &
@@ -74,7 +89,7 @@ elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then
   # wallpaper
   if [ -x "$(command -v swww)" ]; then
     swww init &
-    wallpapers /mnt/DATA/Nextcloud/Wallpapers/Current/
+    wallpapers ${wallpapers_directory}
   fi
 
 
@@ -84,17 +99,10 @@ elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then
   fi
 fi
 
-# Start polkit-gnome
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 #start notification daemon
 if [ -x "$(command -v dunst)" ]; then
   dunst &
-fi
-
-# Network manager GUI
-if [ -x "$(command -v nm-applet)" ]; then
-  nm-applet --indicator &
 fi
 
 # multilingual inputs
@@ -102,3 +110,8 @@ if [ -x "$(command -v fcitx5)" ]; then
   fcitx5 -d &
 fi
 
+# REPLACED BY SYSTEMD SERVICE
+# audio management
+# if [ -x "$(command -v easyeffects)" ]; then
+#   easyeffects --gapplication-service &
+# fi
