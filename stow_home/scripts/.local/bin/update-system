@@ -38,7 +38,7 @@ fi
 
 if ask "Do you want to update system and aur packages?"; then
     print_message "Checking for system and aur packages updates..." ${BLUE}
-    paru && paru --noconfirm -Scc || exit
+    paru && paru -Scc || exit
 fi
 
 if ask "Do you want to update Flatpaks?"; then
@@ -55,11 +55,6 @@ fi
 if ask "Do you want to update Rust?"; then
     print_message "Checking for Rust updates..." ${BLUE}
     rustup update || exit
-fi
-
-if ask "Do you want to force sync time?"; then
-    print_message "Forcing sync of time..." ${BLUE}
-    timedatectl set-ntp true || exit
 fi
 
 print_message "Updates finished" ${GREEN}
