@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Create every profile given in the configuration
+for profile in "${FIREFOX_PROFILES[@]}"; do
+  firefox -CreateProfile ${profile} 
+done
+
+# Install theme
+git clone https://github.com/rafaelmardojai/firefox-gnome-theme ~/firefox-gnome-theme/ && ~/firefox-gnome-theme/scripts/install.sh
