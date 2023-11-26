@@ -3,7 +3,7 @@ set -euo pipefail
 
 default_layout="fr"
 second_layout="us"
-prefix="Clavier"
+prefix="X11 Clavier"
 
 current_layout="$(setxkbmap -query | grep layout | awk '{print $2}')"
 
