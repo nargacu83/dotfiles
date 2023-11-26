@@ -46,6 +46,7 @@ if [ ${INSTALL_FLATPAKS} -eq 1 ]; then
   
   flatpak --user override --filesystem=$HOME/.icons/:ro
   flatpak --user override --filesystem=/usr/share/icons/:ro
+  flatpak --user override --filesystem=xdg-data/themes
 
   print_inner_message "Applying theme..."
   for flatpak in "${FLATPAK_APPLY_THEME[@]}"; do
