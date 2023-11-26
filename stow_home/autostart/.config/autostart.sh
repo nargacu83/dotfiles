@@ -7,7 +7,7 @@ export XMODIFIERS="@im=fcitx"
 export _JAVA_AWT_WM_NONREPARENTING=1
 # QT Theme
 # export QT_STYLE_OVERRIDE="kvantum"
-export QT_QPA_PLATFORMTHEME="qt5ct"
+# export QT_QPA_PLATFORMTHEME="qt5ct"
 
 resolution="2560x1080"
 refresh_rate="100"
@@ -107,9 +107,9 @@ if [ -x "$(command -v dunst)" ]; then
 fi
 
 # multilingual inputs
-if [ -x "$(command -v fcitx5)" ]; then
-  fcitx5 -d &
-fi
+# if [ -x "$(command -v fcitx5)" ]; then
+#   fcitx5 -d &
+# fi
 
 # REPLACED BY SYSTEMD SERVICE
 # audio management
