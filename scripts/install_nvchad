@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-print_message "Installing NvChad..."
-
-# Install
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-
-# Remove default custom config for dotfiles
-rm ~/.config/nvim/lua/custom/chadrc.lua

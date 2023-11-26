@@ -1,321 +1,324 @@
 #!/usr/bin/env bash
 
 INSTALL_PACKAGES=1
-INSTALL_FSTAB=0
+INSTALL_FSTAB=1
 INSTALL_AUR=1
 INSTALL_FLATPAKS=1
 ENABLE_MULTILIB=1
 PARALLEL_DOWNLOADS=0
 
 SCRIPTS=(
-    "configure_zsh"
-    "configure_git"
-    "configure_lightdm"
-    "configure_vm"
-    "configure_keyboard"
-    "configure_dconf"
-    "configure_bluetooth"
-    "configure_cups"
-    "install_reflector"
-    "install_dotfiles"
-    "install_nvchad"
+  "configure_zsh"
+  "configure_git"
+  "configure_lightdm"
+  "configure_vm"
+  "configure_keyboard"
+  "configure_dconf"
+  "configure_bluetooth"
+  "configure_cups"
+  "install_reflector"
+  "install_dotfiles"
 )
 
 PACKAGES=(
-    "starship"
+  # Git
+  "git-lfs"
 
-    # Git
-    "git-lfs"
+  # Pacman related packages for AUR
+  "base-devel"
+  "pacman-contrib"
+  "reflector"
+  "starship"
 
-    # Pacman related packages for AUR
-    "base-devel"
-    "pacman-contrib"
-    "reflector"
+  # CPU & GPU drivers
+  "amd-ucode"
+  "xf86-video-amdgpu"
+  "xf86-video-ati"
+  "mesa"
+  "lib32-mesa"
+  "vulkan-radeon"
+  "lib32-vulkan-radeon"
+  "libva-mesa-driver"
+  "lib32-libva-mesa-driver"
+  "libva-mesa-driver"
+  "mesa-vdpau"
+  "lib32-mesa-vdpau"
 
-    # CPU & GPU drivers
-    "amd-ucode"
-    "xf86-video-amdgpu"
-    "xf86-video-ati"
-    "mesa"
-    "lib32-mesa"
-    "vulkan-radeon"
-    "lib32-vulkan-radeon"
-    "libva-mesa-driver"
-    "lib32-libva-mesa-driver"
-    "libva-mesa-driver"
-    "mesa-vdpau"
-    "lib32-mesa-vdpau"
+  "lightdm"
+  "lightdm-gtk-greeter"
+  "gnome-themes-extra"
 
-    "lightdm"
-    "lightdm-gtk-greeter"
-    "gnome-themes-extra"
+  # Fonts packages
+  "gnu-free-fonts"
+  "ttf-jetbrains-mono"
+  "ttf-jetbrains-mono-nerd"
+  "noto-fonts-emoji"
+  "ttf-bitstream-vera"
+  "ttf-croscore"
+  "ttf-dejavu"
+  "ttf-droid"
+  "ttf-ibm-plex"
+  "ttf-liberation"
+  "ttf-linux-libertine"
+  "noto-fonts"
+  "ttf-font-awesome"
 
-    # Fonts packages
-    "gnu-free-fonts"
-    "ttf-jetbrains-mono"
-    "ttf-jetbrains-mono-nerd"
-    "noto-fonts-emoji"
-    "ttf-bitstream-vera"
-    "ttf-croscore"
-    "ttf-dejavu"
-    "ttf-droid"
-    "ttf-ibm-plex"
-    "ttf-liberation"
-    "ttf-linux-libertine"
-    "noto-fonts"
-    "ttf-font-awesome"
+  "polkit"
+  "polkit-gnome"
 
-    "polkit"
-    "polkit-gnome"
+  # Display server & display manager packages
+  "xorg-server"
+  "xorg-xrandr"
+  "xorg-xsetroot"
+  "xorg-xprop"
+  "numlockx"
+  "xcb-util-cursor"
+  "picom"
 
-    # Display server & display manager packages
-    "xorg-server"
-    "xorg-xrandr"
-    "xorg-xsetroot"
-    "xorg-xprop"
-    "numlockx"
-    "xcb-util-cursor"
-    "picom"
-    "xdg-user-dirs-update"
+  # Audio
+  "alsa-utils"
+  "alsa-oss"
+  "pipewire"
+  "pipewire-alsa"
+  "pipewire-pulse"
+  "pavucontrol"
 
-    # Audio
-    "alsa-utils"
-    "alsa-oss"
-    "pipewire"
-    "pipewire-alsa"
-    "pipewire-pulse"
-    "pavucontrol"
+  # Network management
+  "nm-connection-editor"
+  "network-manager-applet"
+  "gufw"
+  "bluez"
+  #"blueman"
 
-    # Network management
-    "nm-connection-editor"
-    "network-manager-applet"
-    "gufw"
-    "bluez"
-    "blueman"
+  # Printers
+  "cups"
+  "cups-filters"
+  "cups-pdf"
+  "system-config-printer"
+  "imagescan"
 
-    # Printers
-    "cups"
-    "cups-filters"
-    "cups-pdf"
-    "system-config-printer"
-    "imagescan"
+  # Archive
+  "unzip"
+  "unrar"
+  "unace"
+  "lrzip"
+  "squashfs-tools"
 
-    # Archive
-    "unzip"
-    "unrar"
-    "unace"
-    "lrzip"
-    "squashfs-tools"
+  # Terminal
+  "alacritty"
+  "zsh"
+  "zsh-completions"
+  "zsh-syntax-highlighting"
+  "zsh-autosuggestions"
 
-    # Terminal
-    "alacritty"
-    "zsh"
-    "zsh-completions"
-    "zsh-syntax-highlighting"
-    "zsh-autosuggestions"
+  "stow"
 
-    "stow"
+  # WM
+  "sxhkd"
+  "awesome"
+  
+  # DE
+  plasma
 
-    # WM
-    "sxhkd"
-    "awesome"
+  # Apps
+  "less"
+  "nitrogen"
+  "rofi"
+  "gammastep"
+  "dunst"
+  "xclip"
+  "maim"
+  "slurp"
+  "libqalculate"
+  "openssh"
+  "converseen"
+  "btop"
+  "radeontop"
+  "neofetch"
+  "onefetch"
+  "yt-dlp"
+  "flatpak"
+  "gitui"
+  "easyeffects"
+  "calf"
+  "fcitx5-im"
+  "fcitx5-anthy"
+  "fcitx5-mozc"
+  "obs-studio"
 
-    # Apps
-    "less"
-    "nitrogen"
-    "rofi"
-    "gammastep"
-    "dunst"
-    "xclip"
-    "maim"
-    "slurp"
-    "swww"
-    "libqalculate"
-    "openssh"
-    "converseen"
-    "btop"
-    "radeontop"
-    "neofetch"
-    "onefetch"
-    "yt-dlp"
-    "flatpak"
-    "gitui"
-    "easyeffects"
-    "calf"
-    "fcitx5-im"
-    "fcitx5-anthy"
-    "fcitx5-mozc"
-    "obs-studio"
+  # Mouse
+  "libratbag"
+  "piper"
 
-    # Mouse
-    "libratbag"
-    "piper"
+  # Browser
+  "firefox"
+  "firefox-i18n-fr"
 
-    # Browser
-    "firefox"
-    "firefox-i18n-fr"
+  # Graphics
+  "imv"
+  "gimp"
+  "inkscape"
+  "blender"
+  "mpv"
+  "syncplay"
+  "pyside"
 
-    # Graphics
-    "imv"
-    "gimp"
-    "inkscape"
-    "blender"
-    "mpv"
-    "syncplay"
+  # File Manager
+  "gvfs"
+  "gvfs-smb"
+  "gvfs-mtp"
+  "tumbler"
+  "ffmpegthumbnailer"
+  "nemo"
+  "nemo-fileroller"
+  "file-roller"
 
-    # File Manager
-    "gvfs"
-    "gvfs-smb"
-    "gvfs-mtp"
-    "tumbler"
-    "ffmpegthumbnailer"
-    "nemo"
-    "nemo-fileroller"
-    "file-roller"
+  # Office
+  "libreoffice-fresh"
+  "libreoffice-fresh-fr"
 
-    # Office
-    "libreoffice-fresh"
-    "libreoffice-fresh-fr"
+  # Editor
+  "neovim"
+  "ripgrep"
+  "fd"
 
-    # Editor
-    "neovim"
-    "ripgrep"
-    "fd"
+  # Game Engine
+  "godot"
+  "python"
+  "scons"
 
-    # Game Engine
-    "python"
-    "scons"
+  "docker"
+  "docker-compose"
 
-    "docker"
-    "docker-compose"
+  "rustup"
 
-    "rustup"
+  # .NET
+  "dotnet-host"
+  "dotnet-runtime"
+  "dotnet-sdk"
+  "dotnet-targeting-pack"
+  "mono-msbuild"
 
-    # .NET
-    "dotnet-host"
-    "dotnet-runtime"
-    "dotnet-sdk"
-    "dotnet-targeting-pack"
-    "mono-msbuild"
+  # Java
+  "jdk-openjdk"
+  "jre-openjdk"
 
-    # Java
-    "jdk-openjdk"
-    "jre-openjdk"
+  "npm"
 
-    "npm"
+  # Gaming
+  "wine-staging"
+  "giflib"
+  "lib32-giflib"
+  "libpng"
+  "lib32-libpng"
+  "libldap"
+  "lib32-libldap"
+  "gnutls"
+  "lib32-gnutls"
+  "mpg123"
+  "lib32-mpg123"
+  "openal"
+  "lib32-openal"
+  "v4l-utils"
+  "lib32-v4l-utils"
+  "libpulse"
+  "lib32-libpulse"
+  "libgpg-error"
+  "lib32-libgpg-error"
+  "alsa-plugins"
+  "lib32-alsa-plugins"
+  "alsa-lib"
+  "lib32-alsa-lib"
+  "libjpeg-turbo"
+  "lib32-libjpeg-turbo"
+  "sqlite"
+  "lib32-sqlite"
+  "libxcomposite"
+  "lib32-libxcomposite"
+  "libxinerama"
+  "lib32-libgcrypt"
+  "libgcrypt"
+  "lib32-libxinerama"
+  "ncurses"
+  "lib32-ncurses"
+  "opencl-icd-loader"
+  "lib32-opencl-icd-loader"
+  "libxslt"
+  "lib32-libxslt"
+  "libva"
+  "lib32-libva"
+  "gtk3"
+  "lib32-gtk3"
+  "gst-plugins-base-libs"
+  "lib32-gst-plugins-base-libs"
+  "vulkan-icd-loader"
+  "lib32-vulkan-icd-loader"
+  "vkd3d"
+  "lib32-vkd3d"
 
-    # Gaming
-    "wine-staging"
-    "giflib"
-    "lib32-giflib"
-    "libpng"
-    "lib32-libpng"
-    "libldap"
-    "lib32-libldap"
-    "gnutls"
-    "lib32-gnutls"
-    "mpg123"
-    "lib32-mpg123"
-    "openal"
-    "lib32-openal"
-    "v4l-utils"
-    "lib32-v4l-utils"
-    "libpulse"
-    "lib32-libpulse"
-    "libgpg-error"
-    "lib32-libgpg-error"
-    "alsa-plugins"
-    "lib32-alsa-plugins"
-    "alsa-lib"
-    "lib32-alsa-lib"
-    "libjpeg-turbo"
-    "lib32-libjpeg-turbo"
-    "sqlite"
-    "lib32-sqlite"
-    "libxcomposite"
-    "lib32-libxcomposite"
-    "libxinerama"
-    "lib32-libgcrypt"
-    "libgcrypt"
-    "lib32-libxinerama"
-    "ncurses"
-    "lib32-ncurses"
-    "opencl-icd-loader"
-    "lib32-opencl-icd-loader"
-    "libxslt"
-    "lib32-libxslt"
-    "libva"
-    "lib32-libva"
-    "gtk3"
-    "lib32-gtk3"
-    "gst-plugins-base-libs"
-    "lib32-gst-plugins-base-libs"
-    "vulkan-icd-loader"
-    "lib32-vulkan-icd-loader"
-    "vkd3d"
-    "lib32-vkd3d"
+  "gamemode"
+  "gamescope"
 
-    "gamemode"
-    "gamescope"
-    "lutris" # TODO: Try the flatpak
-
-    # Virtual Machine
-    "qemu-full"
-    "libvirt"
-    "edk2-ovmf"
-    "virt-manager"
-    "dnsmasq"
-    "ebtables"
+  # Virtual Machine
+  "qemu-full"
+  "libvirt"
+  "edk2-ovmf"
+  "virt-manager"
+  "dnsmasq"
+  "ebtables"
 )
 
 AUR=(
-    # Apps
-    "picom-jonaburg-git"
-    "joshuto"
+  # Apps
+  "swww"
+  "picom-jonaburg-git"
+  "joshuto"
+  "feishin-bin"
 
-    # Themes
-    "bibata-cursor-theme"
-    "dracula-gtk-theme"
+  # Themes
+  "bibata-cursor-theme"
+  "catppuccin-gtk-theme-mocha"
+  "dracula-gtk-theme"
+  "dracula-icons-git"
 
-    # Printer drivers
-    "epson-inkjet-printer-escpr"
-    "epson-inkjet-printer-escpr2"
+  # Printer drivers
+  "epson-inkjet-printer-escpr"
+  "epson-inkjet-printer-escpr2"
 
-    "opencl-amd"
+  "opencl-amd"
 )
 
 FLATPAKS=(
-   "com.github.tchx84.Flatseal"
-   "io.freetubeapp.FreeTube"
-   "com.logseq.Logseq"
-   "com.valvesoftware.Steam"
-   "org.freedesktop.Platform.VulkanLayer.MangoHud"
-   "org.freedesktop.Platform.VulkanLayer.gamescope"
-   "com.github.Matoking.protontricks"
-   "io.itch.itch"
-   "io.github.RodZill4.Material-Maker"
-   "org.godotengine.Godot"
-   "io.github.achetagames.epic_asset_manager"
-   "com.discordapp.Discord"
-   "org.gtk.Gtk3theme.adw-gtk3-dark"
+  "net.lutris.Lutris"
+  "com.github.tchx84.Flatseal"
+  "io.freetubeapp.FreeTube"
+  "com.logseq.Logseq"
+  "com.valvesoftware.Steam"
+  "org.freedesktop.Platform.VulkanLayer.MangoHud"
+  "org.freedesktop.Platform.VulkanLayer.gamescope"
+  "com.github.Matoking.protontricks"
+  "io.itch.itch"
+  "io.github.RodZill4.Material-Maker"
+  "io.github.achetagames.epic_asset_manager"
+  "org.gtk.Gtk3theme.adw-gtk3-dark"
 )
 
 FLATPAK_GTK_THEME="adw-gtk2-dark"
 FLATPAK_APPLY_THEME=(
-   "io.freetubeapp.FreeTube"
-   "info.beyondallreason.bar"
-   "com.valvesoftware.Steam"
-   "org.godotengine.Godot"
-   "com.discordapp.Discord"
+  "io.freetubeapp.FreeTube"
+  "info.beyondallreason.bar"
+  "com.valvesoftware.Steam"
+  "org.godotengine.Godot"
 )
 
 FSTAB=(
-    "b1b44759-b1a5-47c7-8019-d70d67099a1b -> /mnt/PERSO -> defaults,nofail -> ext4"
-    "86aaa5e6-f8d3-4886-bf3e-c804c8559e6c -> /mnt/PRO -> defaults,nofail,noauto,x-gvfs-show -> ext4"
-    "541e75e3-db7a-4367-a8d5-6d230e853faf -> /mnt/GAMES -> defaults,nofail -> ext4"
-    "d7bbe9d8-4f98-4d87-b26a-34c75907f71a -> /mnt/DATA -> defaults,nofail -> ext4"
-    "83e09479-85e0-45e1-82a3-217add68fe9e -> /mnt/VM -> defaults,nofail,noauto,x-gvfs-show -> ext4"
-    "45b03bfe-40d7-45e4-8839-59792ca9fd9a -> /mnt/NEH -> defaults,nofail,noauto,x-gvfs-show -> ext4"
+  "b1b44759-b1a5-47c7-8019-d70d67099a1b -> /mnt/PERSO -> defaults,nofail -> ext4"
+  "86aaa5e6-f8d3-4886-bf3e-c804c8559e6c -> /mnt/PRO -> defaults,nofail,noauto,x-gvfs-show -> ext4"
+  "541e75e3-db7a-4367-a8d5-6d230e853faf -> /mnt/GAMES -> defaults,nofail -> ext4"
+  "d7bbe9d8-4f98-4d87-b26a-34c75907f71a -> /mnt/DATA -> defaults,nofail -> ext4"
+  "83e09479-85e0-45e1-82a3-217add68fe9e -> /mnt/HOT -> defaults,nofail -> ext4"
+  "035c8d2e-41d7-49e1-8cb4-ae950a53b06f -> /mnt/VM -> defaults,nofail,noauto,x-gvfs-show -> ext4"
+  "45b03bfe-40d7-45e4-8839-59792ca9fd9a -> /mnt/NEH -> defaults,nofail,noauto,x-gvfs-show -> ext4"
 )
 
 DCONF=(
@@ -343,3 +346,9 @@ DCONF=(
   "/org/gnome/desktop/privacy/remember-recent-files/recent-files-max-age = 0"
 )
 
+# Creates every profile
+FIREFOX_PROFILES=(
+  "normal"
+  "work"
+  "social"
+)
