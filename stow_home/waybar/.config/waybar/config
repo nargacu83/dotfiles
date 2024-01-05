@@ -7,12 +7,12 @@
     // "gtk-layer-shell": true,
     "height": 0,
 
-    "modules-left": ["clock#calendar", "clock"],
-    "modules-center": ["wlr/workspaces"],
-    "modules-right": ["custom/cpu", "custom/gpu", "custom/memory",  "tray"],
+    "modules-left": ["image#calendar", "clock#calendar", "image#clock", "clock"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["image#cpu", "custom/cpu", "image#gpu", "custom/gpu", "image#memory", "custom/memory",  "tray"],
 
     // Modules configuration
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         // "format": "",
         "disable-scroll": true,
         "all-outputs": false,
@@ -37,10 +37,10 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:  %R}",
+        "format": "{:%R}",
     },
     "clock#calendar": {
-        "format": "{:  %a %d %B}",
+        "format": "{:%a %d %B}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "format": {
@@ -54,22 +54,48 @@
     "custom/cpu": {
         "exec": "$HOME/.local/bin/cpu-usage",
         "interval": 2,
-        "format": "   {}",
+        // "format": "   {}",
         "tooltip": false,
         "on-click": "alacritty -e btop",
     },
     "custom/memory": {
         "exec": "$HOME/.local/bin/mem-usage",
         "interval": 2,
-        "format": "   {}",
+        // "format": "   {}",
         "tooltip": false,
         "on-click": "alacritty -e btop",
     },
     "custom/gpu": {
         "exec": "$HOME/.local/bin/gpu-usage",
         "interval": 2,
-        "format": "  {}",
+        // "format": "  {}",
         "tooltip": false,
         "on-click": "alacritty -e btop",
+    },
+
+    "image#calendar": {
+        "path": "/home/quentin/.config/waybar/icons/calendar.svg",
+        "size": 16,
+        "tooltip": false,
+    },
+    "image#clock": {
+        "path": "/home/quentin/.config/waybar/icons/clock.svg",
+        "size": 16,
+        "tooltip": false,
+    },
+    "image#cpu": {
+        "path": "/home/quentin/.config/waybar/icons/cpu.svg",
+        "size": 16,
+        "tooltip": false,
+    },
+    "image#gpu": {
+        "path": "/home/quentin/.config/waybar/icons/monitor.svg",
+        "size": 16,
+        "tooltip": false,
+    },
+    "image#memory": {
+        "path": "/home/quentin/.config/waybar/icons/bar-chart-2.svg",
+        "size": 16,
+        "tooltip": false,
     },
 }

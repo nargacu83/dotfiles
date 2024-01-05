@@ -8,13 +8,13 @@
 }
 
 window#waybar {
-    background: rgba(40, 42, 54, 0.75);
+    background: rgba(30, 30, 46, 0.75);
 }
 
 tooltip {
     /* background: rgba(68, 71, 90, 0.75); */
-    background: rgba(40, 42, 54, 0.75);
-    border-color: #44475a;
+    background: rgba(30, 30, 46, 0.75);
+    border-color: #1e1e2e;
     border-width: 2px;
     border-radius: 4px;
 }
@@ -24,6 +24,7 @@ tooltip {
 #custom-caffeine,
 #custom-weather,
 #custom-memory,
+#custom-cpu,
 #custom-gpu,
 #window,
 #cpu,
@@ -36,15 +37,30 @@ tooltip {
 #backlight {
     color: #f8f8f2;
     /* background: #44475a; */
-    padding: 2px 8px;
+    padding: 2px 0px;
     margin: 4px 0px;
 
     border-radius: 4px;
     border-width: 0px;
     border-style: solid;
-    border-color: #44475a;
+    border-color: #313244;
 
     background: rgba(40, 42, 54, 0.0);
+}
+
+#image {
+    /* padding-left: 6px;
+    padding-right: 4px; */
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+#tray {
+    margin-right: 4px;
+}
+
+#custom-memory {
+    margin-right: 6px;
 }
 
 #workspaces {
@@ -56,35 +72,31 @@ tooltip {
     border-radius: 4px;
     border-width: 2px;
     border-style: solid;
-    border-color: #44475a;
-    background: rgba(40, 42, 54, 0.5);
+    border-color: #313244;
+    /* background: rgba(40, 42, 54, 0.5); */
     color: #f8f8f2;
     margin: 0px 2px;
     padding: 0px 3px;
 }
 
+#workspaces button.empty {
+    color: #313244;
+}
+
 #workspaces button.active {
     color: #f8f8f2;
-    border-color: #bd93f9;
+    border-color: #cba6f7;
     /* background-color: #bd93f9; */
 }
 
-#workspaces button.persistent {
-    color: #44475a;
-}
-
 #workspaces button.urgent {
-    border-color: #f8f8f2;
+    border-color: #f38ba8;
     /* background-color: #f8f8f2; */
 }
 
 /* #workspaces button:hover { */
 /*     background: none; */
 /* } */
-
-#tray {
-    margin-right: 4px;
-}
 
 #custom-updates {
     color: #cba6f7;
@@ -98,26 +110,10 @@ tooltip {
     margin-right: 60px;
 }
 
-#clock {
-    margin-left: 4px;
-}
-
 #pulseaudio {
     color: #89b4fa;
 }
 
 #pulseaudio.microphone {
     color: #cba6f7;
-}
-
-#cpu {
-    margin-right: 4px;
-}
-
-#custom-memory {
-    margin-right: 4px;
-}
-
-#custom-gpu {
-    margin-right: 4px;
 }
