@@ -1,26 +1,32 @@
 {
     "layer": "top",
-    // "position": "top",
-    // "mode": "dock",
-    // "exclusive": true,
-    // "passthrough": false,
-    // "gtk-layer-shell": true,
     "height": 0,
-
-    "modules-left": ["image#calendar", "clock#calendar", "image#clock", "clock"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["image#cpu", "custom/cpu", "image#gpu", "custom/gpu", "image#memory", "custom/memory",  "tray"],
-
-    // Modules configuration
+    "modules-left": [
+        "image#calendar",
+        "clock#calendar",
+        "image#clock",
+        "clock"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "image#cpu",
+        "custom/cpu",
+        "image#gpu",
+        "custom/gpu",
+        "image#memory",
+        "custom/memory",
+        "tray"
+    ],
     "hyprland/workspaces": {
-        // "format": "",
         "disable-scroll": true,
         "all-outputs": false,
         "persistent_workspaces": {
             "1": [],
             "2": [],
             "3": [],
-            "4": [],
+            "4": []
         },
     },
     "keyboard-state": {
@@ -33,69 +39,64 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
-        "spacing": 10
+        "spacing": 6
     },
     "clock": {
-        "format": "{:%R}",
+        "format": "{:%R}"
     },
     "clock#calendar": {
-        "format": "{:%a %d %B}",
+        "format": "{:%a %d %B %Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "format": {
-                "months":     "<span color='#f8f8f2'><b>{}</b></span>",
-                "days":       "<span color='#f8f8f2'><b>{}</b></span>",
-                "weekdays":   "<span color='#ffb86c'><b>{}</b></span>",
-                "today":      "<span color='#bd93f9'><b>{}</b></span>"
+                "months": "<span color='#cdd6f4'><b>{}</b></span>",
+                "days": "<span color='#bac2de'><b>{}</b></span>",
+                "weekdays": "<span color='#cba6f7'><b>{}</b></span>",
+                "today": "<span color='#f38ba8'><b>{}</b></span>"
             }
         },
     },
     "custom/cpu": {
         "exec": "$HOME/.local/bin/cpu-usage",
         "interval": 2,
-        // "format": "   {}",
         "tooltip": false,
-        "on-click": "alacritty -e btop",
+        "on-click": "alacritty -e btop"
     },
     "custom/memory": {
         "exec": "$HOME/.local/bin/mem-usage",
         "interval": 2,
-        // "format": "   {}",
         "tooltip": false,
-        "on-click": "alacritty -e btop",
+        "on-click": "alacritty -e btop"
     },
     "custom/gpu": {
         "exec": "$HOME/.local/bin/gpu-usage",
         "interval": 2,
-        // "format": "  {}",
         "tooltip": false,
-        "on-click": "alacritty -e btop",
+        "on-click": "alacritty -e btop"
     },
-
     "image#calendar": {
         "path": "/home/quentin/.config/waybar/icons/calendar.svg",
         "size": 16,
-        "tooltip": false,
+        "tooltip": false
     },
     "image#clock": {
         "path": "/home/quentin/.config/waybar/icons/clock.svg",
         "size": 16,
-        "tooltip": false,
+        "tooltip": false
     },
     "image#cpu": {
         "path": "/home/quentin/.config/waybar/icons/cpu.svg",
         "size": 16,
-        "tooltip": false,
+        "tooltip": false
     },
     "image#gpu": {
         "path": "/home/quentin/.config/waybar/icons/monitor.svg",
         "size": 16,
-        "tooltip": false,
+        "tooltip": false
     },
     "image#memory": {
         "path": "/home/quentin/.config/waybar/icons/bar-chart-2.svg",
         "size": 16,
-        "tooltip": false,
+        "tooltip": false
     },
 }
