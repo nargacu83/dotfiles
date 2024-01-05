@@ -1,7 +1,0 @@
-
-[Desktop Entry]
-Type=Application
-Name=Godot Engine 4.1.3
-Icon=lutris_godot-engine
-Exec=env LUTRIS_SKIP_INIT=1 flatpak run net.lutris.Lutris lutris:rungameid/117
-Categories=Game
