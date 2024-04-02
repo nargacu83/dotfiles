@@ -184,6 +184,7 @@ end
 
 --- Autostart
 awful.spawn.with_shell("~/.config/autostart.sh")
+awful.spawn.with_shell("~/.local/bin/wallpapers '/mnt/DATA/Syncthing/Personnel/Wallpapers/Current'")
 
 -- Run garbage collector regularly to prevent memory leaks
 gears.timer {

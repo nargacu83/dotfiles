@@ -51,7 +51,8 @@ M = {
         "notification",
         "splash",
         "toolbar",
-        "File-roller"
+        "File-roller",
+        "polkit-kde-authentication-agent-1"
       },
       type = {
         "utility",
