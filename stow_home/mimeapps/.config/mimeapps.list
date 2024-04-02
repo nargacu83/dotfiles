@@ -1,5 +1,9 @@
 [Added Associations]
+application/x-godot-resource=code-oss.desktop;
+application/x-godot-scene=code-oss.desktop;
+application/x-shellscript=helix.desktop;code-oss.desktop;nvim.desktop;vim.desktop;
 inode/directory=org.kde.dolphin.desktop;
+video/webm=mpv.desktop;
 x-scheme-handler/geo=openstreetmap-geo-handler.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
@@ -19,7 +23,9 @@ application/x-extension-html=firefox.desktop
 application/x-extension-shtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
-application/x-shellscript=emacsclient.desktop;
+application/x-godot-resource=code-oss.desktop;
+application/x-godot-scene=code-oss.desktop;
+application/x-shellscript=helix.desktop;
 application/x-wine-extension-ini=emacsclient.desktop;
 application/xhtml+xml=firefox.desktop
 application/xml=emacsclient.desktop;
@@ -42,6 +48,7 @@ text/x-csharp=code-oss.desktop
 text/x-python=code-oss.desktop;
 video/mp4=mpv.desktop;
 video/ogg=mpv.desktop;
+video/webm=mpv.desktop;
 video/x-flv=mpv.desktop;
 video/x-matroska=mpv.desktop;
 video/x-theora+ogg=mpv.desktop;
@@ -59,4 +66,8 @@ x-scheme-handler/unityhub=unityhub.desktop
 x-scheme-handler/unknown=firefox.desktop
 
 [Removed Associations]
+application/x-godot-resource=org.kde.ark.desktop;
+application/x-godot-scene=org.kde.ark.desktop;
+application/x-shellscript=org.kde.ark.desktop;
 application/zip=org.prismlauncher.PrismLauncher.desktop;
+video/webm=org.kde.ark.desktop;
