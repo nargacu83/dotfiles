@@ -6,11 +6,7 @@ super + Return
 
 # launch file manager
 super + e
-	nemo
-
-# kill session
-super + control + q
-	loginctl kill-session self
+	dolphin
 
 # screenshots with rofi
 super + Print
