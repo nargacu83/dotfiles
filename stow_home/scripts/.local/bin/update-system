@@ -28,7 +28,7 @@ function ask {
 
 if ask "Do you want to update mirrors?"; then
     print_message "Updating mirrors..." ${BLUE}
-    sudo reflector --latest 5 --age 12 --sort rate --protocol https --country France --save /etc/pacman.d/mirrorlist || exit
+    sudo reflector --latest 5 --age 12 --sort rate --protocol https --country France,Germany --save /etc/pacman.d/mirrorlist || exit
 fi
 
 if ask "Do you want to update system and aur packages?"; then
