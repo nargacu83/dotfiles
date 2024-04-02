@@ -51,7 +51,16 @@ M.globalkeys = gears.table.join(
 
     -- Toggle floating on window
     awful.key({ modkey,           }, "f", awful.client.floating.toggle,
-              {description = "toggle floating", group = "client"})
+              {description = "toggle floating", group = "client"}),
+
+    -- Toggle bar
+    awful.key({ modkey,           }, "b",
+                function ()
+                    for s in screen do
+                        s.wibar.visible = not s.wibar.visible
+                    end
+                end,
+               {description = "toggle floating", group = "layout"})
 )
 
 -- Bind all key numbers to tags.
