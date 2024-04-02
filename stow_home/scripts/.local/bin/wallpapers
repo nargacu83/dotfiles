@@ -5,11 +5,6 @@
 #
 # NOTE: this script is in bash (not posix shell), because the shuf command
 
-if [ "$XDG_SESSION_TYPE" == "x11" ]; then
-	echo "This script is only for Wayland sessions."
-	exit 1
-fi
-
 if [[ $# -lt 1 ]] || [[ ! -d $1 ]]; then
 	echo "Usage:
 	$0 <dir containg images>"
@@ -22,7 +17,7 @@ export SWWW_TRANSITION_STEP=3
 export SWWW_TRANSITION=center
 
 # This controls (in seconds) when to switch to the next image
-INTERVAL=3600
+interval=3600
 
 images=()
 
@@ -35,21 +30,52 @@ function get_images() {
 	done
 }
 
+function x11() {
+	while true; do
+		get_images $1
+		
+		# Shuffle images
+		images=( $(shuf -e "${images[@]}") )
 
-while true; do
-	get_images $1
+		# Makes sure they are images
+		[ ${#images[@]} -eq 0 ] && echo "The given directory doesn't have images." && break
 
-	# Shuffle images
-	images=( $(shuf -e "${images[@]}") )
+		for img in "${images[@]}"; do
+			# Makes sure image exists
+			[[ ! -f $img ]] && continue
 
-	# Makes sure they are images
-	[ ${#images[@]} -eq 0 ] && echo "The given directory doesn't have images." && break
-
-	for img in "${images[@]}"; do
-		# Makes sure image exists
-		[[ ! -f $img ]] && continue
-
-		swww img "$img"
-		sleep $INTERVAL
+			nitrogen --set-zoom-fill "$img"
+			sleep $interval
+		done
 	done
-done
+}
+
+function wayland() {
+	# Ensure swww is running
+	swww query || swww init &
+
+	while true; do
+		get_images $1
+
+		# Shuffle images
+		images=( $(shuf -e "${images[@]}") )
+
+		# Makes sure they are images
+		[ ${#images[@]} -eq 0 ] && echo "The given directory doesn't have images." && break
+
+		for img in "${images[@]}"; do
+			# Makes sure image exists
+			[[ ! -f $img ]] && continue
+
+			swww img "$img"
+			sleep $interval
+		done
+	done
+}
+
+
+if [ "$XDG_SESSION_TYPE" == "x11" ]; then
+	x11 $1
+else
+	wayland $1
+fi
