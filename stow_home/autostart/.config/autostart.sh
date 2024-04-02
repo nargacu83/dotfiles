@@ -1,17 +1,7 @@
 #!/usr/bin/env sh
 
-export GTK_IM_MODULE="fcitx"
-export QT_IM_MODULE="fcitx"
-export XMODIFIERS="@im=fcitx"
-# Java applications fix, i don't remember for what
-export _JAVA_AWT_WM_NONREPARENTING=1
-# QT Theme
-# export QT_STYLE_OVERRIDE="kvantum"
-# export QT_QPA_PLATFORMTHEME="qt5ct"
-
 resolution="2560x1080"
 refresh_rate="100"
-wallpapers_directory="/mnt/DATA/Nextcloud/Wallpapers/Current"
 
 # launch the given program in the background only if an instance isn't already running
 function launch_once() {
@@ -19,12 +9,22 @@ function launch_once() {
 }
 
 if [ "$XDG_SESSION_TYPE" == "x11" ]; then
-  #set resolution and refresh rate
-  if [ -x "$(command -v xrandr)" ]; then
-    xrandr -s ${resolution} -r ${refresh_rate}
-  fi
+  echo "Autostarting for X11"
+
+  export GTK_IM_MODULE="fcitx"
+  export QT_IM_MODULE="fcitx"
+  export XMODIFIERS="@im=fcitx"
 
   if [ "$XDG_CURRENT_DESKTOP" != "KDE" ]; then
+    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+    export _JAVA_AWT_WM_NONEREPARENTING=1
+    export QT_QPA_PLATFORMTHEME=qt5ct
+
+    #set resolution and refresh rate
+    if [ -x "$(command -v xrandr)" ]; then
+      xrandr -s ${resolution} -r ${refresh_rate}
+    fi
+
     #boot picom if it exists
     if [ -x "$(command -v picom)" ]; then
       picom --daemon --experimental-backend
@@ -32,30 +32,40 @@ if [ "$XDG_SESSION_TYPE" == "x11" ]; then
 
     # sxhkd
     if [ -x "$(command -v sxhkd)" ]; then
-      sxhkd
+      sxhkd &
     fi
-
-    #set background
-    if [ -x "$(command -v nitrogen)" ]; then
-      nitrogen --restore &
-    fi
-
-    # Start polkit-gnome
-    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
     # Network manager GUI
     if [ -x "$(command -v nm-applet)" ]; then
       nm-applet --indicator &
     fi
 
-    # #set night light
+    # multilingual inputs
+    if [ -x "$(command -v fcitx5)" ]; then
+      fcitx5 -d &
+    fi
+
+    # set night light
     if [ -x "$(command -v gammastep-indicator)" ]; then
       launch_once gammastep-indicator
     fi
+
+    # sync
+    if [ -x "$(command -v syncthingtray)" ]; then
+      syncthingtray --wait --replace &
+    fi
+
+    # Start polkit
+    /usr/lib/polkit-kde-authentication-agent-1 &
+
+    # Disable screen sleep
+    xset s off
+    xset -dpms
+    xset s noblank
   else
     # sxhkd
     if [ -x "$(command -v sxhkd)" ]; then
-      sxhkd -c ~/.config/sxhkd/plasma.conf
+      sxhkd -c ~/.config/sxhkd/plasma.conf &
     fi
   fi
 
@@ -68,49 +78,80 @@ if [ "$XDG_SESSION_TYPE" == "x11" ]; then
   if [ -x "$(command -v blueman-applet)" ]; then
     blueman-applet &
   fi
+
 elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then
-  QT_QPA_PLATFORM=qt5ct;wayland;xcb
-  GDK_BACKEND=wayland
+
+  # River specific
+  # if [ "$XDG_CURRENT_DESKTOP" == "river" ]; then
+  #   echo "Autostarting for river"
+
+  #   export XDG_SESSION_DESKTOP=river
+  # fi
 
   # Hyprland specific
   if [ "$XDG_CURRENT_DESKTOP" == "Hyprland" ]; then
-    XDG_CURRENT_DESKTOP=Hyprland
-    XDG_SESSION_TYPE=wayland
-    XDG_SESSION_DESKTOP=Hyprland
-    dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+    echo "Autostarting for Hyprland"
 
-    # hyprctl setcursor $XCURSOR_THEME $XCURSOR_SIZE
+    export XDG_SESSION_DESKTOP=Hyprland
+  fi
+
+  if [ "$XDG_CURRENT_DESKTOP" != "KDE" ]; then
+    export XCURSOR_SIZE=22
+    export GTK_IM_MODULE=wayland
+    export QT_IM_MODULE=fcitx
+    export XMODIFIERS="@im=fcitx"
+
+    export QT_AUTO_SCREEN_SCALE_FACTOR=1
+    export QT_QPA_PLATFORM=wayland;xcb
+    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+    export QT_QPA_PLATFORMTHEME=qt6ct
+
+    export SDL_VIDEODRIVER=wayland
+    export _JAVA_AWT_WM_NONEREPARENTING=1
+    export CLUTTER_BACKEND=wayland
+    export GDK_BACKEND=wayland,x11
+
+    systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+    dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
     if [ -x "$(command -v waybar)" ]; then
       waybar &
     fi
-  fi
-
-  # wallpaper
-  if [ -x "$(command -v swww)" ]; then
-    swww init &
-    wallpapers ${wallpapers_directory}
-  fi
-
-  if [ "$XDG_CURRENT_DESKTOP" != "KDE" ]; then
+    
     # #set night light
     if [ -x "$(command -v gammastep-indicator)" ]; then
       gammastep-indicator -m wayland &
     fi
+
+    # multilingual inputs
+    if [ -x "$(command -v fcitx5)" ]; then
+      fcitx5 -d &
+    fi
+
+    # network manager applet
+    if [ -x "$(command -v nm-applet)" ]; then
+      nm-applet &
+    fi
+
+    # sync
+    if [ -x "$(command -v syncthingtray)" ]; then
+      syncthingtray --wait --replace &
+    fi
+
+    # Polkit
+    /usr/lib/polkit-kde-authentication-agent-1 &
+
+    # wallpaper
+    #if [ -x "$(command -v swww)" ]; then
+    #  wallpapers "${wallpapers_directory}" &
+    #fi
   fi
 fi
-
 
 #start notification daemon
 if [ -x "$(command -v dunst)" ]; then
   dunst &
 fi
-
-# multilingual inputs
-# if [ -x "$(command -v fcitx5)" ]; then
-#   fcitx5 -d &
-# fi
-
 # REPLACED BY SYSTEMD SERVICE
 # audio management
 # if [ -x "$(command -v easyeffects)" ]; then
