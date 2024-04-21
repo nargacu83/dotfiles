@@ -6,7 +6,7 @@ super + Return
 
 # launch file manager
 super + e
-	dolphin
+	nemo
 
 # screenshots with rofi
 super + Print
