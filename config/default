@@ -169,7 +169,7 @@ PACKAGES=(
   "gvfs-mtp"
   "tumbler"
   "ffmpegthumbnailer"
-  "nemo"
+  "nemo" # gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
   "nemo-fileroller"
   "file-roller"
 
