@@ -1,13 +1,3 @@
-* {
-    border: none;
-    border-radius: 0;
-    margin: 0;
-    min-height: 0;
-    font-family: Font Awesome, Inter;
-    font-weight: bold;
-    font-size: 14px;
-}
-
 window#waybar {
     background: transparent;
     padding-top: 10px;
@@ -35,8 +25,18 @@ tooltip {
 #pulseaudio,
 #network,
 #workspaces,
+#workspaces button,
 #tray,
+#date,
+#stats,
 #backlight {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    min-height: 0;
+    font-family: Font Awesome, Inter;
+    font-weight: bold;
+    font-size: 14px;
     color: #f8f8f2;
     padding: 2px 4px;
 }
@@ -44,7 +44,6 @@ tooltip {
 #date, #stats {
     /* margin top and bottom is used to make the bar "float" and keep the size of the modules consistent */
     margin: 6px 4px;
-    padding: 2px 4px;
     border-radius: 12px;
     background-color: rgba(30, 30, 46, 0.25);
 }
@@ -60,9 +59,9 @@ tooltip {
     background-color: rgba(30, 30, 46, 0.25);
 }
 
-/* Add a space to mak  */
+/* Add a space to separate the tray from the stats  */
 #tray,
-#custom-memory {
+#stats {
     margin-right: 6px;
 }
 
