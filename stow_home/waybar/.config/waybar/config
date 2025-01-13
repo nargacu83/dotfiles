@@ -57,19 +57,19 @@
         "exec": "$HOME/.local/bin/cpu-usage",
         "interval": 2,
         "tooltip": false,
-        "on-click": "alacritty -e btop"
+        "on-click": "kitty -e btop"
     },
     "custom/memory": {
         "exec": "$HOME/.local/bin/mem-usage",
         "interval": 2,
         "tooltip": false,
-        "on-click": "alacritty -e btop"
+        "on-click": "kitty -e btop"
     },
     "custom/gpu": {
         "exec": "$HOME/.local/bin/gpu-usage",
         "interval": 2,
         "tooltip": false,
-        "on-click": "alacritty -e btop"
+        "on-click": "kitty -e btop"
     },
     "image#calendar": {
         "path": "/home/quentin/.config/waybar/icons/calendar.svg",
@@ -95,11 +95,6 @@
         "path": "/home/quentin/.config/waybar/icons/bar-chart-2.svg",
         "size": 16,
         "tooltip": false
-    },
-    "group/date": {
-        "orientation": "horizontal",
-        "modules": [
-        ]
     },
     "group/date": {
         "orientation": "horizontal",
