@@ -15,7 +15,7 @@ configuration {
 	scroll-method: 0;
 	normalize-match: true;
 	show-icons: true;
-	icon-theme: "Papirus";
+	icon-theme: "Colloid-Purple-Catppuccin-Mocha";
 /*	cache-dir: ;*/
 	steal-focus: false;
 /*	dpi: -1;*/
@@ -182,7 +182,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:           "Cantarell 10";
+    font:           "Inter 10";
     background:     #1E1F29FF;
     background-alt: #282A36FF;
     foreground:     #FFFFFFFF;
