@@ -1,24 +1,26 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Font Awesome, Cantarell;
+    margin: 0;
+    min-height: 0;
+    font-family: Font Awesome, Inter;
     font-weight: bold;
     font-size: 14px;
-    min-height: 0;
 }
 
 window#waybar {
-    background: rgba(30, 30, 46, 0.75);
+    background: transparent;
+    padding-top: 10px;
 }
 
 tooltip {
-    /* background: rgba(68, 71, 90, 0.75); */
     background: rgba(30, 30, 46, 0.75);
     border-color: #1e1e2e;
     border-width: 2px;
     border-radius: 4px;
 }
 
+#image,
 #custom-language,
 #custom-updates,
 #custom-caffeine,
@@ -36,25 +38,29 @@ tooltip {
 #tray,
 #backlight {
     color: #f8f8f2;
-    /* background: #44475a; */
-    padding: 2px 0px;
-    margin: 4px 0px;
-
-    border-radius: 4px;
-    border-width: 0px;
-    border-style: solid;
-    border-color: #313244;
-
-    background: rgba(40, 42, 54, 0.0);
+    padding: 2px 4px;
 }
 
-#image {
-    /* padding-left: 6px;
-    padding-right: 4px; */
-    margin-left: 6px;
-    margin-right: 6px;
+#date, #stats {
+    /* margin top and bottom is used to make the bar "float" and keep the size of the modules consistent */
+    margin: 6px 4px;
+    padding: 2px 4px;
+    border-radius: 12px;
+    background-color: rgba(30, 30, 46, 0.25);
 }
 
+#date {
+    margin: 6px 8px;
+}
+
+#tray {
+    padding: 0 8px;
+    margin: 6px 0;
+    border-radius: 12px;
+    background-color: rgba(30, 30, 46, 0.25);
+}
+
+/* Add a space to mak  */
 #tray,
 #custom-memory {
     margin-right: 6px;
@@ -63,54 +69,28 @@ tooltip {
 #workspaces {
     background: none;
     border-width: 0px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 #workspaces button {
-    border-radius: 4px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #313244;
-    /* background: rgba(40, 42, 54, 0.5); */
-    color: #f8f8f2;
+    color: #45475a;
+    border-radius: 12px;
+    background: none;
     margin: 0px 2px;
-    padding: 0px 3px;
+    padding: 0px 4px;
+    background-color: rgba(30, 30, 46, 0.25);
 }
 
 #workspaces button.empty {
-    color: #313244;
+    color: rgba(69, 71, 90, 0.25);
 }
 
 #workspaces button.active {
-    color: #f8f8f2;
-    border-color: #cba6f7;
-    /* background-color: #bd93f9; */
+    color: #cdd6f4;
+    background-color: rgba(30, 30, 46, 0.75)
 }
 
 #workspaces button.urgent {
     border-color: #f38ba8;
-    /* background-color: #f8f8f2; */
-}
-
-/* #workspaces button:hover { */
-/*     background: none; */
-/* } */
-
-#custom-updates {
-    color: #cba6f7;
-    /* background-color: #6272a4; */
-    /* border-color: #6272a4; */
-    margin-right: 4px;
-}
-
-#window {
-    margin-left: 60px;
-    margin-right: 60px;
-}
-
-#pulseaudio {
-    color: #89b4fa;
-}
-
-#pulseaudio.microphone {
-    color: #cba6f7;
 }

@@ -1,22 +1,14 @@
 {
     "layer": "top",
-    "height": 0,
+    // "height": 35,
     "modules-left": [
-        "image#calendar",
-        "clock#calendar",
-        "image#clock",
-        "clock"
+        "group/date"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "niri/workspaces"
     ],
     "modules-right": [
-        "image#cpu",
-        "custom/cpu",
-        "image#gpu",
-        "custom/gpu",
-        "image#memory",
-        "custom/memory",
+        "group/stats",
         "tray"
     ],
     "hyprland/workspaces": {
@@ -29,6 +21,10 @@
             "4": []
         },
     },
+    "niri/workspaces": {
+        "format": "{value}",
+    },
+	"format": "{icon}",
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -42,10 +38,10 @@
         "spacing": 6
     },
     "clock": {
-        "format": "{:%R}"
+        "format": "{:%R}",
     },
     "clock#calendar": {
-        "format": "{:%a %d %B %Y}",
+        "format": "{:L%a %d %B %Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "format": {
@@ -57,6 +53,7 @@
         },
     },
     "custom/cpu": {
+        // "format": " {}", 
         "exec": "$HOME/.local/bin/cpu-usage",
         "interval": 2,
         "tooltip": false,
@@ -98,5 +95,30 @@
         "path": "/home/quentin/.config/waybar/icons/bar-chart-2.svg",
         "size": 16,
         "tooltip": false
+    },
+    "group/date": {
+        "orientation": "horizontal",
+        "modules": [
+        ]
+    },
+    "group/date": {
+        "orientation": "horizontal",
+        "modules": [
+            "image#calendar",
+            "clock#calendar",
+            "image#clock",
+            "clock"
+        ]
+    },
+    "group/stats": {
+        "orientation": "horizontal",
+        "modules": [
+            "image#cpu",
+            "custom/cpu",
+            "image#gpu",
+            "custom/gpu",
+            "image#memory",
+            "custom/memory",
+        ]
     },
 }
