@@ -1,15 +1,9 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # This script will randomly go through the files of a directory, setting it
 # up as the wallpaper at regular intervals
 #
 # NOTE: this script is in bash (not posix shell), because the shuf command
-
-if [[ $# -lt 1 ]] || [[ ! -d $1 ]]; then
-	echo "Usage:
-	$0 <dir containg images>"
-	exit 1
-fi
 
 # Edit bellow to control the images transition
 export SWWW_TRANSITION_FPS=100
@@ -18,6 +12,7 @@ export SWWW_TRANSITION=center
 
 # This controls (in seconds) when to switch to the next image
 interval=3600
+wallpapers_directory=/mnt/DATA/Syncthing/Personnel/Wallpapers/Current
 
 images=()
 
@@ -51,31 +46,12 @@ function x11() {
 }
 
 function wayland() {
-	# Ensure swww is running
-	swww query || swww init &
-
-	while true; do
-		get_images $1
-
-		# Shuffle images
-		images=( $(shuf -e "${images[@]}") )
-
-		# Makes sure they are images
-		[ ${#images[@]} -eq 0 ] && echo "The given directory doesn't have images." && break
-
-		for img in "${images[@]}"; do
-			# Makes sure image exists
-			[[ ! -f $img ]] && continue
-
-			swww img "$img"
-			sleep $interval
-		done
-	done
+	images=$(find "$1" -type f | shuf -n 1)
+	swww img "$images"
 }
 
-
 if [ "$XDG_SESSION_TYPE" == "x11" ]; then
-	x11 $1
+	x11 $wallpapers_directory
 else
-	wayland $1
+	wayland $wallpapers_directory
 fi
