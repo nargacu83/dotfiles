@@ -3,5 +3,5 @@
 Type=Application
 Name=Unreal Engine 5
 Icon=unreal-engine-5
-Exec=/mnt/PRO/Unreal/5.3.0/Engine/Binaries/Linux/UnrealEditor
+Exec=/mnt/PRO/Unreal/5.5.0/Engine/Binaries/Linux/UnrealEditor
 Categories=Game
