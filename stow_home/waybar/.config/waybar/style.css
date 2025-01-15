@@ -49,7 +49,7 @@ tooltip {
 }
 
 #date {
-    margin: 6px 8px;
+    margin: 6px 6px;
 }
 
 #tray {
@@ -59,7 +59,7 @@ tooltip {
     background-color: rgba(30, 30, 46, 0.25);
 }
 
-/* Add a space to separate the tray from the stats  */
+/* Add a space to separate the tray from the stats and the tray from the screen's side */
 #tray,
 #stats {
     margin-right: 6px;
