@@ -140,13 +140,13 @@ layout {
         // defaulting to 180 (top-to-bottom gradient).
         // You can use any CSS linear-gradient tool on the web to set these up.
         //
-        active-gradient from="#f38ba8" to="#cba6f7" angle=45 relative-to="workspace-view"
+        active-gradient from="#f38ba8" to="#cba6f7" angle=45
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
         // To do that, set relative-to="workspace-view".
         //
-        inactive-gradient from="#11111b" to="#1e1e2e" angle=45 relative-to="workspace-view"
+        inactive-gradient from="#11111b" to="#1e1e2e" angle=45
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -259,7 +259,7 @@ screenshot-path "~/Screenshots/Screenshot_%Y%m%d_%H%M%S.png"
 // Settings for the "Important Hotkeys" overlay.
 hotkey-overlay {
     // Uncomment this line if you don't want to see the hotkey help at niri startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Animation settings.
@@ -348,74 +348,49 @@ workspace "1" {}
 workspace "2" {}
 workspace "3" {}
 
-
-// Window rules let you adjust behavior for individual windows.
-// They are processed in order of appearance in this file.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    // Match directives control which windows this rule will apply to.
-    // You can match by app-id and by title.
-    // The window must match all properties of the match directive.
-    match app-id="org.myapp.MyApp" title="My Cool App"
-
-    // There can be multiple match directives. A window must match any one
-    // of the rule's match directives.
-    //
-    // If there are no match directives, any window will match the rule.
-    match title="Second App"
-
-    // You can also add exclude directives which have the same properties.
-    // If a window matches any exclude directive, it won't match this rule.
-    //
-    // Both app-id and title are regular expressions.
-    // Raw KDL strings are helpful here.
-    exclude app-id=r#"\.unwanted\."#
-
-    // Here are the properties that you can set on a window rule.
-    // You can override the default column width.
-    default-column-width { proportion 0.75; }
-
-    // You can set the output that this window will initially open on.
-    // If such an output does not exist, it will open on the currently
-    // focused output as usual.
-    open-on-output "eDP-1"
-
-    // Make this window open as a maximized column.
-    open-maximized true
-
-    // Make this window open fullscreen.
-    open-fullscreen true
-    // You can also set this to false to prevent a window from opening fullscreen.
-    // open-fullscreen false
+// Block notifications from screen capture and streaming
+layer-rule {
+    match namespace="^notifications$"
+    block-out-from "screencast"
 }
 
-// Here's a useful example. Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
+// Block apps from screen capture and streaming 
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    // The regular expression can match anywhere in the string.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+    // Blocks firefox with the "social" profile used for Discord and Element
+    match app-id="social"
+    block-out-from "screencast"
 }
 
+// Default rule for all windows
 window-rule {
     geometry-corner-radius 8
     clip-to-geometry true
     default-column-width { proportion 0.5; }
 }
 
+// Size rule
 window-rule {
     match app-id="FreeTube"
     match app-id="firefox"
     match app-id="social"
+
     default-column-width { proportion 0.75; }
 }
 
+// Workspace rules
 window-rule {
     match app-id="social"
+
     open-on-workspace "3"
+}
+
+// Floating rules
+window-rule {
+    match app-id="firefox$" title="^Picture-in-Picture$"
+    match app-id="firefox$" title="^Incrustation vidéo$"
+    match app-id="org.pulseaudio.pavucontrol"
+
+    open-floating true
 }
 
 binds {
@@ -581,6 +556,7 @@ binds {
     Mod+Tab { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+C { center-column; }
+    Mod+F { toggle-window-floating; }
 
     // Finer width adjustments.
     // This command can also:

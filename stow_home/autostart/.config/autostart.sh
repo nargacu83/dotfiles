@@ -107,11 +107,6 @@ elif [ "$XDG_SESSION_TYPE" == "wayland" ]; then
       nm-applet &
     fi
 
-    # sync
-    if [ -x "$(command -v syncthingtray)" ]; then
-      syncthingtray --wait --replace &
-    fi
-
     # Polkit
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
   fi
