@@ -70,7 +70,7 @@ tooltip {
 }
 
 #workspaces button {
-    color: #45475a;
+    color: #a6adc8;
     border-radius: 12px;
     background: none;
     margin: 0px 2px;
@@ -79,11 +79,12 @@ tooltip {
 }
 
 #workspaces button.empty {
-    color: rgba(69, 71, 90, 0.25);
+    color: rgba(166, 173, 200, 0.25);
+    background-color: rgba(30, 30, 46, 0.05);
 }
 
 #workspaces button.active {
-    color: #cdd6f4;
+    color: #f8f8f2;
     background-color: rgba(30, 30, 46, 0.75)
 }
 
