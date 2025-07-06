@@ -5,4 +5,4 @@ Icon=element
 Type=Application
 Categories=Network;InstantMessaging;
 StartupWMClass=discord
-Exec=firefox -P social --class=social --name social
+Exec=zen-browser -P social --class=social --name social

@@ -26,7 +26,7 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       500px;
-    height:                      644px;
+    height:                      606px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -47,8 +47,8 @@ mainbox {
 }
 
 listbox {
-    spacing:                     10px;
-    padding:                     10px;
+    spacing:                     8px;
+    padding:                     8px;
     background-color:            transparent;
     orientation:                 vertical;
     children:                    [ "message", "listview" ];
@@ -58,7 +58,7 @@ listbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     20px 20px 20px;
+    padding:                     8px 8px 0px;
     background-color:            transparent;
     text-color:                  @foreground;
     orientation:                 horizontal;
@@ -113,7 +113,7 @@ button selected {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       9;
+    lines:                       8;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
