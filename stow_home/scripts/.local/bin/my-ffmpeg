@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+usage() {
+    echo "Convert video to APNG: $(basename "$0") apng <file>"
+    echo "Cut video: $(basename "$0") cut <file> <output> <from=00:00:00> <duration=00:00:00>"
+    echo "Combine videos: $(basename "$0") combine <files> <output>"
+}
+
+case $1 in
+apng)
+    filename="$(dirname "${2}")/$(basename "${2}" .mp4)"
+    ffmpeg -i "$2" -f apng -plays 0 -r 15 -vf "scale=640:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" "${filename}.apng"
+    ;;
+cut)
+    ffmpeg -ss "$4" -t "$5" -i "$2" -vcodec copy -acodec copy "$3"
+    ;;
+combine)
+    args=()
+    while [ "${2:-}" != "" ]; do
+        args+=("${2:-}")
+        shift
+    done
+
+    # Get and remove last argument
+    output=${args[-1]}
+    unset "args[-1]"
+
+    # Create the filter for the command
+    files=""
+    filter=""
+    for i in "${!args[@]}"; do
+        files+="-i ${args[$i]}"
+        filter+="[${i}:v][${i}:a]"
+        if ((i < ${#args[@]} - 1)); then
+            files+=" "
+        fi
+    done
+    filter+="concat=n=${#args[@]}:v=1:a=1[outv][outa]"
+
+    echo "$files"
+    # echo "ffmpeg ${files} -filter_complex \"${filter}\" -map \"[outv]\" -map \"[outa]\" ${output}"
+    ffmpeg ${files} -filter_complex "${filter}" -map "[outv]" -map "[outa]" "${output}"
+    ;;
+*)
+    usage
+    exit 1
+    ;;
+esac
