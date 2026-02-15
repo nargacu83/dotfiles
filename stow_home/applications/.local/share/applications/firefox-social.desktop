@@ -5,4 +5,4 @@ Icon=element
 Type=Application
 Categories=Network;InstantMessaging;
 StartupWMClass=discord
-Exec=zen-browser -P social --class=social --name social
+Exec=flatpak run app.zen_browser.zen -P social --class=social --name social
