@@ -1,0 +1,105 @@
+// Shadows
+window-rule {
+    match is-floating=true
+
+    shadow {
+        on
+    }
+}
+
+// layer-rule {
+//     match namespace="^notifications$"
+//     shadow {
+//         on
+//     }
+//     geometry-corner-radius 6
+// }
+
+layer-rule {
+    match namespace="rofi"
+
+    shadow {
+        on
+    }
+
+    geometry-corner-radius 6
+}
+
+// Block notifications from screen capture and streaming
+layer-rule {
+    match namespace="^notifications$"
+    block-out-from "screencast"
+}
+
+// Block apps from screen capture and streaming 
+window-rule {
+    // Blocks web browser
+    match app-id="zen"
+    // Blocks web browser with "social" profile used for Discord and Element
+    match app-id="social"
+    // Blocks Second Life viewer
+    match app-id="do-not-directly-run-firestorm-bin"
+
+    block-out-from "screencast"
+}
+
+// Indicate screencasted windows with red colors.
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        width 4
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+}
+
+// Default rule for all windows
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+    default-column-width { proportion 0.5; }
+}
+
+// Size rule
+window-rule {
+    match app-id="social"
+    match app-id="zen"
+    match app-id="firefox"
+    match app-id="FreeTube"
+    default-column-width { proportion 0.75; }
+}
+
+window-rule {
+    match app-id="com.github.taiko2k.tauonmb"
+    default-column-width { proportion 0.3; }
+}
+
+// Workspace rules
+window-rule {
+    match app-id="social"
+
+    open-on-workspace "3"
+}
+
+// Floating rules
+window-rule {
+    match app-id="firefox$" title="^Picture-in-Picture$"
+    match app-id="firefox$" title="^Incrustation vidéo$"
+    match app-id="org.pulseaudio.pavucontrol"
+    match app-id="org.gnome.FileRoller"
+    match app-id="org.kde.ark"
+    match app-id="org.kde.filelight"
+    match app-id="org.kde.dolphin" title="^Compression$"
+    match app-id="dazstudio.exe$" title="^Render$"
+
+    open-floating true
+}
