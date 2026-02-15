@@ -17,18 +17,23 @@ function print_message() {
 function ask {
     read -r -p "${BOLD}:: ${1:-Are you sure?} [Y/n] " response
     case "$response" in
-        [nN])
-            false
-            ;;
-        *)
-            true
-            ;;
+    [nN])
+        false
+        ;;
+    *)
+        true
+        ;;
     esac
 }
 
 if ask "Do you want to update mirrors?"; then
     print_message "Updating mirrors..." ${BLUE}
     sudo reflector --latest 5 --age 12 --sort rate --protocol https --country France,Germany --save /etc/pacman.d/mirrorlist || exit
+fi
+
+if ask "Do you want to update Rust?"; then
+    print_message "Checking for Rust updates..." ${BLUE}
+    rustup update || exit
 fi
 
 if ask "Do you want to update system and aur packages?"; then
@@ -42,11 +47,6 @@ fi
 if ask "Do you want to update Flatpaks?"; then
     print_message "Checking for Flatpak updates..." ${BLUE}
     flatpak update || exit
-fi
-
-if ask "Do you want to update Rust?"; then
-    print_message "Checking for Rust updates..." ${BLUE}
-    rustup update || exit
 fi
 
 print_message "Updates finished" ${GREEN}
