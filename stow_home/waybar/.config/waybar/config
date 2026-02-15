@@ -11,16 +11,6 @@
         "group/stats",
         "tray"
     ],
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": false,
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": []
-        },
-    },
     "niri/workspaces": {
         "format": "{value}",
     },
