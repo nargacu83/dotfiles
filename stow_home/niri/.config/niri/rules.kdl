@@ -1,3 +1,11 @@
+// Default rule for all windows
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+    open-maximized-to-edges false
+    default-column-width { proportion 0.5; }
+}
+
 // Shadows
 window-rule {
     match is-floating=true
@@ -60,13 +68,6 @@ window-rule {
     shadow {
         color "#7d0d2d70"
     }
-}
-
-// Default rule for all windows
-window-rule {
-    geometry-corner-radius 8
-    clip-to-geometry true
-    default-column-width { proportion 0.5; }
 }
 
 // Size rule

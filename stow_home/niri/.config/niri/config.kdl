@@ -14,9 +14,6 @@ include "rules.kdl"
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
-//spawn-at-startup "~/.config/autostart.sh"
-// spawn-at-startup "wallpapers" "/mnt/DATA/Syncthing/Personnel/Wallpapers/Current"
-// spawn-at-startup "xwayland-satellite"
 
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 

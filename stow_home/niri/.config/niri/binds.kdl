@@ -10,7 +10,7 @@ binds {
     XF86AudioLowerVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
 
     Mod+Q { close-window; }
-    Mod+B { spawn-sh "killall -SIGUSR1 waybar"; }
+    Mod+B { spawn-sh "qs ipc call bar toggle"; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
